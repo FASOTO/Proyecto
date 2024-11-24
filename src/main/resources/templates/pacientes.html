@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${title}"></title>
+</head>
+<body>
+
+    <h1 th:text="${title}"></h1>
+    
+    <table th:if="${not listadoPacientes.isEmpty()}">
+        <thead>
+            <tr>
+                <th>Nombre Apellido</th>
+                <th>Cel</th>
+                <th>Edad</th>
+                <th>Nacionalidad</th>
+                <th>DNI</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr th:each="lp: ${listadoPacientes}">
+                <td th:text="${lp.nombreApellido}"></td>
+                <td th:text="${lp.nroTelefono}"></td>
+                <td th:text="${lp.edad}"></td>
+                <td th:text="${lp.nacionalidad}"></td>
+                <td th:text="${lp.dni}"></td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</body>
+</html>
