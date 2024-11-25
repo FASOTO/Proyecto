@@ -5,10 +5,14 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 import proyecto.odontologia.webapp.springboot_web.models.Paciente;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 
 @Controller
@@ -32,6 +36,23 @@ public class PacienteController {
 
         return listadoPacientes;
     }
+
+    @GetMapping("/formPaciente")
+    public String crearPaciente(Model model) {
+        Paciente paciente = new Paciente();
+        model.addAttribute("paciente", paciente);
+
+        return "/formPaciente"; // cambiar luego a conveniencia el nombre del html
+    }
+    @PostMapping("/formPaciente")
+	public String guardar(@Validated Paciente paciente, BindingResult result, Model model) {
+
+        //listadoPacientes1.add(paciente);
+
+        return "redirect:/pacientes";
+	}
+    
+
     
 
 }

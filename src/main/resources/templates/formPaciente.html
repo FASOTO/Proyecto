@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- formulario de prueba, luego cambienlo  -->
+    <form th:action="@{/formPaciente}" th:object="${paciente}" method="post">
+        <div>
+            <label>nombreApellido:</label>
+            <div>
+                <input type="text" th:field="*{nombreApellido}"/>
+            </div>
+        </div>
+                
+        <div>
+            <div >
+                <input type="submit" value="Crear Usuario"
+                    class="btn btn-outline-danger" />
+            </div>
+        </div>
+    </form>
+    
+</body>
+</html>
