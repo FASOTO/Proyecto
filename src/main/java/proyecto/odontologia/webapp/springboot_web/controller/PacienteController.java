@@ -1,6 +1,5 @@
 package proyecto.odontologia.webapp.springboot_web.controller;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
