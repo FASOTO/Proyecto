@@ -9,39 +9,38 @@
 </head>
 <body>
     <!-- formulario de prueba, luego cambienlo  -->
-    <form th:action="@{/formPaciente}" th:object="${paciente}" method="post" class="container">
-       <br>
-        <h3 class="text-center">HISTORIAL CLINICA GENERAL</h3>
-        <br>
-        <div class="form-group row">
+    <form th:action="@{/formPaciente}" th:object="${paciente}" method="post" class="form-container">
+        <h3 class="text-center p-4">HISTORIAL CLINICA GENERAL</h3>
+
+        <div class="form-group row mb-3">
             <label for="nombreApellido" class="col-sm-2 col-form-label">Nombre y Apellido: </label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="nombreApellido" th:field="*{nombreApellido}">
             </div>
         </div>
 
-        <div class="form-group row">
-            <label for="nacionalidad" class="col-sm-2 col-form-label">Nacionalida: </label>
+        <div class="form-group row mb-3">
+            <label for="nacionalidad" class="col-sm-2 col-form-label">Nacionalidad: </label>
             <div class="col-sm-10">
               <input type="text" class="form-control" id="nacionalidad" th:field="*{nacionalidad}">
             </div>
         </div>
 
-        <div class="form-group row">
+        <div class="form-group row mb-3">
             <label for="nrotelefono" class="col-sm-2 col-form-label">N° Telefono:</label>
             <div class="col-sm-10">
               <input type="number" class="form-control" id="nrotelefono" placeholder="3885872108" th:field="*{nroTelefono}">
             </div>
         </div>
 
-        <div class="form-group row">
+        <div class="form-group row mb-3">
             <label for="edad" class="col-sm-2 col-form-label">Edad</label>
             <div class="col-sm-10">
               <input type="number" class="form-control" id="edad" max="100" th:field="*{edad}">
             </div>
         </div>
 
-        <div class="form-group row">
+        <div class="form-group row mb-3">
             <label for="dni" class="col-sm-2 col-form-label">DNI: </label>
             <div class="col-sm-10">
               <input type="number" class="form-control" id="dni" th:field="*{dni}">
@@ -53,14 +52,17 @@
 
 
         <div>
-            <div >
+            <div class="text-center py-4">
                 <input type="submit" value="Crear Usuario"
-                    class="btn btn-outline-danger" />
+                    class="btn btn-primary" />
             </div>
         </div>
 
     </form>
     
+   <!--<div id="ayuda-correo" class="form-text text-center">
+      Te enviaremos un mensaje de Confirmación
+    </div> --> 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 

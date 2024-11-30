@@ -9,12 +9,15 @@
 </head>
 <body>
 
-    <h1 class="text-center p-4" th:text="${title}"></h1>
-
-    <div class="table-container px-4">
+    <div class="table-container p-4">
     
     <table class="table table-bordered table-striped" th:if="${not listadoPacientes.isEmpty()}">
+       
         <thead>
+            <tr>
+                <td colspan="5" class="title-table text-center p-4" th:text="${title}">
+                </td>
+            </tr>
             <tr>
                 <th>Nombre Apellido</th>
                 <th>Cel</th>
@@ -24,7 +27,7 @@
             </tr>
         </thead>
         
-        <tbody>
+        <tbody class="table-light">
             <tr th:each="lp: ${listadoPacientes}">
                 <td th:text="${lp.nombreApellido}"></td>
                 <td th:text="${lp.nroTelefono}"></td>
