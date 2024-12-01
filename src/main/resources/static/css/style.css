@@ -5,6 +5,47 @@ body{
     background-size: cover;
     background-attachment: fixed;
 }
+nav{
+    background-color:rgba(0, 0, 0, .5);
+    box-shadow: inset rgba(0, 0, 0, .5);
+
+}
+.icono{
+    border-radius: 38px;
+    margin-right: 20px;
+}
+.navbar-brand{
+    margin-left: 30px;
+    font-style: italic;
+    font-family:serif;
+    font-weight:500;
+}
+.collapse{
+    margin-right: 20px;
+}
+nav a{
+    text-transform: capitalize;
+    text-decoration: none;
+    padding: 0 10px;
+    margin: 0 20px;
+    position: relative;
+}
+nav a:hover{
+    color: whitesmoke;
+}
+nav a::before{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: rgb(12, 30, 94);
+    transition: all .5s;
+}
+nav a:hover::before{
+    width: 100%;
+}
 .title-table{
     color: whitesmoke;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
