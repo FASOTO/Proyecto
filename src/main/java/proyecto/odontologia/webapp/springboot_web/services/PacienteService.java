@@ -2,16 +2,13 @@ package proyecto.odontologia.webapp.springboot_web.services;
 
 import java.util.List;
 
+
 import proyecto.odontologia.webapp.springboot_web.models.Paciente;
-import proyecto.odontologia.webapp.springboot_web.repositories.PacienteRepository;
 
-public class PacienteService {
+public interface PacienteService {
 
-    PacienteRepository repository = new PacienteRepository();
-
-    public List<Paciente> listarTodos() {
-         
-        return repository.listarTodos();
-    }
+    List<Paciente> listarTodos();
+    Paciente buscarByDni(int dni);
+    void guardarPaciente(Paciente paciente);
 
 }

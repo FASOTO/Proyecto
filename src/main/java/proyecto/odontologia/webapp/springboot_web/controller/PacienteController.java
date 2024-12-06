@@ -2,28 +2,41 @@ package proyecto.odontologia.webapp.springboot_web.controller;
 
 import java.util.List;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import proyecto.odontologia.webapp.springboot_web.models.Paciente;
 import proyecto.odontologia.webapp.springboot_web.services.PacienteService;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping("/paciente")
 public class PacienteController {
 
-    private PacienteService service = new PacienteService(); 
+    @Autowired
+    private PacienteService service; 
 
-    @GetMapping("/pacientes")
-    public String listarPacientes(Model model) 
+    //Listar Pacientes
+    @GetMapping("/listarPacientes")
+    public List<Paciente> listarPacientes() 
     {
-        model.addAttribute("title", "Prueba de Pacientes");
-        return "pacientes"; //uso pacientes.html solo como ejemplo
+        return service.listarTodos();
+    }
+
+    //Buscar un paciente por su DNI
+    @GetMapping("/{dni}")
+    public Paciente mostrarPaciente(@PathVariable int dni)
+    {
+        return service.buscarByDni(dni);
     }
 
     @ModelAttribute("listadoPacientes")
@@ -32,6 +45,7 @@ public class PacienteController {
         return service.listarTodos();
     }
 
+    //Ir a form de pacientes
     @GetMapping("/formPaciente")
     public String crearPaciente(Model model) {
         Paciente paciente = new Paciente();
@@ -40,12 +54,13 @@ public class PacienteController {
         return "/formPaciente"; // cambiar luego a conveniencia el nombre del html
     }
 
-    @PostMapping("/formPaciente")
-	public String guardar(@Validated Paciente paciente, BindingResult result, Model model) {
+    //Guardar un paciente
+    @PostMapping("/guardar")
+	public Paciente guardar(@RequestBody Paciente paciente) {
 
-        //listadoPacientes1.add(paciente);
+        service.guardarPaciente(paciente);
 
-        return "redirect:/pacientes";
+        return paciente;
 	}
 
 }
