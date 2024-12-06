@@ -6,8 +6,8 @@
     <header th:replace="Layout/layout :: header"></header>
 
     <div class="table-container p-4">
-    
-    <table class="table table-bordered table-striped" th:if="${not listadoPacientes.isEmpty()}">
+
+    <table class="table table-bordered table-striped">
        
         <thead>
             <tr>
@@ -24,12 +24,12 @@
         </thead>
         
         <tbody class="table-light">
-            <tr th:each="lp: ${listadoPacientes}">
-                <td th:text="${lp.nombreApellido}"></td>
-                <td th:text="${lp.nroTelefono}"></td>
-                <td th:text="${lp.edad}"></td>
-                <td th:text="${lp.nacionalidad}"></td>
-                <td th:text="${lp.dni}"></td>
+            <tr>
+                <td th:text="${pacientePorDni.nombreApellido}"></td>
+                <td th:text="${pacientePorDni.nroTelefono}"></td>
+                <td th:text="${pacientePorDni.edad}"></td>
+                <td th:text="${pacientePorDni.nacionalidad}"></td>
+                <td th:text="${pacientePorDni.dni}"></td>
             </tr>
         </tbody>
 
