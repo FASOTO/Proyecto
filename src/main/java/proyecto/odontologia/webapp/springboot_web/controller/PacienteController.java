@@ -36,7 +36,7 @@ public class PacienteController {
     @GetMapping("/{dni}")
     public String mostrarPaciente(@PathVariable int dni, Model model)
     {
-        model.addAttribute("pacientePorDni", service.buscarByDni(dni));
+        // model.addAttribute("pacientePorDni", service.buscarByDni(dni));
         model.addAttribute("titulo", "Paciente encontrado");
         return "informacionPaciente";
     }
@@ -64,7 +64,7 @@ public class PacienteController {
 	public String guardar(Paciente paciente) 
     {
         
-        service.guardarPaciente(paciente);
+        // service.guardarPaciente(paciente);
 
         return "redirect:/paciente/listarPacientes";
 	}
