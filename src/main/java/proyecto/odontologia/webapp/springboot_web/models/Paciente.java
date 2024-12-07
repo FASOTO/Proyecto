@@ -1,6 +1,6 @@
 package proyecto.odontologia.webapp.springboot_web.models;
 
-// import java.util.Date;
+import java.time.LocalDate;
 
 public class Paciente {
 
@@ -9,9 +9,9 @@ public class Paciente {
     // private Date fecha;
     // private int nroAfiliado;
     // private String obraSocial;
-    // private Date fechaNacimiento;
+    private LocalDate fechaNacimiento;
     private int nroTelefono;
-    private int edad;
+    // private int edad;
     // private String estadoCivil;
     private String nacionalidad;
     private int dni;
@@ -30,16 +30,15 @@ public class Paciente {
 
     }
 
-    public Paciente(String nombreApellido, int nroTelefono, int edad, String nacionalidad, int dni) 
-    {
+    public Paciente(String nombreApellido, int nroTelefono, String nacionalidad, int dni, LocalDate fechaNacimiento) {
         this.nombreApellido = nombreApellido;
         this.nroTelefono = nroTelefono;
-        this.edad = edad;
         this.nacionalidad = nacionalidad;
         this.dni = dni;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
-//Getters & Setters:
+    //Getters & Setters:
     public String getNombreApellido() {
         return nombreApellido;
     }
@@ -54,14 +53,6 @@ public class Paciente {
 
     public void setNroTelefono(int nroTelefono) {
         this.nroTelefono = nroTelefono;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
 
     public String getNacionalidad() {
@@ -79,6 +70,16 @@ public class Paciente {
     public void setDni(int dni) {
         this.dni = dni;
     }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    
     
 
 

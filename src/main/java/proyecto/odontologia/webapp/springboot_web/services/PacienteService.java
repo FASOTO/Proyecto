@@ -31,5 +31,9 @@ public class PacienteService {
         repository.guardarPaciente(paciente);
     }
 
-    //Existe
+
+    public void calcularEdad()
+    {
+
+    }
 }

@@ -17,7 +17,7 @@
             <tr>
                 <th>Nombre Apellido</th>
                 <th>Cel</th>
-                <th>Edad</th>
+                <th>Fecha de Nacimiento</th>
                 <th>Nacionalidad</th>
                 <th>DNI</th>
             </tr>
@@ -27,7 +27,7 @@
             <tr th:each="lp: ${listadoPacientes}">
                 <td th:text="${lp.nombreApellido}"></td>
                 <td th:text="${lp.nroTelefono}"></td>
-                <td th:text="${lp.edad}"></td>
+                <td th:text="${lp.fechaNacimiento}"></td>
                 <td th:text="${lp.nacionalidad}"></td>
                 <td th:text="${lp.dni}"></td>
             </tr>
