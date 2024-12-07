@@ -32,8 +32,8 @@ public class PacienteService {
     }
 
 
-    public void calcularEdad()
+    public void calcularEdad(Paciente paciente)
     {
-
+        
     }
 }
