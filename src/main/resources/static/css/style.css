@@ -1,4 +1,4 @@
-body{
+    body{
     background-image: url(/images/icono1.jpg);
     background-position: center center;
     background-repeat: no-repeat;
@@ -77,3 +77,13 @@ thead{
     border-radius: 10px;
 
 }
+
+.carousel-inner img {
+    height: 300px; 
+    object-fit: cover; 
+}
+
+.carousel-container {
+    width: 50%; 
+    margin: 0 auto; 
+  }
