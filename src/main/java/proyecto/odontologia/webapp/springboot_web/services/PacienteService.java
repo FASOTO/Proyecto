@@ -16,23 +16,20 @@ public class PacienteService {
 
     public List<Paciente> listarTodos() 
     {
-        // System.out.println(repository.buscarByDni(45738293).getApellido());
         return (List<Paciente>)repository.findAll();
     }
 
     //Buscar un paciente por su DNI
-    // public Paciente buscarByDni(int dni)
-    // {
-    //     System.out.println(repository.buscarByDni(dni).getApellido());
-    //     return null;
-    //     // return repository.buscarByDni(dni);
-    // }
+    public Paciente buscarByDni(int dni)
+    {
+        return repository.findByDni(dni);
+    }
 
     //Guardar un paciente (estaticamente)
-    // public void guardarPaciente(Paciente paciente)
-    // {
-    //     repository.guardarPaciente(paciente);
-    // }
+    public void guardarPaciente(Paciente paciente)
+    {
+        repository.save(paciente);
+    }
 
 
     public void calcularEdad(Paciente paciente)

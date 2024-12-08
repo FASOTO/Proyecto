@@ -6,7 +6,8 @@ import proyecto.odontologia.webapp.springboot_web.models.Paciente;
 
 public interface IPacienteRepository extends CrudRepository <Paciente,Integer>{
 
-    // Paciente buscarByDni (int dni);
+    Paciente findByDni (int dni);
+    
 
     
 }
