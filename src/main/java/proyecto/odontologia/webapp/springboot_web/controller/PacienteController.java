@@ -83,7 +83,7 @@ public class PacienteController {
 	public String guardar(Paciente paciente) 
     {
         
-        service.guardarPaciente(paciente);
+        // service.guardarPaciente(paciente);
 
         return "redirect:/paciente/listarPacientes";
 	}
