@@ -5,44 +5,72 @@
 <title>Equilibrio Dental</title>
 <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
 <link rel="shorcut icon" type="image/x-icon" href="images/logo-icono.ico">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
 	<header th:fragment="header">
-		<nav class="navbar navbar-expand-lg navbar-dark">
-            <div class="container-fluid">
-              <h2 class="navbar-brand"><img class="icono" src="/images/icono2.jpg" width="50px">Equilibrio Dental</h2>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <form class="d-flex">
-              <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" th:href="@{/index}">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" th:href="@{/paciente/formPaciente}">Alta Paciente</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" th:href="@{/paciente/listarPacientes}">Lista de Pacientes</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown link
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
-              </form>
-            </div>
-          </nav>
+		<aside class="sidebar">
+      <!--SideBar Header-->
+      <header class="sidebar-header">
+        <a href="#" class="header-logo">
+          <img src="/images/icono2.jpg" alt="EquilibrioDental">
+        </a>
+        <button class="toggler sidebar-toggler">
+          <i class='bx bx-chevron-left'></i>        
+        </button>
+        <button class="toggler menu-toggler">
+          <i class='bx bx-list-ul'></i>
+        </button>
+      </header>
+     <nav class="sidebar-nav">
+      <!--Primary top nav-->
+      <ul class="nav-list primary-nav">
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class='nav-icon bx bxs-home'></i>
+            <span class="nav-label">Home</span>
+          </a>
+          <span class="nav-tooltip">Home</span>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class='nav-icon bx bxs-group'></i>
+            <span class="nav-label">Pacientes</span>
+          </a>
+          <span class="nav-tooltip">Pacientes</span>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class='nav-icon bx bxs-user-plus'></i>
+            <span class="nav-label">Registrar Paciente</span>
+          </a>
+          <span class="nav-tooltip">Registrar Paciente</span>
+        </li>
+      </ul>
+      <!--Secondary botton nav-->
+      <ul class="nav-list secondary-nav">
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <img src="https://www.pngitem.com/pimgs/m/30-307416_profile-icon-png-image-free-download-searchpng-employee.png" width="20px" alt="user" class="nav-icon">
+            <span class="nav-label">Perfil</span>
+          </a>
+          <span class="nav-tooltip">Perfil</span>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class='nav-icon bx bx-log-out'></i>            
+            <span class="nav-label">Logout</span>
+          </a>
+          <span class="nav-tooltip">Logout</span>
+        </li>
+      </ul>
+     </nav> 
+    </aside>
+    <script src="/js/layout.js"></script>
 	</header>
+  
 </body>
+
 </html>
