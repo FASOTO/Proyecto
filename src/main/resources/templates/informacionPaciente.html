@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="Layout/layout :: head"></head>
+
 <body>
 
     <header th:replace="Layout/layout :: header"></header>
@@ -16,6 +17,7 @@
             </tr>
             <tr>
                 <th>Nombre Apellido</th>
+                <th>Edad</th>
                 <th>Cel</th>
                 <th>Fecha de Nacimiento</th>
                 <th>Nacionalidad</th>
@@ -26,6 +28,7 @@
         <tbody class="table-light">
             <tr>
                 <td th:text="${pacientePorDni.nombreApellido}"></td>
+                <td th:text="${edadCalculada}"></td>
                 <td th:text="${pacientePorDni.nroTelefono}"></td>
                 <td th:text="${pacientePorDni.fechaNacimiento}"></td>
                 <td th:text="${pacientePorDni.nacionalidad}"></td>

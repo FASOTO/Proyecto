@@ -11,7 +11,6 @@ public class Paciente {
     // private String obraSocial;
     private LocalDate fechaNacimiento;
     private int nroTelefono;
-    private int edad;
     // private String estadoCivil;
     private String nacionalidad;
     private int dni;
@@ -77,14 +76,6 @@ public class Paciente {
 
     public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
 
     
