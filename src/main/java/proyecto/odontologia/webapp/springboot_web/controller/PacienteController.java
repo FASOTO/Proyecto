@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import proyecto.odontologia.webapp.springboot_web.models.Paciente;
-import proyecto.odontologia.webapp.springboot_web.models.dto.PacienteDto;
 import proyecto.odontologia.webapp.springboot_web.services.PacienteService;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +25,7 @@ public class PacienteController {
     @GetMapping("/listarPacientes")
     public String listarPacientes(Model model) 
     {
-        List<PacienteDto> listaPacientes = service.listarTodos();
+        List<Paciente> listaPacientes = service.listarTodos();
         model.addAttribute("listadoPacientes", listaPacientes);
         model.addAttribute("titulo", "Listado de Pacientes");
         return "pacientes";

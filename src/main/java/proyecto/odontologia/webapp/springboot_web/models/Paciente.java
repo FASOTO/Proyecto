@@ -1,6 +1,7 @@
 package proyecto.odontologia.webapp.springboot_web.models;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -45,6 +46,14 @@ public class Paciente {
         this.nacionalidad = nacionalidad;
         this.dni = dni;
     }
+
+    public int getEdad()
+    {
+        LocalDate hoy = LocalDate.now();       
+        int edadCalculada = Period.between(this.getFechaNacimiento(), hoy).getYears();
+        return edadCalculada;
+    }
+    
 
     public int getId() {
         return id;
@@ -102,7 +111,7 @@ public class Paciente {
         this.dni = dni;
     }
 
-    // Getters & Setters:
+    
         
 
 }
