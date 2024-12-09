@@ -28,10 +28,6 @@ public class Paciente {
     private String nacionalidad;
     private int dni;
 
-    // private String calle;
-    // private String nroCalle;
-    // private String barrio;
-    // private String localidad;
     // private String profesionActividad;
     // private String lugarTrabajo;
 
