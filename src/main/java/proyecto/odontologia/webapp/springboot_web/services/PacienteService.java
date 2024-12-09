@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import proyecto.odontologia.webapp.springboot_web.models.Paciente;
 import proyecto.odontologia.webapp.springboot_web.repositories.IPacienteRepository;
@@ -27,6 +28,7 @@ public class PacienteService {
     }
 
     //Guardar un paciente (estaticamente)
+    @Transactional
     public void guardarPaciente(Paciente paciente)
     {
         repository.save(paciente);

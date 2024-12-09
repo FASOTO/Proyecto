@@ -16,7 +16,7 @@ public class Paciente {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String nombre;
     private String apellido;
@@ -34,6 +34,7 @@ public class Paciente {
 
     // Constructores:
     public Paciente() {
+        this.id= null;
     }
 
     public Paciente(int id, String nombre, String apellido, LocalDate fechaNacimiento, String nroTelefono,
@@ -54,7 +55,6 @@ public class Paciente {
         return edadCalculada;
     }
     
-
     public int getId() {
         return id;
     }
@@ -110,8 +110,4 @@ public class Paciente {
     public void setDni(int dni) {
         this.dni = dni;
     }
-
-    
-        
-
 }

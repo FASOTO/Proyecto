@@ -1,5 +1,6 @@
 package proyecto.odontologia.webapp.springboot_web.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ public class PacienteController {
         List<Paciente> listaPacientes = service.listarTodos();
         model.addAttribute("listadoPacientes", listaPacientes);
         model.addAttribute("titulo", "Listado de Pacientes");
+
         return "pacientes";
     }
 
@@ -59,7 +61,7 @@ public class PacienteController {
     @PostMapping("/guardar")
 	public String guardar(Paciente paciente) 
     {
-        // service.guardarPaciente(paciente);
+        service.guardarPaciente(paciente);
         return "redirect:/paciente/listarPacientes";
 	}
 
