@@ -1,18 +1,15 @@
 package proyecto.odontologia.webapp.springboot_web.controller;
 
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import proyecto.odontologia.webapp.springboot_web.models.Paciente;
+import proyecto.odontologia.webapp.springboot_web.models.dto.PacienteDto;
 import proyecto.odontologia.webapp.springboot_web.services.PacienteService;
 
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,21 +26,9 @@ public class PacienteController {
     @GetMapping("/listarPacientes")
     public String listarPacientes(Model model) 
     {
-        List<Paciente> listaPacientes = service.listarTodos();
-
-        List<Map<String, Object>> pacientesConEdad = listaPacientes.stream().map(paciente -> {
-            
-            Map<String, Object> pacientesData = new HashMap<>();
-            pacientesData.put("paciente", paciente);
-            pacientesData.put("edad", service.calcularEdad(paciente));
-            return pacientesData;
-
-        }).toList();
-
-        // model.addAttribute("listadoPacientes", listaPacientes);
-        model.addAttribute("listadoPacientes", pacientesConEdad);
+        List<PacienteDto> listaPacientes = service.listarTodos();
+        model.addAttribute("listadoPacientes", listaPacientes);
         model.addAttribute("titulo", "Listado de Pacientes");
-
         return "pacientes";
     }
 
@@ -55,16 +40,9 @@ public class PacienteController {
 
         model.addAttribute("pacientePorDni", pacienteEncontrado);
         model.addAttribute("titulo", "Paciente encontrado");
-        model.addAttribute("edadCalculada", service.calcularEdad(pacienteEncontrado));
 
         return "informacionPaciente";
     }
-
-    // @ModelAttribute("listadoPacientes")
-    // public List<Paciente> pacientesModel()
-    // {
-    //     return service.listarTodos();
-    // }
 
     //Ir a form de pacientes
     @GetMapping("/formPaciente")
@@ -82,22 +60,9 @@ public class PacienteController {
     @PostMapping("/guardar")
 	public String guardar(Paciente paciente) 
     {
-        
         // service.guardarPaciente(paciente);
-
         return "redirect:/paciente/listarPacientes";
 	}
-
-
-    
-
-    @ModelAttribute("nacionalidades")
-	public List<String> nacionalidades()
-	{
-		return Arrays.asList("Argentina", "Bolivia", "Brasil", "Colombia", "Chile", "Ecuador", 
-				"Guatemala", "Mexico", "Paraguay", "Peru", "Uruguay", "Venezuela");
-	}
-
 
 
 }

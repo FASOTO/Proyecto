@@ -26,18 +26,15 @@
         </thead>
         
         <tbody class="table-light">
-            
-            <!-- Itera sobre la lista de pacientes con edades -->
         <tr th:each="pacientesData : ${listadoPacientes}">
-            <td th:text="${pacientesData['paciente'].Apellido}"></td>
-            <td th:text="${pacientesData['paciente'].Nombre}"></td>
-            <td th:text="${pacientesData['edad']}"></td>
-            <td th:text="${pacientesData['paciente'].Telefono}"></td>
-            <td th:text="${#temporals.format(pacientesData['paciente'].fechaNacimiento, 'yyyy-MM-dd')}"></td>
-            <td th:text="${pacientesData['paciente'].nacionalidad}"></td>
-            <td th:text="${pacientesData['paciente'].dni}"></td>
-            
-            
+            <td th:text="${pacientesData.Apellido}"></td>
+            <td th:text="${pacientesData.Nombre}"></td>
+            <td th:text="${pacientesData.edad}"></td>
+            <td th:text="${pacientesData.telefono}"></td>
+            <td th:text="${pacientesData.fechaNacimiento}"></td>
+            <td th:text="${pacientesData.nacionalidad}"></td>
+            <td th:text="${pacientesData.dni}"></td>
+
         </tr>
 
         </tbody>
