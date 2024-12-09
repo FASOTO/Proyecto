@@ -2,57 +2,92 @@ package proyecto.odontologia.webapp.springboot_web.models;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "pacientes")
 public class Paciente {
 
-    private String nombreApellido;
-    // private String lugar;
-    // private Date fecha;
-    // private int nroAfiliado;
-    // private String obraSocial;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    private String nombre;
+    private String apellido;
+
+    @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
-    private int nroTelefono;
-    private int edad;
+    private String telefono;
+
     // private String estadoCivil;
     private String nacionalidad;
     private int dni;
-    // private int nroCelular;
-    //private String calle;
-    //private String nroCalle;
-    //private String barrio;
-    //private String localidad;
+
+    // private String calle;
+    // private String nroCalle;
+    // private String barrio;
+    // private String localidad;
     // private String profesionActividad;
     // private String lugarTrabajo;
-    // private String jerarquia;
 
-//Constructores:
-    public Paciente() 
-    {
-
+    // Constructores:
+    public Paciente() {
     }
 
-    public Paciente(String nombreApellido, int nroTelefono, String nacionalidad, int dni, LocalDate fechaNacimiento) {
-        this.nombreApellido = nombreApellido;
-        this.nroTelefono = nroTelefono;
+    public Paciente(int id, String nombre, String apellido, LocalDate fechaNacimiento, String nroTelefono,
+            String nacionalidad, int dni) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
+        this.telefono = nroTelefono;
         this.nacionalidad = nacionalidad;
         this.dni = dni;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    //Getters & Setters:
-    public String getNombreApellido() {
-        return nombreApellido;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setNombreApellido(String nombreApellido) {
-        this.nombreApellido = nombreApellido;
-    }
-
-    public int getNroTelefono() {
-        return nroTelefono;
-    }
-
-    public void setNroTelefono(int nroTelefono) {
-        this.nroTelefono = nroTelefono;
+    public void setTelefono(String nroTelefono) {
+        this.telefono = nroTelefono;
     }
 
     public String getNacionalidad() {
@@ -71,26 +106,7 @@ public class Paciente {
         this.dni = dni;
     }
 
-    public LocalDate getFechaNacimiento() {
-        return fechaNacimiento;
-    }
-
-    public void setFechaNacimiento(LocalDate fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    
-    
-
-
-    
+    // Getters & Setters:
+        
 
 }

@@ -1,7 +1,9 @@
 package proyecto.odontologia.webapp.springboot_web.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,8 +29,21 @@ public class PacienteController {
     @GetMapping("/listarPacientes")
     public String listarPacientes(Model model) 
     {
-        model.addAttribute("listadoPacientes", service.listarTodos());
+        List<Paciente> listaPacientes = service.listarTodos();
+
+        List<Map<String, Object>> pacientesConEdad = listaPacientes.stream().map(paciente -> {
+            
+            Map<String, Object> pacientesData = new HashMap<>();
+            pacientesData.put("paciente", paciente);
+            pacientesData.put("edad", service.calcularEdad(paciente));
+            return pacientesData;
+
+        }).toList();
+
+        // model.addAttribute("listadoPacientes", listaPacientes);
+        model.addAttribute("listadoPacientes", pacientesConEdad);
         model.addAttribute("titulo", "Listado de Pacientes");
+
         return "pacientes";
     }
 
@@ -36,8 +51,12 @@ public class PacienteController {
     @GetMapping("/{dni}")
     public String mostrarPaciente(@PathVariable int dni, Model model)
     {
-        model.addAttribute("pacientePorDni", service.buscarByDni(dni));
+        Paciente pacienteEncontrado = service.buscarByDni(dni); 
+
+        model.addAttribute("pacientePorDni", pacienteEncontrado);
         model.addAttribute("titulo", "Paciente encontrado");
+        model.addAttribute("edadCalculada", service.calcularEdad(pacienteEncontrado));
+
         return "informacionPaciente";
     }
 
@@ -64,7 +83,7 @@ public class PacienteController {
 	public String guardar(Paciente paciente) 
     {
         
-        service.guardarPaciente(paciente);
+        // service.guardarPaciente(paciente);
 
         return "redirect:/paciente/listarPacientes";
 	}

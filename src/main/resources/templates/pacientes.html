@@ -11,11 +11,13 @@
        
         <thead>
             <tr>
-                <td colspan="5" class="title-table text-center p-4" th:text="${titulo}">
+                <td colspan="6" class="title-table text-center p-4" th:text="${titulo}">
                 </td>
             </tr>
             <tr>
-                <th>Nombre Apellido</th>
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>Edad</th>
                 <th>Cel</th>
                 <th>Fecha de Nacimiento</th>
                 <th>Nacionalidad</th>
@@ -24,13 +26,20 @@
         </thead>
         
         <tbody class="table-light">
-            <tr th:each="lp: ${listadoPacientes}">
-                <td th:text="${lp.nombreApellido}"></td>
-                <td th:text="${lp.nroTelefono}"></td>
-                <td th:text="${lp.fechaNacimiento}"></td>
-                <td th:text="${lp.nacionalidad}"></td>
-                <td th:text="${lp.dni}"></td>
-            </tr>
+            
+            <!-- Itera sobre la lista de pacientes con edades -->
+        <tr th:each="pacientesData : ${listadoPacientes}">
+            <td th:text="${pacientesData['paciente'].Apellido}"></td>
+            <td th:text="${pacientesData['paciente'].Nombre}"></td>
+            <td th:text="${pacientesData['edad']}"></td>
+            <td th:text="${pacientesData['paciente'].Telefono}"></td>
+            <td th:text="${#temporals.format(pacientesData['paciente'].fechaNacimiento, 'yyyy-MM-dd')}"></td>
+            <td th:text="${pacientesData['paciente'].nacionalidad}"></td>
+            <td th:text="${pacientesData['paciente'].dni}"></td>
+            
+            
+        </tr>
+
         </tbody>
 
     </table>
