@@ -50,8 +50,8 @@ public class PacienteController {
     public String crearPaciente(Model model) 
     {
         Paciente paciente = new Paciente();
-       /*  List<String> listaNacionalidad = service.listarNacionalidades();
-        model.addAttribute("listaNacionalidad", service.listaNacionalidad()); Necesito la lista de nacionalidades por favor :")*/
+        List<String> listaNacionalidad = service.listarNacionalidades();
+        model.addAttribute("listaNacionalidad", listaNacionalidad);
         model.addAttribute("paciente", paciente);
         model.addAttribute("titulo", "FORMULARIO DE PACIENTE");
         model.addAttribute("botonGuardar", "Crear Paciente");
