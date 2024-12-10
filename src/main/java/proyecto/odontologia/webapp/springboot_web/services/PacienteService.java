@@ -21,6 +21,13 @@ public class PacienteService {
         return listadoPacientes;
     }
 
+    public List<String> listarNacionalidades()
+    {
+        //nueva función
+        List<String> Nacionalidades = (List<String>)repository.findNacionalidad();
+        return Nacionalidades;
+    }
+
     //Buscar un paciente por su DNI
     public Paciente buscarByDni(int dni)
     {
