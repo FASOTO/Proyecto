@@ -15,7 +15,7 @@ body{
     position: relative;
     margin: 16px;
     border-radius: 16px;
-    background: linear-gradient(45deg, midnightblue,blue,deepskyblue,blue, midnightblue);
+    background: linear-gradient(45deg, midnightblue,rgb(25, 25, 224),blue, rgb(25,25,224), midnightblue);
     height: calc(100vh - 32px);
     transition: 0.4s ease;
 }
@@ -78,6 +78,7 @@ body{
     flex-direction: column;
     transform: translateY(5px);
     transition: 0.4s ease;
+
 }
 .sidebar-nav .nav-link{
     color: #fff;
@@ -107,6 +108,7 @@ body{
 }
 .sidebar-nav .nav-item{
     position: relative;
+    overflow: hidden;
 }
 .sidebar-nav .nav-tooltip{
     position: absolute;
@@ -121,6 +123,36 @@ body{
     background: #fff;
     white-space: nowrap;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar-nav .nav-list-show{
+    width: 100%;
+    margin-left: auto;
+    list-style: none;
+    transition: height .4s;
+    height: 0;
+}
+.sidebar-nav .nav-list-button--click.arrow:hove{
+    color: #fff;
+    padding: 12px 15px;
+    display: flex;
+    gap: 12px;
+    white-space: nowrap;
+    align-items: center;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.4s ease;
+}
+.arrow .list-arrow{
+    transform: rotate(90deg);
+}
+.arrow:hover{
+    color: rgb(12, 30, 94);
+    background: #fff;
+}
+.list-arrow{
+    margin-left: auto;
+    transition: transform .3s;
 }
 .sidebar.collapsed .sidebar-nav .nav-tooltip{
     display: block;
