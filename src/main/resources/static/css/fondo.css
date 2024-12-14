@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(111, 205, 248) !important;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    position: relative;
+}
+      
+.snow {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    filter: drop-shadow(0 0 10px black);
+    opacity: 0.8;
+    animation: fall 10s linear infinite;
+    z-index: -1;
+}
+   
+@keyframes fall {
+    0% {
+           transform: translateY(-100px); 
+    }
+    100% {
+           transform: translateY(100vh); 
+    }
+}
