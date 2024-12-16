@@ -327,3 +327,57 @@ thead{
         border-radius: 10px;
         box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
     }
+
+    /*footer*/
+
+    footer{
+        background-color: black;
+        margin-top: 50%;
+        margin-bottom: -20px;
+    }
+
+    .direcciones{
+        text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .direcciones a{
+        color: white;
+        font-size: 20px;
+        display: inline-block;
+        border: 1px solid white;
+        width: 25px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .direcciones a:hover{
+        background-color: antiquewhite;
+    }
+
+    footer ul{
+        list-style: none;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+
+    footer ul li{
+        display:inline-block;
+        padding: 0px 15px;
+    }
+
+    footer ul li a{
+        text-decoration: none;
+        color: whitesmoke;
+    }
+
+    footer ul li a:hover{
+        color: skyblue;
+    }
+
+    .copy-right{
+        text-align: center;
+        padding-bottom: 30px;
+        color: antiquewhite;
+    }
