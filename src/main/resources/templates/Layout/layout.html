@@ -35,8 +35,29 @@
           </a>
           <span class="nav-tooltip">Home</span>
         </li>
+        <!--Menu desplegable-->
         <li class="nav-item">
-          <div class="nav-list-button nav-list-button--click">
+          <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#submenu" aria-expanded="false" aria-controls="submenu">
+            <i class='nav-icon bx bxs-group'></i>
+            <span class="nav-label">Pacientes</span>
+            <i class='bx bx-chevron-right list-arrow'></i>
+          </a>
+          <!--<span class="nav-tooltip">Paciente</span>-->
+          <!--Submenu para Paciente-->
+          <div class="sub-menu collapse" id="submenu">
+            <a href="/paciente/formPaciente" class="nav-link">
+              <i class='nav-icon bx bxs-user-plus'></i>
+              <span class="nav-label">Registrar Paciente</span>
+              </a>
+             <!-- <span class="nav-tooltip">Registrar Paciente</span>-->
+
+              <a href="/paciente/listarPacientes" class="nav-link">
+                <i class='bx bxs-group' ></i>
+                <span class="nav-label">Todos los Pacientes</span>
+              </a>
+             <!--<span class="nav-tooltip">Todos los Pacientes</span>--> 
+          </div>
+          <!-- <div class="nav-list-button nav-list-button--click">
           <a class="nav-link">
             <i class='nav-icon bx bxs-group'></i>
             <span class="nav-label">Pacientes</span>
@@ -58,9 +79,9 @@
                 <i class='bx bxs-group' ></i>
                 <span class="nav-label">Todos los Pacientes</span>
               </a>
-              <span class="nav-tooltip">Registrar Paciente</span>
+              <span class="nav-tooltip">Todos los Pacientes</span>
             </li>
-          </ul>
+          </ul> -->
         </li>
       </ul>
       <!--Secondary botton nav-->

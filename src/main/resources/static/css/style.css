@@ -4,19 +4,14 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-body{
-    display: flex;
-    position: relative;
-    margin: 0;
-    padding: 0;
-}
 .sidebar{
-    width: 270px;
-    position: relative;
-    margin: 16px;
+    width: 260px;
+    position: fixed; /*relative*/
+    margin: 10px;
+    /* height:100%; */
     border-radius: 16px;
     background: linear-gradient(45deg, midnightblue,rgb(25, 25, 224),blue, rgb(25,25,224), midnightblue);
-    height: calc(100vh - 32px);
+    height: calc(100% - 32px);
     transition: 0.4s ease;
 }
 .sidebar.collapsed{
@@ -89,7 +84,7 @@ body{
     align-items: center;
     border-radius: 8px;
     text-decoration: none;
-    transition: 0.4s ease;
+    transition: 0.4s ease; 
 }
 .sidebar-nav .nav-link:hover{
     color: rgb(12, 30, 94);
@@ -111,7 +106,7 @@ body{
     overflow: hidden;
 }
 .sidebar-nav .nav-tooltip{
-    position: absolute;
+    position:fixed;
     top: -10px;
     opacity: 0;
     pointer-events: none;
@@ -125,38 +120,12 @@ body{
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.sidebar-nav .nav-list-show{
-    width: 100%;
-    margin-left: auto;
-    list-style: none;
-    transition: height .4s;
-    height: 0;
+.sidebar-nav .sub-menu{
+    padding-left: 5%;
 }
-.sidebar-nav .nav-list-button--click.arrow:hove{
-    color: #fff;
-    padding: 12px 15px;
-    display: flex;
-    gap: 12px;
-    white-space: nowrap;
-    align-items: center;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: 0.4s ease;
-}
-.arrow .list-arrow{
-    transform: rotate(90deg);
-}
-.arrow:hover{
-    color: rgb(12, 30, 94);
-    background: #fff;
-}
-.list-arrow{
-    margin-left: auto;
-    transition: transform .3s;
-}
-.sidebar.collapsed .sidebar-nav .nav-tooltip{
-    display: block;
 
+.sidebar.collapsed .sidebar-nav .nav-tooltip{
+    display:inline;
 }
 .sidebar-nav .nav-item:hover .nav-tooltip{
     opacity: 1;
@@ -273,15 +242,11 @@ thead{
 }
 
 /*Contenido de la pagina*/
-.main-container{
-    position:relative; 
-    min-height: 100vh;
-    top: 0;
-    left: 80px;
-    bottom: 100px;
-    transition: all 0.5s ease;
-    padding: 1rem;
-}
+ .main-container{
+    margin-left: 250px;
+    height: 100%;
+    padding: 20px; 
+ }
 
 /*Carusell*/
 .carousel-inner img {

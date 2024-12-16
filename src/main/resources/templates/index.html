@@ -3,7 +3,9 @@
 <head th:replace="~{Layout/layout :: head}"></head>
 <body>
     <header th:replace="~{Layout/layout :: header}"></header>
-    <h1 class="text-white" th:text="${titulo}"></h1>
+
+    <div class="main-container">
+    <h1 class="text-white text-center" th:text="${titulo}"></h1>
 
     <div class="carousel-container">
       <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -47,6 +49,7 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+    </div>
     </div>
     
     <div id="fullscreenImage" class="fullscreen hidden" onclick="closeImage()">

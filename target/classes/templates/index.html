@@ -5,8 +5,7 @@
     <header th:replace="~{Layout/layout :: header}"></header>
 
     <div class="main-container">
-
-    <h1 class="text-center" th:text="${titulo}"></h1>
+    <h1 class="text-white text-center" th:text="${titulo}"></h1>
 
     <div class="carousel-container">
       <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -51,10 +50,10 @@
         </button>
       </div>
     </div>
+    </div>
     
     <div id="fullscreenImage" class="fullscreen hidden" onclick="closeImage()">
       <img id="fullscreenImageContent" src="" alt="Imagen ampliada">
-    </div>
     </div>
     
     <script>

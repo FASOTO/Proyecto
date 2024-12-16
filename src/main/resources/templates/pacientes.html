@@ -5,13 +5,14 @@
 
     <header th:replace="~{Layout/layout :: header}"></header>
 
+    <div class="main-container">
     <div class="table-container p-4">
     
     <table class="table table-bordered table-striped" th:if="${not listadoPacientes.isEmpty()}">
        
         <thead>
             <tr>
-                <td colspan="6" class="title-table text-center p-4" th:text="${titulo}">
+                <td colspan="7" class="title-table text-center p-4" th:text="${titulo}">
                 </td>
             </tr>
             <tr>
@@ -40,7 +41,7 @@
         </tbody>
 
     </table>
-
+    </div>
 </div>
 </body>
 </html>

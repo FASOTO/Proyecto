@@ -7,6 +7,7 @@
 
   <header th:replace="~{Layout/layout :: header}"></header>
 
+  <div class="main-container">
   <!-- formulario de prueba, luego cambienlo  -->
   <form th:action="@{/paciente/guardar}" th:object="${paciente}" method="post" class="form-container">
     <!-- <h3 class="text-center p-4">HISTORIAL CLINICA GENERAL</h3> -->
@@ -57,10 +58,6 @@
       </div>
     </div>
 
-
-
-
-
     <div>
       <div class="text-center py-4">
         <input type="submit" th:value="${botonGuardar}" class="btn btn-primary" />
@@ -68,10 +65,7 @@
     </div>
 
   </form>
-
-  <!--<div id="ayuda-correo" class="form-text text-center">
-      Te enviaremos un mensaje de Confirmación
-    </div> -->
+</div>
 </body>
 
 </html>
