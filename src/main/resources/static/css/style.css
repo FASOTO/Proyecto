@@ -145,7 +145,8 @@
     border-radius: 30%;
 }
 @media (max-width: 1024px){
-    body{
+    /*esta parte interfiere con la imagen de fondo cuando es mas chica, se puede modificar?*/
+   body{
         display:contents;
     }
     .sidebar {
@@ -297,8 +298,10 @@ thead{
 
     footer{
         background-color: black;
-        margin-top: 50%;
-        margin-bottom: -20px;
+        clear:both;
+       /*overflow: hidden;*/
+        width: 100%;
+        padding: 15px 0;
     }
 
     .direcciones{
@@ -308,37 +311,19 @@ thead{
     }
 
     .direcciones a{
-        color: white;
-        font-size: 20px;
+        color: #ffffff;
+        font-size: 25px;
         display: inline-block;
         border: 1px solid white;
-        width: 25px;
-        padding: 10px;
+        width: 35px;
+        padding: 2px;
         border-radius: 10px;
+        margin-right: 15px;
     }
 
     .direcciones a:hover{
-        background-color: antiquewhite;
-    }
-
-    footer ul{
-        list-style: none;
-        text-align: center;
-        padding-bottom: 30px;
-    }
-
-    footer ul li{
-        display:inline-block;
-        padding: 0px 15px;
-    }
-
-    footer ul li a{
-        text-decoration: none;
-        color: whitesmoke;
-    }
-
-    footer ul li a:hover{
-        color: skyblue;
+        background-color: darkblue;
+        color: black;
     }
 
     .copy-right{

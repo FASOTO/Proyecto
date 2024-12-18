@@ -55,7 +55,7 @@
     <div id="fullscreenImage" class="fullscreen hidden" onclick="closeImage()">
       <img id="fullscreenImageContent" src="" alt="Imagen ampliada">
     </div>
-    
+    <footer th:replace="~{Layout/layout :: footer}"></footer>
     <script>
       function showImage(imgElement) {
         const fullscreenDiv = document.getElementById('fullscreenImage');
@@ -70,6 +70,6 @@
       }
     </script>
     
-    <footer th:replace="~{Layout/layout :: footer}"></footer>
+    
 </body>
 </html>
