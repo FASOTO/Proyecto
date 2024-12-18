@@ -15,15 +15,10 @@
 		<aside class="sidebar">
       <!--SideBar Header-->
       <header class="sidebar-header">
-        <a href="#" class="header-logo">
+        <a class="header-logo">
           <img src="/images/icono2.jpg" alt="EquilibrioDental">
+          <span class="logo-name">Clinica Equilibrio Dental</span>
         </a>
-        <button class="toggler sidebar-toggler">
-          <i class='bx bx-chevron-left'></i>        
-        </button>
-        <button class="toggler menu-toggler">
-          <i class='bx bx-list-ul'></i>
-        </button>
       </header>
      <nav class="sidebar-nav">
       <!--Primary top nav-->
@@ -33,55 +28,26 @@
             <i class='nav-icon bx bxs-home'></i>
             <span class="nav-label">Home</span>
           </a>
-          <span class="nav-tooltip">Home</span>
         </li>
         <!--Menu desplegable-->
         <li class="nav-item">
           <a class="nav-link" data-bs-toggle="collapse" data-bs-target="#submenu" aria-expanded="false" aria-controls="submenu">
-            <i class='nav-icon bx bxs-group'></i>
+            <i class='nav-icon-submenu bx bxs-group'></i>
             <span class="nav-label">Pacientes</span>
             <i class='bx bx-chevron-right list-arrow'></i>
           </a>
-          <!--<span class="nav-tooltip">Paciente</span>-->
           <!--Submenu para Paciente-->
           <div class="sub-menu collapse" id="submenu">
             <a href="/paciente/formPaciente" class="nav-link">
               <i class='nav-icon bx bxs-user-plus'></i>
               <span class="nav-label">Registrar Paciente</span>
               </a>
-             <!-- <span class="nav-tooltip">Registrar Paciente</span>-->
 
               <a href="/paciente/listarPacientes" class="nav-link">
                 <i class='bx bxs-group' ></i>
                 <span class="nav-label">Todos los Pacientes</span>
               </a>
-             <!--<span class="nav-tooltip">Todos los Pacientes</span>--> 
           </div>
-          <!-- <div class="nav-list-button nav-list-button--click">
-          <a class="nav-link">
-            <i class='nav-icon bx bxs-group'></i>
-            <span class="nav-label">Pacientes</span>
-            <i class='bx bx-chevron-right list-arrow'></i>
-          </a>
-          <span class="nav-tooltip">Pacientes</span>
-          </div> 
-
-          <ul class="nav-list-show">
-            <li class="nav-list-inside">
-              <a href="/paciente/listarPacientes" class="nav-link">
-              <i class='nav-icon bx bxs-user-plus'></i>
-              <span class="nav-label">Registrar Paciente</span>
-              </a>
-              <span class="nav-tooltip">Registrar Paciente</span>
-            </li>
-            <li class="nav-list-inside">
-              <a href="/paciente/formPaciente" class="nav-link">
-                <i class='bx bxs-group' ></i>
-                <span class="nav-label">Todos los Pacientes</span>
-              </a>
-              <span class="nav-tooltip">Todos los Pacientes</span>
-            </li>
-          </ul> -->
         </li>
       </ul>
       <!--Secondary botton nav-->
@@ -104,10 +70,14 @@
       </ul>
      </nav> 
     </aside>
-    <script src="/js/layout.js"></script>
     <script src="/js/particulas.js"></script>
 
 	</header>
+  <!-- <section th:fragment="section">
+    <div class="section text-center">
+    <h1>Clinica de Odontologia "Equilibrio Dental"</h1>
+    </div>
+  </section> -->
   
 <footer th:fragment="footer">
   <div class="direcciones">
