@@ -12,8 +12,7 @@
        
         <thead>
             <tr>
-                <td colspan="7" class="title-table text-center p-4" th:text="${titulo}">
-                </td>
+                <td colspan="8" class="title-table text-center p-4" th:text="${titulo}"></td>
             </tr>
             <tr>
                 <th>Apellido</th>
@@ -23,6 +22,7 @@
                 <th>Fecha de Nacimiento</th>
                 <th>Nacionalidad</th>
                 <th>DNI</th>
+                <th>Mas inforcion</th>
             </tr>
         </thead>
         
@@ -35,13 +35,69 @@
             <td th:text="${pacientesData.fechaNacimiento}"></td>
             <td th:text="${pacientesData.nacionalidad}"></td>
             <td th:text="${pacientesData.dni}"></td>
-
+            <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#infopaciente">ver mas...</button></td>
         </tr>
-
         </tbody>
-
     </table>
     </div>
+<!--Modal de informacion expandida del paciente-->
+<div class="modal" id="infopaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Mas informacion del paciente: </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <td class="title-table text-center p-2">Informacion esencial</td>
+                    </tr>
+                </thead>
+                <tbody class="table-light">
+                    <tr>
+                        <td>Nombre: - Apellido: - DNI: - Nacionalidad: - Edad - Telefono: - Obra social: - Domicilio</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr> <td colspan="2" class="title-table text-center p-2">Informacion clinica resultado</td> </tr>
+                    <tr> <th>Informacion</th> <th>Descripcion</th> </tr>
+                </thead>
+                <tbody class="table-light">
+                    <tr> <td></td> <td></td> </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr> <td colspan="3" class="title-table text-center p-2">Informacion clinica del paciente</td> </tr>
+                    <tr> <th>Informacion</th> <th>SI</th> <th>NO</th> </tr>
+                </thead>
+                <tbody class="table-light">
+                    <tr> <td></td> <td></td> <td></td> </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr> <td colspan="2" class="title-table text-center p-2">Informacion clinica del paciente</td> </tr>
+                    <tr> <th>Informacion</th> <th>Descripcion</th> </tr>
+                </thead>
+                <tbody class="table-light">
+                    <tr> <td></td> <td></td> </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <footer th:replace="~{Layout/layout :: footer}"></footer>
 </body>
