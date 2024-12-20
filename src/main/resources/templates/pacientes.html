@@ -9,7 +9,6 @@
     <div class="table-container">
     
     <table class="table table-bordered table-striped" th:if="${not listadoPacientes.isEmpty()}">
-       
         <thead>
             <tr>
                 <td colspan="8" class="title-table text-center p-4" th:text="${titulo}"></td>
@@ -25,7 +24,6 @@
                 <th>Mas inforcion</th>
             </tr>
         </thead>
-        
         <tbody class="table-light">
         <tr th:each="pacientesData : ${listadoPacientes}">
             <td th:text="${pacientesData.Apellido}"></td>
@@ -49,10 +47,19 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <table class="table table-bordered table-striped">
+                <nav class="nav">
+                          <a class="nav-link" onclick="mostrarOcultar('general')" >General</a>
+                          <a class="nav-link" onclick="mostrarOcultar('resultado')">Resultado</a>
+                          <a class="nav-link" onclick="mostrarOcultar('infoclinica')">Informacion clinica</a>
+                          <a class="nav-link" onclick="mostrarOcultar('infoclinica2')">Informacion clinica 2</a>
+                          <a class="nav-link" onclick="mostrarOcultar('imagenes')">Imagenes</a>
+                          <a class="nav-link" onclick="mostrarOcultar('odontograma')">Odontograma</a>
+                </nav>
+            <!--informacion general-->
+            <table class="table table-bordered table-striped" id="general" style="display: block;">
                 <thead>
                     <tr>
-                        <td class="title-table text-center p-2">Informacion esencial</td>
+                        <td class="title-table text-center p-3">Informacion esencial</td>
                     </tr>
                 </thead>
                 <tbody class="table-light">
@@ -61,36 +68,45 @@
                     </tr>
                 </tbody>
             </table>
-
-            <table class="table table-bordered table-striped">
+            <!--informacion clinica resultaddo-->
+            <table class="table table-bordered table-striped" id="resultado" style="display: none;">
                 <thead>
-                    <tr> <td colspan="2" class="title-table text-center p-2">Informacion clinica resultado</td> </tr>
+                    <tr> <td colspan="2" class="title-table text-center p-3">Informacion clinica resultado</td> </tr>
                     <tr> <th>Informacion</th> <th>Descripcion</th> </tr>
                 </thead>
                 <tbody class="table-light">
                     <tr> <td></td> <td></td> </tr>
                 </tbody>
             </table>
-
-            <table class="table table-bordered table-striped">
+            <!--inofrmacion clinica-->
+            <table class="table table-bordered table-striped" id="infoclinica" style="display: none;">
                 <thead>
-                    <tr> <td colspan="3" class="title-table text-center p-2">Informacion clinica del paciente</td> </tr>
+                    <tr> <td colspan="3" class="title-table text-center p-3">Informacion clinica del paciente</td> </tr>
                     <tr> <th>Informacion</th> <th>SI</th> <th>NO</th> </tr>
                 </thead>
                 <tbody class="table-light">
                     <tr> <td></td> <td></td> <td></td> </tr>
                 </tbody>
             </table>
-
-            <table class="table table-bordered table-striped">
+            <!--informcacion clinica-->
+            <table class="table table-bordered table-striped" id="infoclinica2" style="display: none;">
                 <thead>
-                    <tr> <td colspan="2" class="title-table text-center p-2">Informacion clinica del paciente</td> </tr>
+                    <tr> <td colspan="2" class="title-table text-center p-3">Informacion clinica del paciente</td> </tr>
                     <tr> <th>Informacion</th> <th>Descripcion</th> </tr>
                 </thead>
                 <tbody class="table-light">
                     <tr> <td></td> <td></td> </tr>
                 </tbody>
             </table>
+            <!--imagenes-->
+            <div id="imagenes" style="display: none;">
+                <h4>imagenes</h4>
+            </div>
+            <!--odontograma-->
+            <div id="odontograma" style="display: none;">
+                <h4>odontograma</h4>
+            </div>
+            
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -99,6 +115,22 @@
     </div>
   </div>
 </div>
-<footer th:replace="~{Layout/layout :: footer}"></footer>
+<script>
+    function mostrarOcultar(id) {
+        // Oculta todas las secciones del modal
+        const secciones = document.querySelectorAll('.modal-body > table, .modal-body > div');
+        secciones.forEach(sec => (sec.style.display = 'none'));
+
+        // Muestra la sección seleccionada
+        const elemento = document.getElementById(id);
+        if (elemento) {
+            elemento.style.display = 'block';
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        mostrarOcultar('general');
+    });
+</script>
 </body>
 </html>

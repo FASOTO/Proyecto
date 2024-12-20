@@ -288,3 +288,40 @@ thead{
         padding-bottom: 30px;
         color: antiquewhite;
     }
+
+    /*modal mas informacion del paciente*/
+    
+    #infopaciente .modal-content{
+        background-image: url('../images/fondo.jpg');
+        background-repeat: no-repeat;
+        background-size: cover; 
+        background-position: center;
+        background-attachment: fixed;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+    
+    #infopaciente .modal-body .nav{
+        display: flex;
+        justify-content: space-around;
+        background-color: #000000; 
+        border-bottom: 2px solid #1b8afa;
+        padding: 10px;
+    }
+
+    #infopaciente .modal-body .nav .nav-link {
+        text-decoration: none;
+        color: #7e7f81; 
+        font-weight: bold;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    #infopaciente .modal-body .nav .nav-link:hover {
+        background-color: #186081;
+        color: white;
+    }
+
+   
