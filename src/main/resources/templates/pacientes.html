@@ -12,7 +12,18 @@
        
         <thead>
             <tr>
-                <td colspan="8" class="title-table text-center p-4" th:text="${titulo}"></td>
+                <td colspan="8" class="title-table text-center p-4">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span th:text="${titulo}"></span>
+                        <form class="d-flex" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+                            <!-- <button class="btn btn-outline-success" type="submit">
+                                <i class="bx bx-search-alt-2"></i>
+                            </button> -->
+                        </form>
+                    </div>
+                    
+                </td>
             </tr>
             <tr>
                 <th>Apellido</th>
@@ -22,26 +33,28 @@
                 <th>Fecha de Nacimiento</th>
                 <th>Nacionalidad</th>
                 <th>DNI</th>
-                <th>Mas inforcion</th>
             </tr>
-        </thead>
-        
-        <tbody class="table-light">
-        <tr th:each="pacientesData : ${listadoPacientes}">
-            <td th:text="${pacientesData.Apellido}"></td>
-            <td th:text="${pacientesData.Nombre}"></td>
-            <td th:text="${pacientesData.edad}"></td>
-            <td th:text="${pacientesData.telefono}"></td>
-            <td th:text="${pacientesData.fechaNacimiento}"></td>
-            <td th:text="${pacientesData.nacionalidad}"></td>
-            <td th:text="${pacientesData.dni}"></td>
-            <td><button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#infopaciente">ver mas...</button></td>
-        </tr>
+        </thead> 
+
+        <!-- 4) Link y muestra en Modal (funciona) -->
+        <tbody class="table-hover" id="efectoFilas">
+            <tr th:each="p : ${listadoPacientes}">
+                <td th:text="${p.apellido}" class="paciente-link" th:id="'apellido-' + ${p.dni}"></td>
+                <td th:text="${p.nombre}" class="paciente-link" th:id="'nombre-' + ${p.dni}"></td>
+                <td th:text="${p.edad}" class="paciente-link" th:id="'edad-' + ${p.dni}"></td>
+                <td th:text="${p.telefono}" class="paciente-link" th:id="'telefono-' + ${p.dni}"></td>
+                <td th:text="${p.fechaNacimiento}" class="paciente-link" th:id="'fechaNacimiento-' + ${p.dni}"></td>
+                <td th:text="${p.nacionalidad}" class="paciente-link" th:id="'nacionalidad-' + ${p.dni}"></td>
+                <td th:text="${p.dni}" class="paciente-link" th:id="'dni-' + ${p.dni}"></td>
+            </tr>
         </tbody>
+        
+        
     </table>
+    
     </div>
 <!--Modal de informacion expandida del paciente-->
-<div class="modal" id="infopaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="infopaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
         <div class="modal-header">
@@ -52,13 +65,44 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <tr>
-                        <td class="title-table text-center p-2">Informacion esencial</td>
+                        <td colspan="8" class="title-table text-center p-2">Informacion esencial</td>
+                    </tr>
+                </thead>
+                <thead>
+                    <tr>
+                        <th>Apellido</th>
+                        <th>Nombre</th>
+                        <th>Edad</th>
+                        <th>Telefono</th>
+                        <th>FechaNacimiento</th>
+                        <th>Nacionalidad</th>
+                        <th>DNI</th>
                     </tr>
                 </thead>
                 <tbody class="table-light">
+           
+                    <!-- <tr>
+                        <td th:text="${pacienteEncontrado.apellido}"></td>
+                        <td th:text="${pacienteEncontrado.nombre}"></td>
+                        <td th:text="${pacienteEncontrado.edad}"></td>
+                        <td th:text="${pacienteEncontrado.telefono}"></td>
+                        <td th:text="${pacienteEncontrado.fechaNacimiento}"></td>
+                        <td th:text="${pacienteEncontrado.nacionalidad}"></td>
+                        <td th:text="${pacienteEncontrado.dni}"></td>
+                                                
+                    </tr> -->
+
+                    <!-- 2) Mostrando en MODAL -->
                     <tr>
-                        <td>Nombre: - Apellido: - DNI: - Nacionalidad: - Edad - Telefono: - Obra social: - Domicilio</td>
+                        <td id="apellido"></td>
+                        <td id="nombre"></td>
+                        <td id="edad"></td>
+                        <td id="telefono"></td>
+                        <td id="fechaNacimiento"></td>
+                        <td id="nacionalidad"></td>
+                        <td id="dni"></td>
                     </tr>
+                    
                 </tbody>
             </table>
 
@@ -99,6 +143,10 @@
     </div>
   </div>
 </div>
+<script src="/js/jquery-3.7.1.min.js"></script>
+<script src="/js/pacientes.js"></script>
+
+
 <footer th:replace="~{Layout/layout :: footer}"></footer>
 </body>
 </html>

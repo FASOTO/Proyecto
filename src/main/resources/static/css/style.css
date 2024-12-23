@@ -141,6 +141,17 @@
         margin: 40px 0 30px;
     } */
 }
+/* 3) POR LINKS */
+.paciente-link {
+    cursor: pointer; /* Cambia el cursor a una mano cuando pasa sobre los elementos */
+}
+
+#efectoFilas tr:hover td {
+    background-color: antiquewhite;
+}
+#efectoFilas tr td {
+    background-color: white;
+}
 
 .table-container{
     width: 1100px;

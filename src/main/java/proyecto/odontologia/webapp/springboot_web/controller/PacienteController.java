@@ -1,7 +1,8 @@
 package proyecto.odontologia.webapp.springboot_web.controller;
 
-import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,8 @@ import proyecto.odontologia.webapp.springboot_web.services.PacienteService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 
 @Controller
 @RequestMapping("/paciente")
@@ -33,17 +36,23 @@ public class PacienteController {
         return "pacientes";
     }
 
-    //Buscar un paciente por su DNI
-    @GetMapping("/{dni}")
-    public String mostrarPaciente(@PathVariable int dni, Model model)
+
+// 4) Link y muestra en en Modal (funciona)
+    @GetMapping("/informacionPaciente/{dni}")
+    @ResponseBody
+    public Map<String, Object> traerPaciente(@PathVariable(name = "dni") int dni) 
     {
-        Paciente pacienteEncontrado = service.buscarByDni(dni); 
-
-        model.addAttribute("pacientePorDni", pacienteEncontrado);
-        model.addAttribute("titulo", "Paciente encontrado");
-
-        return "informacionPaciente";
+        Paciente pacienteEncontrado = service.buscarByDni(dni);
+        int edadCalculada = pacienteEncontrado.getEdad();
+        
+        // Se prepara la respuesta con la información del paciente y la edad
+        Map<String, Object> response = new HashMap<>();
+        response.put("paciente", pacienteEncontrado);
+        response.put("edadCalculada", edadCalculada);
+        
+        return response;
     }
+
 
     //Ir a form de pacientes
     @GetMapping("/formPaciente")
@@ -66,6 +75,6 @@ public class PacienteController {
         service.guardarPaciente(paciente);
         return "redirect:/paciente/listarPacientes";
 	}
-
+    
 
 }
