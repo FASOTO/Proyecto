@@ -36,6 +36,19 @@
         </thead> 
 
         <!-- 4) Link y muestra en Modal (funciona) -->
+        <!-- <tbody class="table-hover" id="efectoFilas">
+            <tr th:each="p : ${listadoPacientes}">
+                <td th:text="${p.apellido}" class="paciente-link" th:id="'apellido-' + ${p.dni}"></td>
+                <td th:text="${p.nombre}" class="paciente-link" th:id="'nombre-' + ${p.dni}"></td>
+                <td th:text="${p.edad}" class="paciente-link" th:id="'edad-' + ${p.dni}"></td>
+                <td th:text="${p.telefono}" class="paciente-link" th:id="'telefono-' + ${p.dni}"></td>
+                <td th:text="${p.fechaNacimiento}" class="paciente-link" th:id="'fechaNacimiento-' + ${p.dni}"></td>
+                <td th:text="${p.nacionalidad}" class="paciente-link" th:id="'nacionalidad-' + ${p.dni}"></td>
+                <td th:text="${p.dni}" class="paciente-link" th:id="'dni-' + ${p.dni}"></td>
+            </tr>
+        </tbody> -->
+
+        <!-- 3) FUNCIONA POR LINKS (redirije a informacionPaciente) -->
         <tbody class="table-hover" id="efectoFilas">
             <tr th:each="p : ${listadoPacientes}">
                 <td th:text="${p.apellido}" class="paciente-link" th:id="'apellido-' + ${p.dni}"></td>
@@ -45,6 +58,16 @@
                 <td th:text="${p.fechaNacimiento}" class="paciente-link" th:id="'fechaNacimiento-' + ${p.dni}"></td>
                 <td th:text="${p.nacionalidad}" class="paciente-link" th:id="'nacionalidad-' + ${p.dni}"></td>
                 <td th:text="${p.dni}" class="paciente-link" th:id="'dni-' + ${p.dni}"></td>
+                <!-- <td><a th:href="@{/paciente/informacionPaciente/} + ${p.dni}" class="btn btn-primary btn-xs">Editar</a></td> -->
+                <td>
+                    <button 
+                        th:data-dni="${p.dni}" 
+                        class="btn btn-primary btn-xs" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#infopaciente">
+                        Más info.
+                    </button>
+                </td>
             </tr>
         </tbody>
         
@@ -102,6 +125,14 @@
                     
                 </tbody>
             </table>
+            <!-- Boton de PDF -->
+            <a class="btn btn-danger btn-xs float-right" 
+                th:href="@{'/informacionPaciente/' + ${dni}(format=pdf)}">PDF
+            </a>
+
+            <!-- <a class="btn btn-danger btn-xs float-right" 
+                th:href="@{'/paciente/informacionPaciente/' + ${dni} + '/pdf'}">PDF
+            </a> -->
             <!--informacion clinica resultaddo-->
             <table class="table table-bordered table-striped" id="resultado" style="display: none;">
                 <thead>

@@ -1,8 +1,6 @@
 package proyecto.odontologia.webapp.springboot_web.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,8 +13,6 @@ import proyecto.odontologia.webapp.springboot_web.services.PacienteService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-
 
 @Controller
 @RequestMapping("/paciente")
@@ -38,21 +34,31 @@ public class PacienteController {
 
 
 // 4) Link y muestra en en Modal (funciona)
-    @GetMapping("/informacionPaciente/{dni}")
-    @ResponseBody
-    public Map<String, Object> traerPaciente(@PathVariable(name = "dni") int dni) 
-    {
-        Paciente pacienteEncontrado = service.buscarByDni(dni);
-        int edadCalculada = pacienteEncontrado.getEdad();
-        
-        // Se prepara la respuesta con la información del paciente y la edad
-        Map<String, Object> response = new HashMap<>();
-        response.put("paciente", pacienteEncontrado);
-        response.put("edadCalculada", edadCalculada);
-        
-        return response;
-    }
+    // @GetMapping("/informacionPaciente/{dni}")
+    // @ResponseBody
+    // public Map<String, Object> traerPaciente(@PathVariable(name = "dni") int dni) 
+    // {
+    //     Paciente pacienteEncontrado = service.buscarByDni(dni);
+    //     int edadCalculada = pacienteEncontrado.getEdad();
+    //     // Se prepara la respuesta con la información del paciente y la edad
+    //     Map<String, Object> respuesta = new HashMap<>();
+    //     respuesta.put("paciente", pacienteEncontrado);
+    //     respuesta.put("edadCalculada", edadCalculada);
+    //     return respuesta;
+    // }
 
+//5) Link y muestra en otra pagina
+@GetMapping("/informacionPaciente/{dni}")
+public String traerPaciente(@PathVariable(name = "dni") int dni, Model model) {
+    Paciente pacienteEncontrado = service.buscarByDni(dni);
+    int edadCalculada = pacienteEncontrado.getEdad();
+    
+    model.addAttribute("pacienteEncontrado", pacienteEncontrado);
+    model.addAttribute("edadCalculada", edadCalculada);
+
+    // Retorna la vista con el modal de información
+    return "informacionPaciente";
+}
 
     //Ir a form de pacientes
     @GetMapping("/formPaciente")
