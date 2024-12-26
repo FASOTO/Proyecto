@@ -47,7 +47,7 @@ public class PacienteController {
     //     return respuesta;
     // }
 
-//5) Link y muestra en otra pagina
+//5) Doble click y muestra en informacionPaciente
 @GetMapping("/informacionPaciente/{dni}")
 public String traerPaciente(@PathVariable(name = "dni") int dni, Model model) {
     Paciente pacienteEncontrado = service.buscarByDni(dni);
@@ -56,7 +56,6 @@ public String traerPaciente(@PathVariable(name = "dni") int dni, Model model) {
     model.addAttribute("pacienteEncontrado", pacienteEncontrado);
     model.addAttribute("edadCalculada", edadCalculada);
 
-    // Retorna la vista con el modal de información
     return "informacionPaciente";
 }
 

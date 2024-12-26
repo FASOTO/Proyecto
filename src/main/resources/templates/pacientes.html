@@ -59,15 +59,7 @@
                 <td th:text="${p.nacionalidad}" class="paciente-link" th:id="'nacionalidad-' + ${p.dni}"></td>
                 <td th:text="${p.dni}" class="paciente-link" th:id="'dni-' + ${p.dni}"></td>
                 <!-- <td><a th:href="@{/paciente/informacionPaciente/} + ${p.dni}" class="btn btn-primary btn-xs">Editar</a></td> -->
-                <td>
-                    <button 
-                        th:data-dni="${p.dni}" 
-                        class="btn btn-primary btn-xs" 
-                        data-bs-toggle="modal" 
-                        data-bs-target="#infopaciente">
-                        Más info.
-                    </button>
-                </td>
+                
             </tr>
         </tbody>
         
