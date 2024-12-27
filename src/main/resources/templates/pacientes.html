@@ -35,20 +35,7 @@
             </tr>
         </thead> 
 
-        <!-- 4) Link y muestra en Modal (funciona) -->
-        <!-- <tbody class="table-hover" id="efectoFilas">
-            <tr th:each="p : ${listadoPacientes}">
-                <td th:text="${p.apellido}" class="paciente-link" th:id="'apellido-' + ${p.dni}"></td>
-                <td th:text="${p.nombre}" class="paciente-link" th:id="'nombre-' + ${p.dni}"></td>
-                <td th:text="${p.edad}" class="paciente-link" th:id="'edad-' + ${p.dni}"></td>
-                <td th:text="${p.telefono}" class="paciente-link" th:id="'telefono-' + ${p.dni}"></td>
-                <td th:text="${p.fechaNacimiento}" class="paciente-link" th:id="'fechaNacimiento-' + ${p.dni}"></td>
-                <td th:text="${p.nacionalidad}" class="paciente-link" th:id="'nacionalidad-' + ${p.dni}"></td>
-                <td th:text="${p.dni}" class="paciente-link" th:id="'dni-' + ${p.dni}"></td>
-            </tr>
-        </tbody> -->
-
-        <!-- 3) FUNCIONA POR LINKS (redirije a informacionPaciente) -->
+        <!-- 5) FUNCIONA POR LINKS (redirije a informacionPaciente) -->
         <tbody class="table-hover" id="efectoFilas">
             <tr th:each="p : ${listadoPacientes}">
                 <td th:text="${p.apellido}" class="paciente-link" th:id="'apellido-' + ${p.dni}"></td>
@@ -58,8 +45,6 @@
                 <td th:text="${p.fechaNacimiento}" class="paciente-link" th:id="'fechaNacimiento-' + ${p.dni}"></td>
                 <td th:text="${p.nacionalidad}" class="paciente-link" th:id="'nacionalidad-' + ${p.dni}"></td>
                 <td th:text="${p.dni}" class="paciente-link" th:id="'dni-' + ${p.dni}"></td>
-                <!-- <td><a th:href="@{/paciente/informacionPaciente/} + ${p.dni}" class="btn btn-primary btn-xs">Editar</a></td> -->
-                
             </tr>
         </tbody>
         

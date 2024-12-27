@@ -32,32 +32,19 @@ public class PacienteController {
         return "pacientes";
     }
 
+//5) Doble click y muestra en informacionPaciente (13:38)
+    @GetMapping("/informacionPaciente/{dni}")
+    public String traerPaciente(@PathVariable(name = "dni") int dni, Model model) 
+    {
+        Paciente pacienteEncontrado = service.buscarByDni(dni);
+        int edadCalculada = pacienteEncontrado.getEdad();
+        
+        model.addAttribute("pacienteEncontrado", pacienteEncontrado);
+        model.addAttribute("edadCalculada", edadCalculada);
+        model.addAttribute("titulo", "Informacion esencial");
 
-// 4) Link y muestra en en Modal (funciona)
-    // @GetMapping("/informacionPaciente/{dni}")
-    // @ResponseBody
-    // public Map<String, Object> traerPaciente(@PathVariable(name = "dni") int dni) 
-    // {
-    //     Paciente pacienteEncontrado = service.buscarByDni(dni);
-    //     int edadCalculada = pacienteEncontrado.getEdad();
-    //     // Se prepara la respuesta con la información del paciente y la edad
-    //     Map<String, Object> respuesta = new HashMap<>();
-    //     respuesta.put("paciente", pacienteEncontrado);
-    //     respuesta.put("edadCalculada", edadCalculada);
-    //     return respuesta;
-    // }
-
-//5) Doble click y muestra en informacionPaciente
-@GetMapping("/informacionPaciente/{dni}")
-public String traerPaciente(@PathVariable(name = "dni") int dni, Model model) {
-    Paciente pacienteEncontrado = service.buscarByDni(dni);
-    int edadCalculada = pacienteEncontrado.getEdad();
-    
-    model.addAttribute("pacienteEncontrado", pacienteEncontrado);
-    model.addAttribute("edadCalculada", edadCalculada);
-
-    return "informacionPaciente";
-}
+        return "informacionPaciente";
+    }
 
     //Ir a form de pacientes
     @GetMapping("/formPaciente")
