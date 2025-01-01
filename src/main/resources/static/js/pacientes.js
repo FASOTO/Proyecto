@@ -1,4 +1,4 @@
-// 3) CON LINKS SOBRE LOS NOMBRES, FUNCIONA
+// 5) CON Doble Click SOBRE LOS NOMBRES, FUNCIONA
 // Espera a que el documento esté completamente cargado
 document.addEventListener("DOMContentLoaded", function () {
     // Selecciona todos los elementos con la clase paciente-link (apellido y nombre)
