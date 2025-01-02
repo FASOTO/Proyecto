@@ -29,6 +29,9 @@ public class Paciente {
     private String nacionalidad;
     private int dni;
 
+//     <script src="/js/dobleClickPaciente.js"></script>
+// <script src="/js/jquery-3.7.1.min.js"></script>
+
     // private String profesionActividad;
     // private String lugarTrabajo;
 

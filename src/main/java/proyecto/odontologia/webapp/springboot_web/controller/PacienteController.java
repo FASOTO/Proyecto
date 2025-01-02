@@ -1,6 +1,5 @@
 package proyecto.odontologia.webapp.springboot_web.controller;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,14 +32,16 @@ public class PacienteController {
         return "pacientes";
     }
 
-    //Buscar un paciente por su DNI
-    @GetMapping("/{dni}")
-    public String mostrarPaciente(@PathVariable int dni, Model model)
+//5) Doble click y muestra en informacionPaciente (13:38)
+    @GetMapping("/informacionPaciente/{dni}")
+    public String traerPaciente(@PathVariable(name = "dni") int dni, Model model) 
     {
-        Paciente pacienteEncontrado = service.buscarByDni(dni); 
-
-        model.addAttribute("pacientePorDni", pacienteEncontrado);
-        model.addAttribute("titulo", "Paciente encontrado");
+        Paciente pacienteEncontrado = service.buscarByDni(dni);
+        int edadCalculada = pacienteEncontrado.getEdad();
+        
+        model.addAttribute("pacienteEncontrado", pacienteEncontrado);
+        model.addAttribute("edadCalculada", edadCalculada);
+        model.addAttribute("titulo", "Informacion esencial");
 
         return "informacionPaciente";
     }
@@ -66,6 +67,6 @@ public class PacienteController {
         service.guardarPaciente(paciente);
         return "redirect:/paciente/listarPacientes";
 	}
-
+    
 
 }
