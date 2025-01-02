@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head">
 <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <title>Equilibrio Dental</title>
 <link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
 <link rel="stylesheet" th:href="@{/css/fondo.css}" type="text/css">
@@ -17,7 +18,7 @@
       <header class="sidebar-header">
         <a class="header-logo">
           <img src="/images/icono2.jpg" alt="EquilibrioDental">
-          <span class="logo-name">Clinica Equilibrio Dental</span>
+          <!-- <span class="logo-name">Clinica Equilibrio Dental</span> -->
         </a>
       </header>
      <nav class="sidebar-nav">
@@ -70,14 +71,13 @@
       </ul>
      </nav> 
     </aside>
-    <script src="/js/particulas.js"></script>
-
 	</header>
-  <!-- <section th:fragment="section">
-    <div class="section text-center">
+
+  <section th:fragment="section">
+    <div class="section">
     <h1>Clinica de Odontologia "Equilibrio Dental"</h1>
     </div>
-  </section> -->
+  </section>
   
 <footer th:fragment="footer">
   <div class="direcciones">
@@ -90,5 +90,6 @@
   <p class="copy-right">Derechos de autor @2024 Todos los derechos reservados por ...</p>
 </footer>
 
+<script src="/js/particulas.js"></script>
 </body>
 </html>

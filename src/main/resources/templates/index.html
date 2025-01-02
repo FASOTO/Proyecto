@@ -3,7 +3,7 @@
 <head th:replace="~{Layout/layout :: head}"></head>
 <body>
     <header th:replace="~{Layout/layout :: header}"></header>
-    <!-- <section th:replace="~{Layout/layout :: section}"></section> -->
+    <section th:replace="~{Layout/layout :: section}"></section>
 
     <div class="main-container">
     <h1 class="tittle" th:text="${titulo}"></h1>
@@ -60,7 +60,7 @@
       <span>Dra. Berdeja Paula Verónica</span>
     </div>
     </div>
-    <footer th:replace="~{Layout/layout :: footer}"></footer>
+    <!-- <footer th:replace="~{Layout/layout :: footer}"></footer> -->
     <script>
       function showImage(imgElement) {
         const fullscreenDiv = document.getElementById('fullscreenImage');
