@@ -4,13 +4,10 @@
 <body>
 
     <header th:replace="~{Layout/layout :: header}"></header>
-    <section th:replace="~{Layout/layout :: section}"></section>
 
+    <section class="main-container">
 
-    <div class="main-container">
-    <div class="table-container">
-
-    <table class="table table-bordered table-striped p-4" th:if="${not listadoPacientes.isEmpty()}">
+    <table class="table table-bordered table-striped" th:if="${not listadoPacientes.isEmpty()}">
        
         <thead>
             <tr>
@@ -54,7 +51,7 @@
         
     </table>
     
-    </div>
+
 <!--Modal de informacion expandida del paciente-->
 <div class="modal fade" id="infopaciente" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-fullscreen">
@@ -159,7 +156,7 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 <script src="/js/jquery-3.7.1.min.js"></script>
 <script src="/js/pacientes.js"></script>
 

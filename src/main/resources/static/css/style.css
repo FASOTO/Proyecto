@@ -1,9 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
 .sidebar{
     width: 260px;
@@ -92,7 +86,7 @@
     object-fit: contain;
     border-radius: 30%;
 }
-@media screen and (max-width: 1040px){
+@media screen and (max-width: 1400px){
     .sidebar {
         transition: all 0.4s ease;
         width: 100px;
@@ -130,21 +124,26 @@
      .sidebar-nav .nav-link .nav-icon{
         font-size: 1.20rem;
     }
-    .main-container{
-        width: 100%;
-    }
     .table{
         margin-left:10px;
     }
-    
-    
 
+    .sidebar ~ .section-layout{
+        left: 100px;
+        width: calc(100% - 80px);
+    }
+    .main-container{
+        margin-left: 1%;
+        width: calc(100% - 20px);
+    }
+    
   /*  .sidebar-nav .secondary-nav{
         position: relative;
         bottom: 0;
         margin: 40px 0 30px;
     } */
 }
+
 /* 3) POR LINKS */
 .paciente-link {
     cursor: pointer; /* Cambia el cursor a una mano cuando pasa sobre los elementos */
@@ -157,14 +156,17 @@
     background-color: white;
 }
 
-.section{
+
+.section-layout{
     background: linear-gradient(45deg, midnightblue,rgb(18, 18, 221),rgb(0, 64, 255), rgb(18,18,221), midnightblue);
     color: #fff; 
-    width: 100%;
+    position:sticky;
+    left: 260px;
+    width: calc(100% - 260px);
     height: 60px;
-    padding: 5px 0 5px 10%;
+    transition: all .5s ease;
 }
-.section h1{
+.section-layout h1{
     font-size: 1.40rem;
     text-align: center;
     font-weight: 600;
@@ -172,12 +174,10 @@
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding: 10px;
 }
+
 .table{
-  width: 80%;
-  max-width: 1000px;
-  margin-left: 10%;
-  float: left;
-}
+  margin-left: 1%;
+} 
 
 .title-table{
     color: rgb(255, 255, 255);
@@ -203,20 +203,21 @@ thead{
     border: 2px solid rgb(0, 0, 0);
     backdrop-filter: blur(35px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
-    padding: 3%;
+    padding: 1%;
     border-radius: 10px;
     width: 80%;
-    margin-left: 70px;
+    margin-left: 80px;
+    position: relative;
 }
 
 /*Contenido de la pagina*/
  .main-container{
-    margin-left: 15%;
-    width: 90%;
-    max-width: 1300px;
-    padding: 20px;
-    display:block !important;
-    position:relative;
+    top: 80px;
+    position: absolute;
+    height: 85%;
+    overflow-y: auto;
+    left: 18%;
+    width: calc(100% - 300px);
  }
  .tittle{
     color: rgb(34, 34, 208);
