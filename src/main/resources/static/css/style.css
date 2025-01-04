@@ -287,12 +287,11 @@ thead{
     margin: 20px;
 }
 
-    /*footer*/
+    /*footer
 
     footer{
         background-color: black;
         clear:both;
-       /*overflow: hidden;*/
         width: 100%;
         max-width: 2000px;
         height: 30%;
@@ -325,7 +324,7 @@ thead{
         text-align: center;
         padding-bottom: 30px;
         color: antiquewhite;
-    }
+    }*/
 
     /*modal mas informacion del paciente*/
     
