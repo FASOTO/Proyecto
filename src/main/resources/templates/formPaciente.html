@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head th:replace="~{Layout/layout :: head}"></head>
+
 <body>
-  
+
   <header th:replace="~{Layout/layout :: header}"></header>
   <section class="main-container">
     <div class="form-container">
       <h3 class="text-center p-4" th:text="${titulo}"></h3>
       <div class="tabs nav nav-tabs">
         <div class="tab active nav-link active" data-tab="personal">Datos Personales</div>
-        <div class="tab nav-link" data-tab="personal+">Datos Más Personales</div>
+        <div class="tab nav-link" data-tab="personal+">Domicilio</div>
         <div class="tab nav-link" data-tab="contact">Odontograma</div>
-    </div>
+      </div>
       <form th:action="@{/paciente/guardar}" th:object="${paciente}" method="post">
-      <div class="tab-content active" id="personal">
+        <div class="tab-content active" id="personal">
           <div class="form-group row mb-3">
             <label for="nombre" class="col-sm-2 col-form-label">Nombre: </label>
             <div class="col-xl-10 col-md-12">
@@ -56,58 +58,81 @@
               <input type="number" class="form-control" id="dni" th:field="*{dni}">
             </div>
           </div>
-      </div>
-      <div class="tab-content" id="contact">
+        </div>
+        <div class="tab-content" id="personal+">
           <div class="form-group row mb-3">
-            <label for="prueba" class="col-sm-2 col-form-label">Prueba: </label>
+            <label for="calle" class="col-sm-2 col-form-label">Calle: </label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" id="prueba" >
+              <input type="text" class="form-control" id="calle" th:field="*{domicilio.calle}">
             </div>
           </div>
-      </div>
-      <div class="tab-content" id="personal+">
-        <div class="form-group row mb-3">
-          <label for="prueba1" class="col-sm-2 col-form-label">Prueba1: </label>
-          <div class="col-sm-10">
-            <input type="number" class="form-control" id="prueba1" >
+          <div class="form-group row mb-3">
+            <label for="nroCalle" class="col-sm-2 col-form-label">nroCalle: </label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="nroCalle" th:field="*{domicilio.nroCalle}">
+            </div>
+          </div>
+          <div class="form-group row mb-3">
+            <label for="barrio" class="col-sm-2 col-form-label">barrio: </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="barrio" th:field="*{domicilio.barrio}">
+            </div>
+          </div>
+            <div class="form-group row mb-3">
+              <label for="localidad" class="col-sm-2 col-form-label">Localidad: </label>
+              <div class="col-xl-10 col-md-12">
+                <select id="localidad" name="localidad" th:field="*{domicilio.localidad}">
+                  <option th:each="localidad : ${listaLocalidad}" th:value="${localidad}" th:text="${localidad}" >
+                  </option>
+                </select>
+              </div>
           </div>
         </div>
-    </div>
-      <div>
-        <div class="text-center py-4">
-          <input type="submit" id="guardar"th:value="${botonGuardar}" style="display: none;" class="btn btn-primary" />
+        <div class="tab-content" id="contact">
+          <div class="form-group row mb-3">
+            <label for="prueba1" class="col-sm-2 col-form-label">acá va el Odontograma: </label>
+            <div class="col-sm-10">
+              <input type="number" class="form-control" id="prueba">
+            </div>
+          </div>
         </div>
-    </form>
-    
+        <div>
+          <div class="text-center py-4">
+            <input type="submit" id="guardar" th:value="${botonGuardar}" style="display: none;"
+              class="btn btn-primary" />
+          </div>
+      </form>
+
     </div>
-    
-  
-  <script>
-    const tabs = document.querySelectorAll('.tab');
-    const contents = document.querySelectorAll('.tab-content');
-    const button = document.getElementById('guardar');
 
-    tabs.forEach(tab => {
+
+    <script>
+      const tabs = document.querySelectorAll('.tab');
+      const contents = document.querySelectorAll('.tab-content');
+      const button = document.getElementById('guardar');
+
+      tabs.forEach(tab => {
         tab.addEventListener('click', () => {
-            // Desactivar todas las pestañas y contenidos
-            tabs.forEach(t => t.classList.remove('active'));
-            contents.forEach(c => c.classList.remove('active'));
+          // Desactivar todas las pestañas y contenidos
+          tabs.forEach(t => t.classList.remove('active'));
+          contents.forEach(c => c.classList.remove('active'));
 
-            // Activar la pestaña y contenido actual
-            tab.classList.add('active');
-            document.getElementById(tab.dataset.tab).classList.add('active');
+          // Activar la pestaña y contenido actual
+          tab.classList.add('active');
+          document.getElementById(tab.dataset.tab).classList.add('active');
 
-            // Mostrar u ocultar el botón según la pestaña activa
-            if (tab.dataset.tab === 'contact') {
-                button.style.display = 'block';
-            } else {
-                button.style.display = 'none';
-            }
+          // Mostrar u ocultar el botón según la pestaña activa
+          if (tab.dataset.tab === 'contact') {
+            button.style.display = 'block';
+          } else {
+            button.style.display = 'none';
+          }
         });
-    });
-</script>
+      });
+    </script>
 
-</section>
-<!-- <footer th:replace="~{Layout/layout :: footer}"></footer> -->
+  </section>
+  <!-- <footer th:replace="~{Layout/layout :: footer}"></footer> -->
 </body>
+
 </html>

@@ -3,11 +3,14 @@ package proyecto.odontologia.webapp.springboot_web.models;
 import java.time.LocalDate;
 import java.time.Period;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -27,6 +30,7 @@ public class Paciente {
 
     // private String estadoCivil;
     private String nacionalidad;
+    private String localidad;
     private int dni;
 
 //     <script src="/js/dobleClickPaciente.js"></script>
@@ -35,13 +39,33 @@ public class Paciente {
     // private String profesionActividad;
     // private String lugarTrabajo;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "domicilio_id", referencedColumnName = "id")
+    private Domicilio domicilio;
+
+    public String getLocalidad() {
+        return localidad;
+    }
+
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
+    }
+
     // Constructores:
     public Paciente() {
         this.id= null;
     }
 
+    public Domicilio getDomicilio() {
+        return domicilio;
+    }
+
+    public void setDomicilio(Domicilio domicilio) {
+        this.domicilio = domicilio;
+    }
+
     public Paciente(int id, String nombre, String apellido, LocalDate fechaNacimiento, String nroTelefono,
-            String nacionalidad, int dni) {
+            String nacionalidad, int dni,String localidad,Domicilio domicilio) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -49,6 +73,8 @@ public class Paciente {
         this.telefono = nroTelefono;
         this.nacionalidad = nacionalidad;
         this.dni = dni;
+        this.localidad = localidad;
+        this.domicilio = domicilio;
     }
 
     public int getEdad()
