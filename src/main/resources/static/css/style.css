@@ -205,8 +205,8 @@ thead{
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     padding: 1%;
     border-radius: 10px;
-    width: 80%;
-    margin-left: 80px;
+    width: 95%;
+    margin-left: 20px;
     position: relative;
 }
 
@@ -214,10 +214,11 @@ thead{
  .main-container{
     top: 80px;
     position: absolute;
-    height: 85%;
+    height: 80%;
     overflow-y: auto;
-    left: 18%;
-    width: calc(100% - 300px);
+    left: 6%;
+    scrollbar-color: rgb(10, 160, 165) black;
+    /*width: calc(100% - 140px);*/
  }
  .tittle{
     color: rgb(34, 34, 208);
@@ -286,45 +287,6 @@ thead{
     text-align: center;
     margin: 20px;
 }
-
-    /*footer
-
-    footer{
-        background-color: black;
-        clear:both;
-        width: 100%;
-        max-width: 2000px;
-        height: 30%;
-        padding: 15px 0;
-    }
-
-    .direcciones{
-        text-align: center;
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-
-    .direcciones a{
-        color: #ffffff;
-        font-size: 25px;
-        display: inline-block;
-        border: 1px solid white;
-        width: 35px;
-        padding: 2px;
-        border-radius: 10px;
-        margin-right: 15px;
-    }
-
-    .direcciones a:hover{
-        background-color: darkblue;
-        color: black;
-    }
-
-    .copy-right{
-        text-align: center;
-        padding-bottom: 30px;
-        color: antiquewhite;
-    }*/
 
     /*modal mas informacion del paciente*/
     

@@ -44,5 +44,34 @@ public class PacienteService {
     public void guardarPaciente(Paciente paciente) {
         repository.save(paciente);
     }
+    public List<String> listarLocalidades() {
+        // nueva función
+
+        // defini una lista con 3 nacionalidades
+        List<String> nacionalidades = new ArrayList<>();
+        nacionalidades.add("San Salvador de Jujuy");
+        nacionalidades.add("San Pedro de Jujuy");
+        nacionalidades.add("Libertador General San Martín");
+        nacionalidades.add("La Quiaca");
+        nacionalidades.add("Humahuaca");
+        nacionalidades.add("Tilcara");
+        nacionalidades.add("Purmamarca");
+        nacionalidades.add("El Carmen");
+        nacionalidades.add("Perico");
+        nacionalidades.add("Palpalá");
+        nacionalidades.add("Monterrico");
+        nacionalidades.add("Abra Pampa");
+        nacionalidades.add("Maimará");
+        nacionalidades.add("Calilegua");
+        nacionalidades.add("Caimancito");
+        nacionalidades.add("Fraile Pintado");
+        nacionalidades.add("La Esperanza");
+        nacionalidades.add("Palma Sola");
+        nacionalidades.add("Yuto");
+
+        //List<String> Nacionalidades = (List<String>) repository.findNacionalidad();
+        return nacionalidades;
+    }
+
 
 }

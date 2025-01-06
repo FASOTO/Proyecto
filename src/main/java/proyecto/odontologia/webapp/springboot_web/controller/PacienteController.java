@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import proyecto.odontologia.webapp.springboot_web.models.Domicilio;
 import proyecto.odontologia.webapp.springboot_web.models.Paciente;
 import proyecto.odontologia.webapp.springboot_web.services.PacienteService;
 
@@ -51,8 +52,13 @@ public class PacienteController {
     public String crearPaciente(Model model) 
     {
         Paciente paciente = new Paciente();
+        //domicilio
+        Domicilio domicilio = new Domicilio();
+        paciente.setDomicilio(domicilio);
         List<String> listaNacionalidad = service.listarNacionalidades();
         model.addAttribute("listaNacionalidad", listaNacionalidad);
+        List<String> listaLocalidad = service.listarLocalidades();
+        model.addAttribute("listaLocalidad", listaLocalidad);
         model.addAttribute("paciente", paciente);
         model.addAttribute("titulo", "FORMULARIO DE PACIENTE");
         model.addAttribute("botonGuardar", "Crear Paciente");

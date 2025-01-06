@@ -30,7 +30,9 @@
                 <th>Teléfono</th>
                 <th>Fecha de Nacimiento</th>
                 <th>Nacionalidad</th>
+                <th>Localidad</th>
                 <th>DNI</th>
+                <th>Domicilio</th>
             </tr>
         </thead>
         
@@ -42,7 +44,9 @@
                 <td th:text="${pacienteEncontrado.telefono}"></td>
                 <td th:text="${pacienteEncontrado.fechaNacimiento}"></td>
                 <td th:text="${pacienteEncontrado.nacionalidad}"></td>
+                <td th:text="${pacienteEncontrado.localidad}"></td>
                 <td th:text="${pacienteEncontrado.dni}"></td>
+                <td th:text="${pacienteEncontrado.domicilio.calle + ', ' + pacienteEncontrado.domicilio.nroCalle + ', ' + pacienteEncontrado.domicilio.barrio+ ', ' + pacienteEncontrado.domicilio.localidad}"></td>
             </tr>
         </tbody>
 
