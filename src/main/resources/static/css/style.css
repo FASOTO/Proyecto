@@ -175,9 +175,9 @@
     padding: 10px;
 }
 
-.table{
-  margin-left: 1%;
-} 
+/* .table{
+  margin-left: 8%;
+}  */
 
 .title-table{
     color: rgb(255, 255, 255);
@@ -205,8 +205,7 @@ thead{
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     padding: 1%;
     border-radius: 10px;
-    width: 95%;
-    margin-left: 20px;
+    /* margin-left: 50px; */
     position: relative;
 }
 
@@ -214,12 +213,12 @@ thead{
  .main-container{
     top: 80px;
     position: absolute;
-    height: 80%;
-    overflow-y: auto;
-    left: 6%;
+    height: 85%;
+    overflow: auto;
+    left: 19%;
     scrollbar-color: rgb(10, 160, 165) black;
-    /*width: calc(100% - 140px);*/
  }
+
  .tittle{
     color: rgb(34, 34, 208);
     Font-family: Perpetua, Baskerville, Big Caslon, Palatino Linotype, Palatino, serif;
