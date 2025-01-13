@@ -7,277 +7,505 @@
 <body>
 
   <header th:replace="~{Layout/layout :: header}"></header>
-  <section class="main-container col-11 col-sm-10 col-md-11 col-lg-11 col-xl-11" >
+  <section class="main-container col-9">
     <div class="form-container">
       <h3 class="text-center p-4" th:text="${titulo}"></h3>
       <div class="tabs nav nav-tabs">
         <div class="tab active nav-link active" data-tab="personal">Datos Personales</div>
         <div class="tab nav-link" data-tab="personal+">Domicilio</div>
+        <div class="tab nav-link" data-tab="form">Cuestionario</div>        
         <div class="tab nav-link" data-tab="contact">Odontograma</div>
       </div>
       <form th:action="@{/paciente/guardar}" th:object="${paciente}" method="post">
         <div class="tab-content active" id="personal">
           <div class="row">
-          <div class="form-group row mb-3 col">
-            <label for="nombre" class="col-sm-2 col-form-label">Nombre: </label>
-            <div class="col-xl-10 col-md-12">
-              <input type="text" class="form-control" id="nombre" th:field="*{nombre}">
+            <div class="form-group row mb-3 col">
+              <label for="nombre" class="col-sm-2 col-form-label">Nombre: </label>
+              <div class="col-xl-10 col-md-12">
+                <input type="text" class="form-control" id="nombre" th:field="*{nombre}">
+              </div>
+            </div>
+
+            <div class="form-group row mb-3 col">
+              <label for="apellido" class="col-sm-2 col-form-label">Apellido: </label>
+              <div class="col-xl-10 col-md-12">
+                <input type="text" class="form-control" id="apellido" th:field="*{apellido}">
+              </div>
             </div>
           </div>
-          <div class="form-group row mb-3 col">
-            <label for="apellido" class="col-sm-2 col-form-label">Apellido: </label>
-            <div class="col-xl-10 col-md-12">
-              <input type="text" class="form-control" id="apellido" th:field="*{apellido}">
-            </div>
-          </div>
-          </div>
+
           <div class="row">
-          <div class="form-group row mb-3 col">
-            <label for="nacionalidad" class="col-sm-2 col-form-label">Nacionalidad: </label>
-            <div class="col-xl-10 col-md-12">
-              <select id="nacionalidad" name="nacionalidad">
-                <option th:each="nacionalidad : ${listaNacionalidad}" th:value="${nacionalidad}"
-                  th:text="${nacionalidad}">
-                </option>
-              </select>
+            <div class="form-group row mb-3 col">
+              <label for="nacionalidad" class="col-sm-2 col-form-label">Nacionalidad: </label>
+              <div class="col-xl-10 col-md-12">
+                <select id="nacionalidad" name="nacionalidad">
+                  <option th:each="nacionalidad : ${listaNacionalidad}" th:value="${nacionalidad}"
+                    th:text="${nacionalidad}">
+                  </option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group row mb-3 col">
+              <label for="telefono" class="col-sm-2 col-form-label">N° Telefono: </label>
+              <div class="col-xl-10 col-md-12">
+                <input type="number" class="form-control" id="telefono" placeholder="3885872108" th:field="*{telefono}">
+              </div>
             </div>
           </div>
-          <div class="form-group row mb-3 col">
-            <label for="telefono" class="col-sm-2 col-form-label">N° Telefono: </label>
-            <div class="col-xl-10 col-md-12">
-              <input type="number" class="form-control" id="telefono" placeholder="3885872108" th:field="*{telefono}">
-            </div>
-          </div>
-          </div>
+
           <div class="row">
-          <div class="form-group row mb-3 col">
-            <label for="fechaNacimiento" class="col-sm-2 col-form-label">Fecha Nacimiento: </label>
-            <div class="col-xl-10 col-md-12">
-              <input type="date" class="form-control" id="fechaNacimiento" max="100" th:field="*{fechaNacimiento}">
+            <div class="form-group row mb-3 col">
+              <label for="fechaNacimiento" class="col-sm-2 col-form-label">Fecha Nacimiento: </label>
+              <div class="col-xl-10 col-md-12">
+                <input type="date" class="form-control" id="fechaNacimiento" max="100" th:field="*{fechaNacimiento}">
+              </div>
             </div>
-          </div>
-          <div class="form-group row mb-3 col">
-            <label for="dni" class="col-sm-2 col-form-label">DNI: </label>
-            <div class="col-xl-10 col-md-12">
-              <input type="number" class="form-control" id="dni" th:field="*{dni}">
+            <div class="form-group row mb-3 col">
+              <label for="dni" class="col-sm-2 col-form-label">DNI: </label>
+              <div class="col-xl-10 col-md-12">
+                <input type="number" class="form-control" id="dni" th:field="*{dni}">
+              </div>
             </div>
-          </div>
           </div>
         </div>
+
         <div class="tab-content" id="personal+">
           <div class="row">
-          <div class="form-group row mb-3 col">
-            <label for="calle" class="col-sm-2 col-form-label">Calle: </label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="calle" th:field="*{domicilio.calle}">
+            <div class="form-group row mb-3 col">
+              <label for="calle" class="col-sm-2 col-form-label">Calle: </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="calle" th:field="*{domicilio.calle}">
+              </div>
+            </div>
+            <div class="form-group row mb-3 col">
+              <label for="nroCalle" class="col-sm-2 col-form-label">nroCalle: </label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" id="nroCalle" th:field="*{domicilio.nroCalle}">
+              </div>
             </div>
           </div>
-          <div class="form-group row mb-3 col">
-            <label for="nroCalle" class="col-sm-2 col-form-label">nroCalle: </label>
-            <div class="col-sm-10">
-              <input type="number" class="form-control" id="nroCalle" th:field="*{domicilio.nroCalle}">
+
+          <div class="row">
+            <div class="form-group row mb-3 col">
+              <label for="barrio" class="col-sm-2 col-form-label">barrio: </label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="barrio" th:field="*{domicilio.barrio}">
+              </div>
             </div>
-          </div>
-         </div>
-         <div class="row">
-          <div class="form-group row mb-3 col">
-            <label for="barrio" class="col-sm-2 col-form-label">barrio: </label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" id="barrio" th:field="*{domicilio.barrio}">
-            </div>
-          </div>
             <div class="form-group row mb-3 col">
               <label for="localidad" class="col-sm-2 col-form-label">Localidad: </label>
               <div class="col-xl-10 col-md-12">
                 <select id="localidad" name="localidad" th:field="*{domicilio.localidad}">
-                  <option th:each="localidad : ${listaLocalidad}" th:value="${localidad}" th:text="${localidad}" >
+                  <option th:each="localidad : ${listaLocalidad}" th:value="${localidad}" th:text="${localidad}">
                   </option>
                 </select>
               </div>
+            </div>
           </div>
+        </div>
 
-          <div class="form-group row mb-3">
-            <label class="col-md-12 col-form-label">Padre con vida?: </label>
-            <div class="col-sm-12">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="padreSi" value="padreSi">
-                <label class="form-check-label" for="padreSi">Si</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="padreNo" value="padreNo">
-                <label class="form-check-label" for="padreNo">No</label>
-              </div>
-          </div>
-          </div>
-  
-          <div class="form-group row mb-3">
-            <label for="enfermedadPadre" class="col-md-12 col-form-label">Enfermedad que padece o padeció: </label>
-            <div class="col-sm-12 col-md-4">
-              <input type="text" class="form-control" id="enfermedadPadre" >
-            </div>
-          </div>
-  
-          <div class="form-group row mb-3">
-            <label class="col-md-12 col-form-label">Madre con vida?: </label>
-            <div class="col-sm-12">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="madreSi" value="madreSi">
-                <label class="form-check-label" for="madreSi">Si</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="madreNo" value="madreNo">
-                <label class="form-check-label" for="madreNo">No</label>
-              </div>
-          </div>
-  
-          <div class="form-group row mb-3">
-            <label for="enfermedadMadre" class="col-md-12 col-form-label">Enfermedad que padece o padeció: </label>
-            <div class="col-sm-12 col-md-4">
-              <input type="text" class="form-control" id="enfermedadMadre" >
-            </div>
-          </div>
-  
-          <div class="form-group row mb-3">
-            <label class="col-md-12 col-form-label">Tiene hermanos?: </label>
-            <div class="col-sm-12">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="hermanosSi" value="hermanosSi">
-                <label class="form-check-label" for="hermanosSi">Si</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="hermanosNo" value="hermanosNo">
-                <label class="form-check-label" for="hermanosNo">No</label>
-              </div>
-          </div>
-      </div>
-  
-      <div class="form-group row mb-3">
-        <label class="col-md-12 col-form-label">Estan sanos?: </label>
-        <div class="col-sm-12">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="hermanosSanosSi" value="hermanosSanosSi">
-            <label class="form-check-label" for="hermanosSanosSi">Si</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="hermanosSanosNo" value="hermanosSanosNo">
-            <label class="form-check-label" for="hermanosSanosNo">No</label>
-          </div>
-        </div>
-        </div>
-  
-        <div class="form-group row mb-3">
-          <label class="col-md-12 col-form-label">Sufre de alguna enfermedad?: </label>
-          <div class="col-sm-12">
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="enfermedadPacienteSi" value="Sufre enfermedad">
-              <label class="form-check-label" for="enfermedadPacienteSi">Si</label>
-            </div>
-            <div class="form-check form-check-inline">
-              <input class="form-check-input" type="checkbox" id="enfermedadPacienteNo" value="No sufre enfermedad">
-              <label class="form-check-label" for="enfermedadPacienteNo">No</label>
-            </div>
-          </div>
-          </div>
-  
-          <div class="form-group row mb-3">
-            <label for="enfermedadPaciente" class="col-md-12 col-form-label">Indique que enfermedad: </label>
-            <div class="col-sm-12 col-md-4">
-              <input type="text" class="form-control" id="enfermedadPaciente">
-            </div>
-          </div>
-  
-          <div class="form-group row mb-3">
-            <label class="col-md-12 col-form-label">Hace algún tratamiento médico?: </label>
-            <div class="col-sm-12">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="tratamientoPacienteSi" value="Hace tratamiento médico">
-                <label class="form-check-label" for="tratamientoPacienteSi">Si</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="tratamientoPacienteNo" value="No hace tratamiento médico">
-                <label class="form-check-label" for="tratamientoPacienteNo">No</label>
-              </div>
-            </div>
-            </div>
-  
-            <div class="form-group row mb-3">
-              <label for="tratamientoPaciente" class="col-md-12 col-form-label">Indique que tratamiento realiza: </label>
-              <div class="col-sm-12 col-md-4">
-                <input type="text" class="form-control" id="tratamientoPaciente">
-              </div>
-            </div>
-  
-            <div class="form-group row mb-3">
-              <label for="medicamentosPaciente" class="col-md-12 col-form-label">Qué medicamento/s consume habitualmente?: </label>
-              <div class="col-sm-12 col-md-4">
-                <input type="text" class="form-control" id="medicamentosPaciente">
-              </div>
-            </div>
-  
-            <div class="form-group row mb-3">
-              <label for="medicamentosPacienteEnUltimos5Años" class="col-md-12 col-form-label">Qué medicamentos ha consumido en los últimos 5 años?: </label>
-              <div class="col-sm-12 col-md-4">
-                <input type="text" class="form-control" id="medicamentosPacienteEnUltimos5Años">
-              </div>
-            </div>
-  
-            <div class="form-group row mb-3">
-              <label class="col-md-12 col-form-label">Realiza algún deporte?: </label>
+          <div class="tab-content" id="form">
+          <div class="row">
+            <div class="form-group row mb-3 col">
+              <label class="col-md-12 col-form-label">Padre con vida?: </label>
               <div class="col-sm-12">
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="deportePacienteSi" value="Realiza deporte">
-                  <label class="form-check-label" for="deportePacienteSi">Si</label>
+                  <input class="form-check-input" type="checkbox" id="padreSi" value="padreSi">
+                  <label class="form-check-label" for="padreSi">Si</label>
                 </div>
                 <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="checkbox" id="deportePacienteNo" value="No realiza deporte">
-                  <label class="form-check-label" for="deportePacienteNo">No</label>
+                  <input class="form-check-input" type="checkbox" id="padreNo" value="padreNo">
+                  <label class="form-check-label" for="padreNo">No</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row mb-3 col">
+              <label for="enfermedadPadre" class="col-sm-12 col-form-label">Enfermedad que padece o padeció: </label>
+              <div class="col-sm-12">
+                <input type="text" class="form-control" id="enfermedadPadre">
+              </div>
+            </div>
+            </div>
+
+            <div class="row">
+            <div class="form-group row mb-3 col">
+              <label class="col-md-12 col-form-label">Madre con vida?: </label>
+              <div class="col-sm-12">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="madreSi" value="madreSi">
+                  <label class="form-check-label" for="madreSi">Si</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" id="madreNo" value="madreNo">
+                  <label class="form-check-label" for="madreNo">No</label>
+                </div>
+              </div>
+            </div>
+
+              <div class="form-group row mb-3 col">
+                <label for="enfermedadMadre" class="col-sm-12 col-form-label">Enfermedad que padece o padeció: </label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="enfermedadMadre">
                 </div>
               </div>
               </div>
-  
-          </div>
-        </div>
 
-        </div>
+              <div class="row">
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Tiene hermanos?: </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="hermanosSi" value="hermanosSi">
+                    <label class="form-check-label" for="hermanosSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="hermanosNo" value="hermanosNo">
+                    <label class="form-check-label" for="hermanosNo">No</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Estan sanos?: </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="hermanosSanosSi" value="hermanosSanosSi">
+                    <label class="form-check-label" for="hermanosSanosSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="hermanosSanosNo" value="hermanosSanosNo">
+                    <label class="form-check-label" for="hermanosSanosNo">No</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+              <div class="row">
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Sufre de alguna enfermedad?: </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="enfermedadPacienteSi" value="Sufre enfermedad">
+                    <label class="form-check-label" for="enfermedadPacienteSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="enfermedadPacienteNo"
+                      value="No sufre enfermedad">
+                    <label class="form-check-label" for="enfermedadPacienteNo">No</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-3 col">
+                <label for="enfermedadPaciente" class="col-sm-12 col-form-label">Indique que enfermedad: </label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="enfermedadPaciente">
+                </div>
+              </div>
+              </div>
+
+              <div class="row">
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Hace algún tratamiento médico?: </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="tratamientoPacienteSi"
+                      value="Hace tratamiento médico">
+                    <label class="form-check-label" for="tratamientoPacienteSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="tratamientoPacienteNo"
+                      value="No hace tratamiento médico">
+                    <label class="form-check-label" for="tratamientoPacienteNo">No</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-3 col">
+                <label for="tratamientoPaciente" class="col-sm-12 col-form-label">Indique que tratamiento realiza:
+                </label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="tratamientoPaciente">
+                </div>
+              </div>
+              </div>
+
+              <div class="row">
+              <div class="form-group row mb-3 col">
+                <label for="medicamentosPaciente" class="col-sm-12 col-form-label">Qué medicamento/s consume
+                  habitualmente?: </label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="medicamentosPaciente">
+                </div>
+              </div>
+
+              <div class="form-group row mb-3 col">
+                <label for="medicamentosPacienteEnUltimos5Años" class="col-sm-12 col-form-label">Qué medicamentos ha
+                  consumido en los últimos 5 años?: </label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="medicamentosPacienteEnUltimos5Años">
+                </div>
+              </div>
+              </div>
+
+              <div class="row">
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Realiza algún deporte?: </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="deportePacienteSi" value="Realiza deporte">
+                    <label class="form-check-label" for="deportePacienteSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="deportePacienteNo" value="No realiza deporte">
+                    <label class="form-check-label" for="deportePacienteNo">No</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Nota algún malestar al realizarlo?: </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="deporteMalestarPacienteSi"
+                      value="Presenta malestar al realizar ejercicio">
+                    <label class="form-check-label" for="deporteMalestarPacienteSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="deporteMalestarPacienteNo"
+                      value="No presenta malestar al realizar ejercicio">
+                    <label class="form-check-label" for="deporteMalestarPacienteNo">No</label>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+              <div class="row">
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Es alérgico a alguna droga?: </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="alergiaPacienteSi"
+                      value="Es alérgico a una droga">
+                    <label class="form-check-label" for="alergiaPacienteSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="alergiaPacienteNo"
+                      value="No es alergico a alguna droga">
+                    <label class="form-check-label" for="alergiaPacienteNo">No</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-3 col">
+                <label for="alergiaPaciente" class="col-sm-12 col-form-label">Cuál o cuáles drogas?: </label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="alergiaPaciente">
+                </div>
+              </div>
+              </div>
+
+              <div class="row">
+              <div class="form-group row mb-3 col">
+                <label for="cicatrizacionPaciente" class="col-sm-12 col-form-label">Cuando le sacan una muela ose
+                  lastima, se cicatriza bien? sangra mucho?: </label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="cicatrizaciónPaciente">
+                </div>
+              </div>
+
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Tiene problemas de colágeno? (hiperlaxitud): </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="hiperlaxitudPacienteSi"
+                      value="Tiene hiperlaxitud">
+                    <label class="form-check-label" for="hiperlaxitudPacienteSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="hiperlaxitudPacienteNo"
+                      value="No tiene hiperlaxitud">
+                    <label class="form-check-label" for="hiperlaxitudPacienteNo">No</label>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+              <div class="row">
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Antecedentes de fiebre reumática?: </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="fiebreReumaticaPacienteSi"
+                      value="Tiene antecedentes de fiebre reumática">
+                    <label class="form-check-label" for="fiebreReumaticaPacienteSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="fiebreReumaticaPacienteNo"
+                      value="No tiene antecedentes de fiebre reumatica">
+                    <label class="form-check-label" for="fiebreReumaticaPacienteNo">No</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-3 col">
+                <label for="medicamentoFiebrePaciente" class="col-sm-12 col-form-label">Se protege con algún
+                  medicamento?: </label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="medicmantoFiebrePaciente">
+                </div>
+              </div>
+              </div>
+
+              <div class="row">
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Es diabético?: </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="diabetesPacienteSi" value="Es diabético">
+                    <label class="form-check-label" for="diabetesPacienteSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="diabetesPacienteNo" value="No es diabético">
+                    <label class="form-check-label" for="diabetesPacienteNo">No</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-3 col">
+                <label for="tratamientoDiabetesPaciente" class="col-sm-12 col-form-label">Está controlado? Con qué?:
+                </label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="tratamientoDiabetesPaciente">
+                </div>
+              </div>
+              </div>
+
+              <div class="row">
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Tiene problemas cardíacos?: </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="cardiacoPacienteSi"
+                      value="Si tiene problemas cardíacos">
+                    <label class="form-check-label" for="cardiacoPacienteSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="cardiacoPacienteNo"
+                      value="No tiene problemas cardiacos">
+                    <label class="form-check-label" for="cardiacoPacienteNo">No</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-3 col">
+                <label for="problemaCardiacoPaciente" class="col-sm-12 col-form-label">Cuál?: </label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="problemaCardiacoPaciente">
+                </div>
+              </div>
+              </div>
+
+              <div class="row">
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Toma seguido aspirina y/o anticoagulante?: </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="anticoagulantePacienteSi"
+                      value="Si toma seguido aspirina y/o anticoagulante">
+                    <label class="form-check-label" for="anticoagulantePacienteSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="anticoagulantePacienteNo"
+                      value="No toma seguido o no toma aspirina y/o anticoagulante">
+                    <label class="form-check-label" for="anticoagulantePacienteNo">No</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-3 col">
+                <label for="frecuenciaAnticoagulantePaciente" class="col-sm-12 col-form-label">Con qué frecuencia?:
+                </label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" id="frecuenciaAnticoagulantePaciente">
+                </div>
+              </div>
+              </div>
+
+              <div class="row">
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Tiene presión alta?: </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="presionAltaPacienteSi"
+                      value="Tiene presión alta">
+                    <label class="form-check-label" for="presionAltaPacienteSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="presionAltaPacienteNo"
+                      value="No tiene presión alta">
+                    <label class="form-check-label" for="presionAltaPacienteNo">No</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row mb-3 col">
+                <label class="col-md-12 col-form-label">Tiene chagas?: </label>
+                <div class="col-sm-12">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="chagasPacienteSi" value="Si tiene chagas">
+                    <label class="form-check-label" for="chagasPacienteSi">Si</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="chagasPacienteNo" value="No tiene chagas">
+                    <label class="form-check-label" for="chagasPacienteNo">No</label>
+                  </div>
+                </div>
+              </div>
+              </div>
+          </div>
+
         <div class="tab-content" id="contact">
           <div class="form-group row mb-3">
             <!-- <label for="prueba1" class="col-sm-2 col-form-label">acá va el Odontograma: </label> -->
-            <div class="col-sm-10">
+            <div class="col-12">
               <!-- odonto -->
               <div class="contenedorCanvas" id="contenedorCanvas">
                 <div class="grupoCanvas1" id="grupo1">
-                    <canvas id="canvas"></canvas>
-                    <canvas id="canvas2"></canvas>
-                    <canvas id="canvas3"></canvas>
+                  <canvas id="canvas"></canvas>
+                  <canvas id="canvas2"></canvas>
+                  <canvas id="canvas3"></canvas>
                 </div>
                 <div class="grupoCanvas2" id="grupo2">
-                    <canvas id="canvas4"></canvas>
-                    <canvas id="canvas5"></canvas>
-                    <canvas id="canvas6"></canvas>
+                  <canvas id="canvas4"></canvas>
+                  <canvas id="canvas5"></canvas>
+                  <canvas id="canvas6"></canvas>
                 </div>
                 <div class="opciones">
-                    <form action="" class="formColores">
-                        <div class="colores">
-                            <input type="radio" name="color" id="inputColorRojo">
-                            <label class="labelColor rojo" for="inputColorRojo">Rojo</label>
-                            <input type="radio" name="color" id="inputColorAzul">
-                            <label class="labelColor azul" for="inputColorAzul">Azul</label>
-                        </div>
-                    </form>
+                  <form action="" class="formColores">
+                    <div class="colores">
+                      <input type="radio" name="color" id="inputColorRojo">
+                      <label class="labelColor rojo" for="inputColorRojo">Rojo</label>
+                      <input type="radio" name="color" id="inputColorAzul">
+                      <label class="labelColor azul" for="inputColorAzul">Azul</label>
+                    </div>
+                  </form>
                 </div>
-            </div>
+              </div>
 
             </div>
           </div>
         </div>
         <div>
           <div class="text-center py-4">
-            <input type="submit" id="guardar" th:value="${botonGuardar}" style="display: none;"
+            <input type="submit" id="guardar" th:value="${botonGuardar}" style="display: none; margin: auto;"
               class="btn btn-primary" />
           </div>
       </form>
 
-      </div>
+    </div>
 
 
     <script>
