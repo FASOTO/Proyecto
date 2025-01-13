@@ -11,7 +11,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -33,6 +32,8 @@ public class Paciente {
     private String nacionalidad;
     private String localidad;
     private int dni;
+
+    private String imagen;
 
 //     <script src="/js/dobleClickPaciente.js"></script>
 // <script src="/js/jquery-3.7.1.min.js"></script>
@@ -65,8 +66,16 @@ public class Paciente {
         this.domicilio = domicilio;
     }
 
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
     public Paciente(int id, String nombre, String apellido, LocalDate fechaNacimiento, String nroTelefono,
-            String nacionalidad, int dni,String localidad,Domicilio domicilio) {
+            String nacionalidad, int dni,String localidad,Domicilio domicilio, String imagen) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -76,6 +85,7 @@ public class Paciente {
         this.dni = dni;
         this.localidad = localidad;
         this.domicilio = domicilio;
+        this.imagen = imagen;
     }
 
     public int getEdad()

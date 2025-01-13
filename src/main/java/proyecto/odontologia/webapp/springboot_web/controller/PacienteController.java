@@ -1,6 +1,11 @@
 package proyecto.odontologia.webapp.springboot_web.controller;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
+import java.nio.file.Path;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +19,8 @@ import proyecto.odontologia.webapp.springboot_web.services.PacienteService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 @RequestMapping("/paciente")
@@ -70,8 +77,27 @@ public class PacienteController {
 
     //Guardar un paciente
     @PostMapping("/guardar")
-	public String guardar(Paciente paciente) 
+	public String guardar(Paciente paciente, @RequestParam("file") MultipartFile imagen) 
     {
+        if(!imagen.isEmpty()){
+            //Path directorioImagenes = Paths.get("src//main//resources//static/imagenes");
+            String rutaAbsoluta = "C://Paciente//Recursos";
+
+            try {
+                byte[] bytesImg = imagen.getBytes();
+                Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
+                Files.write(rutaCompleta, bytesImg);
+
+                paciente.setImagen(imagen.getOriginalFilename());
+
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            
+        }
+
+
         service.guardarPaciente(paciente);
         return "redirect:/paciente/listarPacientes";
 	}
