@@ -47,7 +47,6 @@ canvas {
     display: none;
 }
 .labelColor{
-    background: rgba(249, 160, 63, .4);
     color: #fff;
     padding: 10px;
     text-align: center;
