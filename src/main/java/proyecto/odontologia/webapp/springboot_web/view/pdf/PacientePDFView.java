@@ -3,16 +3,19 @@ package proyecto.odontologia.webapp.springboot_web.view.pdf;
 import java.util.Map;
 
 import java.awt.Color;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 import com.lowagie.text.Font;
 import com.lowagie.text.Element;
 
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.view.document.AbstractPdfView;
 
+import com.lowagie.text.Chunk;
 import com.lowagie.text.Document;
 import com.lowagie.text.Phrase;
-import com.lowagie.text.FontFactory;
-
+import com.lowagie.text.Image;
 import com.lowagie.text.pdf.PdfPCell;
 import com.lowagie.text.pdf.PdfPTable;
 import com.lowagie.text.pdf.PdfWriter;
@@ -29,175 +32,245 @@ public class PacientePDFView extends AbstractPdfView {
             HttpServletRequest request, HttpServletResponse response) throws Exception 
     {
         Paciente paciente = (Paciente) model.get("pacienteEncontrado"); //Obtiene Paciente que se pasa a la vista en controller      
-        
-    // Título principal
-        Font tituloFont = FontFactory.getFont(FontFactory.HELVETICA, 16, Font.BOLD);
-        document.add(new Phrase("HISTORIA CLÍNICA GENERAL", tituloFont));
-        document.add(new Phrase("\n\n")); // Espaciado
+
+    // Numero de Pagina
+    PdfPTable tablaInfo = new PdfPTable(1);
+    tablaInfo.setWidthPercentage(100);
+        tablaInfo.setSpacingAfter(20);
+        tablaInfo.setWidths(new float[] { 1 });
+
+        Image numero = Image.getInstance("src/main/resources/static/images/01.png");
+        numero.scaleToFit(50, 50);
+        PdfPCell cell = new PdfPCell(numero);
+        cell.setBorder(0);
+        cell.setHorizontalAlignment(Element.ALIGN_CENTER); // Alinear imagen a la izquierda
+
+        tablaInfo.addCell(cell);
+        document.add(tablaInfo);
+
+    // Logo y Titulo
+    tablaInfo = new PdfPTable(2);
+        tablaInfo.setWidthPercentage(100);
+        tablaInfo.setSpacingAfter(20);
+        tablaInfo.setWidths(new float[] { 1, 4 }); 
+
+    // IMAGEN
+        Image logo = Image.getInstance("src/main/resources/static/images/icono2.jpg");
+        logo.scaleToFit(60, 60);
+        cell = new PdfPCell(logo);
+        cell.setBorder(0);
+        cell.setHorizontalAlignment(Element.ALIGN_RIGHT); // Alinear imagen a la izquierda
+        cell.setPaddingTop(-35);
+
+    // TÍTULO
+        Chunk chunkSubrayado = new Chunk("HISTORIA CLÍNICA GENERAL", new Font(Font.HELVETICA, 16, Font.BOLD));
+        chunkSubrayado.setUnderline(0.5f, -2f); // (grosor, posición)
+
+        Phrase fraseSubrayada = new Phrase(chunkSubrayado);
+        PdfPCell cellTitulo = new PdfPCell(fraseSubrayada);
+        cellTitulo.setBorder(0);
+        cellTitulo.setHorizontalAlignment(Element.ALIGN_LEFT);
+        cellTitulo.setPaddingTop(-5);
+        cellTitulo.setPaddingLeft(50);
+
+        tablaInfo.addCell(cell);
+        tablaInfo.addCell(cellTitulo);
+        document.add(tablaInfo);
+
 
     // 1ra Fila: Encabezados (Lugar, Fecha)
-    PdfPTable encabezado = new PdfPTable(2);
-        encabezado.setWidthPercentage(100);
-        encabezado.setWidths(new float[] { 3, 2 });
+    tablaInfo = new PdfPTable(2);
+        tablaInfo.setWidthPercentage(100);
+        tablaInfo.setWidths(new float[] { 3, 1 });
 
-        PdfPCell cell = new PdfPCell(new Phrase("Lugar: _______________________"));
+        cell = new PdfPCell(formato("Lugar: ", "Independencia 922"));
         cell.setBorder(0);
-        encabezado.addCell(cell);
+        tablaInfo.addCell(cell);
 
-        cell = new PdfPCell(new Phrase("Fecha: ____/____/____"));
+        LocalDate hoy = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formatoHoy = hoy.format(formatter);
+        cell = new PdfPCell(formato("Fecha: ", formatoHoy));
         cell.setBorder(0);
-        encabezado.addCell(cell);
-        document.add(encabezado);
+        tablaInfo.addCell(cell);
+        document.add(tablaInfo);
 
     // 2da Fila: Odontologo y N° de Matricula
-    PdfPTable segundaFila = new PdfPTable(2);
-        segundaFila.setSpacingBefore(20);
-        segundaFila.setWidthPercentage(100);
-        segundaFila.setWidths(new float[] { 3, 1 });
+    tablaInfo = new PdfPTable(2);
+        tablaInfo.setSpacingBefore(20);
+        tablaInfo.setWidthPercentage(100);
+        tablaInfo.setWidths(new float[] { 3, 1 });
 
-        cell = new PdfPCell(new Phrase("ODONTOLOGO: "));
+        cell = new PdfPCell(formato("ODONTOLOGO: ", "Nombre Apellido")); //Reemplazar por el valor
         cell.setPadding(18f);
-        segundaFila.addCell(cell);
+        tablaInfo.addCell(cell);
 
-        cell = new PdfPCell(new Phrase("N° Matrícula: "));
+        cell = new PdfPCell(formato("N° Matrícula ", "00000")); //Reemplazar por el valor
         cell.setPadding(18f);
-        segundaFila.addCell(cell);
+        tablaInfo.addCell(cell);
         
         cell.setBackgroundColor(new Color(255, 255, 255));
 
-        segundaFila.addCell(cell);
-        document.add(segundaFila);
+        tablaInfo.addCell(cell);
+        document.add(tablaInfo);
 
     // 3ra Fila: Paciente y N° Afil
-    PdfPTable terceraFila = new PdfPTable(2);
-        terceraFila.setSpacingBefore(25);
-        terceraFila.setWidthPercentage(100);
-        terceraFila.setWidths(new float[] { 2, 1.5f });
+    tablaInfo = new PdfPTable(2);
+        tablaInfo.setSpacingBefore(25);
+        tablaInfo.setWidthPercentage(100);
+        tablaInfo.setWidths(new float[] { 2, 1.5f });
 
-        cell = new PdfPCell(new Phrase("PACIENTE - " + paciente.getNombre() + " " + paciente.getApellido()));
+        cell = new PdfPCell(formato("PACIENTE - ", paciente.getNombre() + " " + paciente.getApellido()));
         cell.setPadding(6f);
-        terceraFila.addCell(cell);
+        tablaInfo.addCell(cell);
 
-        cell = new PdfPCell(new Phrase("N° AFIL: "));
+        cell = new PdfPCell(formato("N° AFIL: ", "0000")); //Reemplazar por el valor
         cell.setPadding(6f);
-        terceraFila.addCell(cell);
+        tablaInfo.addCell(cell);
         
         cell.setBackgroundColor(new Color(255, 255, 255));
 
-        terceraFila.addCell(cell);
-        document.add(terceraFila);
+        tablaInfo.addCell(cell);
+        document.add(tablaInfo);
 
     // Informacion general del Paciente, Primera linea
-    PdfPTable tablaInfo = new PdfPTable(3);
+    tablaInfo = new PdfPTable(3);
         tablaInfo.setWidthPercentage(100);
         tablaInfo.setSpacingBefore(10);
         tablaInfo.setWidths(new float[] { 2, 1, 1 });
 
-        tablaInfo.addCell(createLabelCell("O. Social. _____________________________"));
-        tablaInfo.addCell(createLabelCell("F. Nac. " + paciente.getFechaNacimiento().toString()));
-        tablaInfo.addCell(createLabelCell("Tel. " + paciente.getTelefono()));
+        cell = new PdfPCell(formatito("O. Social. ", "obraSocial"));
+        terminar(cell, tablaInfo);
+
+        cell = new PdfPCell(formatito("F. Nac. ", paciente.getFechaNacimiento().toString()));
+        terminar(cell, tablaInfo);
+
+        cell = new PdfPCell(formatito("Tel. ", paciente.getTelefono()));
+        terminar(cell, tablaInfo);
+
         document.add(tablaInfo);
 
     // Segunda linea
-    PdfPTable tablaInfo2 = new PdfPTable(5);
-        tablaInfo2.setWidthPercentage(100);
-        tablaInfo2.setSpacingBefore(10);
-        tablaInfo2.setWidths(new float[] { 1, 2.2f, 2.5f, 2, 2 });
+    tablaInfo = new PdfPTable(5);
+        tablaInfo.setWidthPercentage(100);
+        tablaInfo.setSpacingBefore(10);
+        tablaInfo.setWidths(new float[] { 1, 2.2f, 2.5f, 2, 2 });
 
-        tablaInfo2.addCell(createLabelCell("Edad. " + String.valueOf(paciente.getEdad())));
-        tablaInfo2.addCell(createLabelCell("Estado Civil. CASADO"));
-        tablaInfo2.addCell(createLabelCell("Nacionalidad. " + paciente.getNacionalidad()));
-        tablaInfo2.addCell(createLabelCell("N° de Doc. " + paciente.getDni()));
-        tablaInfo2.addCell(createLabelCell("Cel. " + paciente.getTelefono()));
-        document.add(tablaInfo2);
+        cell = new PdfPCell(formatito("Edad. ", String.valueOf(paciente.getEdad())));
+        terminar(cell, tablaInfo);
+
+        cell = new PdfPCell(formatito("Estado Civil. ", "estado"));
+        terminar(cell, tablaInfo);
+
+        cell = new PdfPCell(formatito("Nacionalidad. ", paciente.getNacionalidad()));
+        terminar(cell, tablaInfo);
+
+        cell = new PdfPCell(formatito("N° de Doc. ", String.valueOf(paciente.getDni())));
+        terminar(cell, tablaInfo);
+        
+        // tablaInfo.addCell(createLabelCell("Cel. " + paciente.getTelefono()));
+        cell = new PdfPCell(formatito("Cel. ", paciente.getTelefono()));
+        terminar(cell, tablaInfo);
+        
+
+        document.add(tablaInfo);
 
     // Tercera linea
-    PdfPTable tablaInfo3 = new PdfPTable(1);
-        tablaInfo3.setWidthPercentage(100);
-        tablaInfo3.setSpacingBefore(10);
-        tablaInfo3.setWidths(new float[] { 1 });
+    tablaInfo = new PdfPTable(1);
+        tablaInfo.setWidthPercentage(100);
+        tablaInfo.setSpacingBefore(10);
+        tablaInfo.setWidths(new float[] { 1 });
 
-        tablaInfo3.addCell(createLabelCell("Domicilio (calle, num., barrio, localidad). ________________________________________________"));
-        document.add(tablaInfo3);
+        cell = new PdfPCell
+            (formatito("Domicilio (calle, num., barrio, localidad). ", 
+                        paciente.getDomicilio().getCalle() 
+                        + " " + paciente.getDomicilio().getNroCalle() 
+                        + ", " + paciente.getDomicilio().getBarrio() 
+                        + ", " + paciente.getDomicilio().getLocalidad()
+                    )
+            );
+
+        terminar(cell, tablaInfo);
+        document.add(tablaInfo);
 
     // Cuarta linea
-    PdfPTable tablaInfo4 = new PdfPTable(4);
-        tablaInfo4.setWidthPercentage(100);
-        tablaInfo4.setSpacingBefore(10);
-        tablaInfo4.setWidths(new float[] { 2, 1.5f, 2, 1.4f });
+    tablaInfo = new PdfPTable(4);
+        tablaInfo.setWidthPercentage(100);
+        tablaInfo.setSpacingBefore(10);
+        tablaInfo.setWidths(new float[] { 2, 1.5f, 2, 1.4f });
 
-        tablaInfo4.addCell(createLabelCell("Profesión/Actividad. ________"));
-        tablaInfo4.addCell(createLabelCell("Titular. _________"));
-        tablaInfo4.addCell(createLabelCell("Lugar de Trabajo. _________"));
-        tablaInfo4.addCell(createLabelCell("Jerarquía. ________"));
-        document.add(tablaInfo4);
+        cell = new PdfPCell(formatito("Profesión/Actividad. ", "profesion"));
+        terminar(cell, tablaInfo);
+
+        cell = new PdfPCell(formatito("Titular. ", paciente.getNombre() + " " + paciente.getApellido()));
+        terminar(cell, tablaInfo);
+
+        cell = new PdfPCell(formatito("Lugar de Trabajo. ", "lugar"));
+        terminar(cell, tablaInfo);
+
+        cell = new PdfPCell(formatito("Jerarquía. ", "jerarquia"));
+        terminar(cell, tablaInfo);
+
+        document.add(tablaInfo);
 
     // Separador
-    PdfPTable separador = new PdfPTable(1);
-        separador.setWidthPercentage(100);
-        separador.setSpacingBefore(5);
-        separador.setWidths(new float[] { 1 });
+    tablaInfo = new PdfPTable(1);
+        tablaInfo.setWidthPercentage(100);
+        tablaInfo.setSpacingBefore(5);
+        tablaInfo.setWidths(new float[] { 1 });
 
-        separador.addCell(negrita("_____________________________________________________________________________________________"));
-        document.add(separador);
+        tablaInfo.addCell(negrita("_____________________________________________________________________________"));
+        document.add(tablaInfo);
 
-    //Informacion General - EJEMPLO
-    PdfPTable tabla1 = new PdfPTable(1);
+    // Si/No
+        // document.add(new Paragraph("Padre con vida?  Si / No"));
+        // document.add(new Paragraph("Enfermedad que padece o padeció: ............................................................"));
+        // document.add(new Paragraph("\n")); // Espacio en blanco
         
-        tabla1.setSpacingBefore(50);
-        PdfPCell cell1 = null;
-        cell1 = new PdfPCell(new Phrase("Información General"));
-        cell1.setBackgroundColor(new Color(184, 218, 255));
-        cell1.setPadding(8f);
-        tabla1.addCell(cell1);
-        document.add(tabla1);
-//--
-    PdfPTable tabla2 = new PdfPTable(6);
-        // PdfPCell cell2 = null;
-        // tabla2.
-        tabla2.setWidths(new float[] { 7, 5, 6, 3, 6, 6 });
-        tabla2.addCell("Paciente");
-        // tabla2.addCell(new Paragraph("Paciente"));
-        tabla2.addCell("DNI");
-        tabla2.addCell("Fecha de Nacimiento");
-        tabla2.addCell("Edad");
-        tabla2.addCell("Teléfono");
-        tabla2.addCell("Nacionalidad");
+    // Odontograma
+    tablaInfo = new PdfPTable(1);
+        tablaInfo.setWidthPercentage(100);
+        tablaInfo.setSpacingBefore(10);
+        tablaInfo.setWidths(new float[] { 1 });
 
-        tabla2.addCell(paciente.getNombre() + " " + paciente.getApellido());
-        tabla2.addCell("" +paciente.getDni());
-        tabla2.addCell(paciente.getFechaNacimiento().toString());
-        tabla2.addCell(String.valueOf(paciente.getEdad()));
-        tabla2.addCell(paciente.getTelefono());
-        tabla2.addCell(paciente.getNacionalidad());
-        tabla2.setSpacingAfter(20);
-        document.add(tabla2);
+        cell = new PdfPCell(negrita("ODONTROGRAMA:"));
+        terminar(cell, tablaInfo);
+        document.add(tablaInfo);
 
-    //Informacion Clinica
-    PdfPTable tabla3 = new PdfPTable(1);
-        tabla3.setSpacingAfter(20);
-
-        PdfPCell cell3 = null;
-        cell3 = new PdfPCell(new Phrase("Información Clínica"));
-        cell3.setBackgroundColor(new Color(195, 230, 203));
-        cell3.setPadding(8f);
-        tabla3.addCell(cell3);
-        document.add(tabla3);
-        
-        
-        
     }
 
-    private PdfPCell createLabelCell(String text) {
-        Font font = new Font(Font.HELVETICA, 10, Font.NORMAL);
-        PdfPCell cell = new PdfPCell(new Phrase(text, font));
-        cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+    // private PdfPCell createLabelCell(String text) {
+    //     Font font = new Font(Font.HELVETICA, 16, Font.BOLD);
+    //     PdfPCell cell = new PdfPCell(new Phrase(text, font));
+    //     cell.setHorizontalAlignment(Element.ALIGN_LEFT);
+    //     cell.setBorder(0);
+    //     return cell;
+    // }
+
+    private Phrase formato(String titulo, String texto)
+    {
+        Phrase phrase = new Phrase();
+        phrase.add(new Chunk(titulo, new Font(Font.HELVETICA, 12, Font.BOLD))); // Título en negrita
+        phrase.add(new Chunk(texto, new Font(Font.HELVETICA, 12, Font.NORMAL))); // Texto normal
+        return phrase;
+    }
+
+    private Phrase formatito(String titulo, String texto)
+    {
+        Phrase phrase = new Phrase();
+        phrase.add(new Chunk(titulo, new Font(Font.HELVETICA, 10, Font.BOLD))); // Título en negrita
+        phrase.add(new Chunk(texto, new Font(Font.HELVETICA, 10, Font.NORMAL))); // Texto normal
+        return phrase;
+    }
+
+    private void terminar(PdfPCell cell, PdfPTable tablaInfo)
+    {
         cell.setBorder(0);
-        return cell;
+        tablaInfo.addCell(cell);
     }
 
     private PdfPCell negrita(String text) {
-        Font font = new Font(Font.HELVETICA, 10, Font.BOLD);
+        Font font = new Font(Font.HELVETICA, 12, Font.BOLD);
         PdfPCell cell = new PdfPCell(new Phrase(text, font));
         cell.setHorizontalAlignment(Element.ALIGN_LEFT);
         cell.setBorder(0);

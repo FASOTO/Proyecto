@@ -17,7 +17,8 @@
                 <td colspan="9" class="title-table text-center p-4" th:text="${titulo}"></td>
                 <td>
                     <a class="btn btn-danger btn-xs float-right" 
-                    th:href="@{'/paciente/informacionPaciente/' + ${pacienteEncontrado.dni}(format=pdf)}">
+                        th:href="@{'/paciente/informacionPaciente/' + ${pacienteEncontrado.dni}(format=pdf)}" 
+                        target="_blank">
                         PDF
                     </a>
                 </td>
