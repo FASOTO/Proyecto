@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // DESDE ACA EMPIEZA A DIBUJAR- MOSTRAR ESTRUCTURA
     const dibujarEstructura = () => {
-        lienzo.width = lienzo2.width = lienzo3.width = grupo1.clientWidth
-        lienzo6.width = lienzo5.width= lienzo4.width = grupo2.clientWidth
+        lienzo.width = lienzo2.width = lienzo3.width = contenedorCanvas.parentElement.parentElement.clientWidth
+        lienzo6.width = lienzo5.width= lienzo4.width = contenedorCanvas.parentElement.parentElement.clientWidth
       
         const altura = parseInt((lienzo.width * 872) / 1895/2)
 

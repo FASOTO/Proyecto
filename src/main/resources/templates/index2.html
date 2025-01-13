@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{Layout/layout :: head}"></head>
+<body>
+    <header th:replace="~{Layout/layout :: header}"></header>
+
+    <div class="main-container">
+    <h1 class="tittle" th:text="${titulo}"></h1>
+
+    <div class="carousel-container">
+      <div id="carouselExampleCaptions" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://estudidentalbarcelona.com/wp-content/uploads/2019/11/shutterstock_389544691.jpg" class="thumbnail d-block w-100" alt="Slider1" onclick="showImage(this)">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Sonrisas que inspiran confianza</h5>
+              <p>Descubre cómo nuestra experiencia transforma la salud y estética dental</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://ccfprosario.com.ar/wp-content/uploads/derechos-y-deberes-del-paciente-en-odontologia-guia-completa.jpg" class="thumbnail d-block w-100" alt="Slider2" onclick="showImage(this)">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Tu salud bucal, nuestra prioridad</h5>
+              <p>Ofrecemos tratamientos personalizados para cuidar tu sonrisa</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="https://www.doctologia.es/wp-content/uploads/2017/11/odontologia-digital-zaragoza.jpg" class="thumbnail d-block w-100" alt="Slider3" onclick="showImage(this)">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>Especialistas a tu servicio</h5>
+              <p>Un equipo profesional dedicado al cuidado de tu bienestar bucal</p>
+            </div>
+          </div>
+        </div>
+        
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    
+    <div id="fullscreenImage" class="fullscreen hidden" onclick="closeImage()">
+      <img id="fullscreenImageContent" src="" alt="Imagen ampliada">
+    </div>
+    <div class="body-page">
+      <span>Brindar armonía y conciencia a los pacientes priorizando el tratamiento integral</span></br>
+      <span>Dra. Berdeja Paula Verónica</span>
+    </div>
+    </div>
+    
+    <script>
+      function showImage(imgElement) {
+        const fullscreenDiv = document.getElementById('fullscreenImage');
+        const fullscreenImage = document.getElementById('fullscreenImageContent');
+        fullscreenImage.src = imgElement.src; // Copia la fuente de la imagen seleccionada
+        fullscreenDiv.classList.remove('hidden'); // Muestra el contenedor
+      }
+    
+      function closeImage() {
+        const fullscreenDiv = document.getElementById('fullscreenImage');
+        fullscreenDiv.classList.add('hidden'); // Oculta el contenedor
+      }
+    </script>
+    
+</body>
+</html>

@@ -63,7 +63,9 @@ public class PacienteController {
         model.addAttribute("titulo", "FORMULARIO DE PACIENTE");
         model.addAttribute("botonGuardar", "Crear Paciente");
 
-        return "formPaciente"; // cambiar luego a conveniencia el nombre del html
+        // return "formPaciente"; // cambiar luego a conveniencia el nombre del html
+        // mio
+        return "formPaciente";
     }
 
     //Guardar un paciente

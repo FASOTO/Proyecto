@@ -1,3 +1,10 @@
+*{
+    box-sizing: border-box;
+}
+.contenedorExterno{
+    width: 98%;
+    height: 570px;
+}
 .contenedorCanvas{
     height: 100%;
     display: flex;
@@ -5,7 +12,6 @@
     flex-wrap: wrap;
     justify-content: flex-end;
     align-content: flex-start;
-    background: #fff;
 }
 .grupoCanvas1{
     width: 100%;
@@ -37,7 +43,7 @@ canvas {
     flex-wrap: nowrap;
     justify-content: space-between;
 }
-.colores input[type="radio"]{
+.formColores input[type="radio"]{
     display: none;
 }
 .labelColor{
@@ -45,7 +51,7 @@ canvas {
     color: #fff;
     padding: 10px;
     text-align: center;
-    width: 45%;
+    width: 48%;
     border-radius: 3px;
 }
 .rojo{
