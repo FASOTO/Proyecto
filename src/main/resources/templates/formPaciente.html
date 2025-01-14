@@ -13,6 +13,7 @@
     
     <link rel="stylesheet" th:href="@{/css/estilosInicio.css}" type="text/css">
     
+    <link rel="stylesheet" th:href="@{/css/estilosOdontograma.css}" type="text/css">
 
 </head>
 <body>
@@ -53,32 +54,31 @@
                             <div class="row m-2">
                                 <div class="col-md-6 mb-3">
                                     <label for="inputNombre" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control" id="inputNombre">
+                                    <input type="text" class="form-control" id="inputNombre" th:field="*{nombre}"> 
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <label for="inputApellido" class="form-label">Apellido</label>
-                                    <input type="text" class="form-control" id="inputApellido">
+                                    <input type="text" class="form-control" id="inputApellido" th:field="*{apellido}">
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="inputDni" class="form-label">DNI</label>
-                                    <input type="text" placeholder="11222333" class="form-control" id="inputDni">
+                                    <input type="text" placeholder="11222333" class="form-control" id="inputDni" th:field="*{dni}">
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="inputTelefono" class="form-label">Telefono</label>
-                                    <input type="tel" class="form-control" id="inpuTelefono">
+                                    <input type="tel" class="form-control" id="inpuTelefono" placeholder="3885872108" th:field="*{telefono}">
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="inputNacionalidad" class="form-label">Nacionalidad</label>
-                                    <select id="inputNacionalidad" class="form-select">
-                                        <option selected>Argentina</option>
-                                        <option>Bolivia</option>
-                                        <option>Paraguay</option>
-                                        <option>Chile</option>
-                                    </select>
+                                    <label for="nacionalidad" class="form-label">Nacionalidad</label>
+                                    <select id="nacionalidad" name="nacionalidad" class="form-select">
+                                        <option th:each="nacionalidad : ${listaNacionalidad}" th:value="${nacionalidad}"
+                                          th:text="${nacionalidad}">
+                                        </option>
+                                      </select>
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="inputFechaNacimiento" class="form-label">Fecha de Nacimiento</label>
-                                    <input type="date" class="form-control" id="inputFechaNacimiento">
+                                    <input type="date" class="form-control" id="inputFechaNacimiento" th:field="*{fechaNacimiento}">
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <label for="imagen" class="form-label">Imagen:</label>
@@ -88,20 +88,22 @@
                                 <h4 class="mb-3">Domicilio</h4>
                                 <div class="col-md-5 mb-3">
                                     <label for="inputCalle" class="form-label">Calle</label>
-                                    <input type="text" placeholder="calle" class="form-control" id="inputCalle">
+                                    <input type="text" placeholder="calle" class="form-control" id="inputCalle" th:field="*{domicilio.calle}">
                                 </div>
                                 <div class="col-md-2 mb-3">
                                     <label for="inputNumero" class="form-label">Numero</label>
-                                    <input type="text" placeholder="1122" class="form-control" id="inputNumero">
+                                    <input type="number" placeholder="1122" class="form-control" id="inputNumero" th:field="*{domicilio.nroCalle}">
                                 </div>
-                                <div class="col-md-5 mb-3">
+                                <div class="col-md-2 mb-3">
+                                    <label for="inputNumero" class="form-label">Barrio: </label>
+                                    <input type="text" placeholder="1122" class="form-control" id="inputNumero" th:field="*{domicilio.barrio}">
+                                </div>
+                                <div class="col-md-3 mb-3">
                                     <label for="inputLocalidad" class="form-label">Localidad</label>
-                                    <select id="inputLocalidad" class="form-select">
-                                        <option selected>San Salvador de Jujuy</option>
-                                        <option>Palpala</option>
-                                        <option>San Pedro</option>
-                                        <option>Perico</option>
-                                    </select>
+                                    <select id="inputLocalidad" class="form-select" name="localidad" th:field="*{domicilio.localidad}">
+                                        <option th:each="localidad : ${listaLocalidad}" th:value="${localidad}" th:text="${localidad}">
+                                        </option>
+                                      </select>
                                 </div>
                                 <hr>
                                 <h4 class="mb-3 col-md-6">Obra Social</h4>
