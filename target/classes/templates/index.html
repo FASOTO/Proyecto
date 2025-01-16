@@ -5,10 +5,11 @@
 
 <body>
     <div class="container-fluid">
+         
         <div class="row">
             <aside th:replace="~{Layout/layout :: aside}"></aside>
-
-            <main class="col-md-10 col-9 text-center">
+            <main class="col-md-10 col-9 text-center py-2">
+                <h1>¡Bienvenido a la clinica Equilibrio Dental!</h1>
                 <div class="carousel slide" id="mi-carousel" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
@@ -44,7 +45,153 @@
                             aria-label="Slide 3"></button>
                     </div>
                 </div>
-               
+                <p>Brindar armonía y conciencia a los pacientes priorizando el tratamiento integral</p>
+                <p>Dra. Berdeja Paula Verónica</p>
+                <!--Horarios de atención y ubicación-->
+                <div class="info row p-4">
+                  <div class="col-sm-6 mb-3 mb-sm-0">
+                    <div class="card mb-3 border-0 shadow rounded-0">
+                      <div class="row g-0">
+                        <div class="col-md-6">
+                          <img src="/images/Horarios.heic" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-6">
+                          <div class="card-body text-white p-5">
+                            <h5 class="card-title fw-bold">Horarios de Atención</h5>
+                            <p class="card-text">Puedes consultarnos en los siguientes horarios para brindar lo mejor para vos y tu familia</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="card mb-3 border-0 shadow rounded-0">
+                      <div class="row g-0">
+                        <div class="col-md-6">
+                          <img src="/images/Direccion-clinica.png" class="img-fluid rounded-start" alt="...">
+                        </div>
+                        <div class="col-md-6">
+                          <div class="card-body text-white p-5">
+                            <h5 class="card-title fw-bold">¿Donde nos encontramos?</h5>
+                            <p class="card-text">Nos encontramos en calle Independencia 922, ubicado entre calles Balcarce y Lamadrid.</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--Servicios-->
+                <h2 class="fw-bold text-primary">Nuestros Servicios</h2>
+                <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 p-4">
+                    <div class="col">
+                      <div class="card border-0 shadow rounded-0">
+                        <img src="/images/Limpieza-dental.jpg" class="card-img-top" alt="...">
+                        <div class="card-img-overlay">
+                          <h5 class="card-title fw-bold">Limpieza Dental</h5>
+                          <p class="card-text">Además de eliminar el sarro acumulado en nuestros dientes y atenuar las manchas, la limpieza dental ayuda a prevenir enfermedades, principalmente aquellas que afectan a las encías como la gingivitis o la periodontitis.</p>
+                          <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-primary" type="button">Saber mas ...</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card border-0 shadow rounded-0">
+                        <img src="/images/Ortodoncia2.jpg" class="card-img-top" alt="...">
+                        <div class="card-img-overlay">
+                          <h5 class="card-title fw-bold">Ortodencia</h5>
+                          <p class="card-text">Es un tratamiento que tiene como objetivo lograr una estabilidad ortopedica/músculo esquelética, alcanzando una correcta posición de los dientes y un mejor funcionamiento de la mandíbula.</p>
+                          <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-primary" type="button">Saber más ...</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card border-0 shadow rounded-0">
+                        <img src="/images/Endodoncia.jpg" class="card-img-top" alt="...">
+                        <div class="card-img-overlay">
+                          <h5 class="card-title fw-bold">Endodoncia</h5>
+                          <p class="card-text">Es un tratamiento para dientes infectados o descompuestos gravemente, cuya causa parte del nervio del diente. El tratamiento consiste en reparar y salvar los dientes eliminando la pulpa dental, para después limpiar y sellar el interior del diente.</p>
+                          <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-primary" type="button">Saber más ...</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card border-0 shadow rounded-0">
+                        <img src="/images/Implante-dental.jpg" class="card-img-top" alt="...">
+                        <div class="card-img-overlay">
+                          <h5 class="card-title fw-bold">Implante Dental</h5>
+                          <p class="card-text">Es una de las mejores opciones de tratamiento para reemplazar los dientes perdidos. El implante dental ejerce de raíz artificial que se coloca en los huesos maxilares, donde funciona como base de la prótesis o corona, que es la parte visible y tiene una estética muy similar a la de los dientes.</p>
+                          <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-primary" type="button">Saber más ...</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card border-0 shadow rounded-0">
+                        <img src="/images/Decodificacion-dental.heic" class="card-img-top" alt="...">
+                        <div class="card-img-overlay">
+                          <h5 class="card-title fw-bold">Descodificación Dental</h5>
+                          <p class="card-text">La descodificación dental es una disciplina que relaciona la salud bucal con la salud mental. Se basa en la idea de que los dientes pueden reflejar la personalidad y los conflictos emocionales de una persona.</p>
+                          <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-primary" type="button">Saber más ...</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card border-0 shadow rounded-0">
+                        <img src="/images/Odontopediatria.heic" class="card-img-top" alt="...">
+                        <div class="card-img-overlay">
+                          <h5 class="card-title fw-bold">Odontopediatría</h5>
+                          <p class="card-text">Es una especialidad de la odontología que se enfoca en la salud bucal de lactantes, niños y adolescentes, incluyendo a pacientes con necesidades especiales de salud.</p>
+                          <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-primary" type="button">Saber más ...</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card border-0 shadow rounded-0">
+                        <img src="/images/Blanqueamiento.heic" class="card-img-top" alt="...">
+                        <div class="card-img-overlay">
+                          <h5 class="card-title fw-bold">Blanqueamiento</h5>
+                          <p class="card-text">El blanqueamiento dental es un tratamiento odontológico que tiene el objetivo de aclarar y mejorar la apariencia de los dientes. Se aplica en dientes que se han oscurecido por la pérdida de esmalte.</p>
+                          <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-primary" type="button">Saber más ...</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card border-0 shadow rounded-0">
+                        <img src="/images/Cirugia-dental.heic" class="card-img-top" alt="...">
+                        <div class="card-img-overlay">
+                          <h5 class="card-title fw-bold">Cirugía</h5>
+                          <p class="card-text">La cirugía dental es la especialidad quirúrgica que incluye el diagnóstico, la cirugía y los tratamientos relacionados con una diversidad de enfermedades, heridas y aspectos estéticos de la boca y los dientes. Una cirugía oral es una operación quirúrgica que se realiza en la cavidad oral (dientes, mucosas y tejidos) para solucionar o extirpar elementos anatómicos patológicos.</p>
+                          <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-primary" type="button">Saber más ...</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="card border-0 shadow rounded-0">
+                        <img src="/images/Estetica.jpg" class="card-img-top" alt="...">
+                        <div class="card-img-overlay">
+                          <h5 class="card-title fw-bold">Estética</h5>
+                          <p class="card-text">La estética dental, también conocida como odontología estética, es un servicio dental que mejora y recupera el aspecto general de tu boca. Los tratamientos se centran en mejorar aspectos como la alineación, el color, la posición, el tamaño y la forma de los dientes.</p>
+                          <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-primary" type="button">Saber más ...</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             </main>
         </div>
     </div>

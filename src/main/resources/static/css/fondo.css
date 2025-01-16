@@ -11,8 +11,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     height: 100%;
-    width: 100%;
-    overflow: hidden; 
+    width: 100%; 
 }
 
 .snow {
