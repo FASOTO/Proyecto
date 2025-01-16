@@ -29,28 +29,20 @@
                 </div>
 
                 <!-- Nav tabs -->
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
-                            type="button" role="tab" aria-controls="home" aria-selected="true">Datos Personales</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
-                            type="button" role="tab" aria-controls="profile" aria-selected="false">Declaracion
-                            Jurada</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages"
-                            type="button" role="tab" aria-controls="messages" aria-selected="false">Odontograma</button>
-                    </li>
-
-                </ul>
+                <nav class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#datosPersonales" type="button"
+                        role="tab" aria-selected="true">Datos Personales</button>
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#declaracionJurada" type="button"
+                        role="tab" aria-selected="false">Declaracion Jurada</button>
+                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabOdontograma" type="button" role="tab"
+                        aria-selected="false">Odontograma</button>
+                </nav>
 
                 <form th:action="@{/paciente/guardar}" th:object="${paciente}" method="post"
                     enctype="multipart/form-data">
                     <!-- Tab panes -->
                     <div class="tab-content">
-                        <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+                        <div class="tab-pane active" id="datosPersonales" role="tabpanel" tabindex="0">
                             <div class="row m-2">
                                 <div class="col-md-6 mb-3">
                                     <label for="inputNombre" class="form-label">Nombre</label>
@@ -120,7 +112,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                        <div class="tab-pane" id="declaracionJurada" role="tabpanel" tabindex="0">
                             <div class="row mt-3">
 
                                 <div class="form-ckeck col-md-4">
@@ -139,40 +131,32 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab" tabindex="0">
+                        <div class="tab-pane" id="tabOdontograma" role="tabpanel" tabindex="0">
                             <!-- ODONTOGRAMA -->
-                            <div class="contenedorCanvas" id="contenedorCanvas">
-                                <div class="grupoCanvas1" id="grupo1">
+                            <div class=" row justify-content-end">
+                                <div class="col-12" id="grupo1">
                                     <canvas id="canvas"></canvas>
                                     <canvas id="canvas2"></canvas>
                                     <canvas id="canvas3"></canvas>
                                 </div>
-                                <div class="grupoCanvas2" id="grupo2">
+                                <div class="col-8" id="grupo2">
                                     <canvas id="canvas4"></canvas>
                                     <canvas id="canvas5"></canvas>
                                     <canvas id="canvas6"></canvas>
                                 </div>
-                                <div class="opciones">
-                                    <div class="formColores">
-                                        <div class="colores">
-                                            <input type="radio" name="color" id="inputColorRojo">
-                                            <label class="labelColor rojo" for="inputColorRojo">Rojo</label>
-                                            <input type="radio" name="color" id="inputColorAzul">
-                                            <label class="labelColor azul" for="inputColorAzul">Azul</label>
-                                        </div>
-                                    </div>
+                                <div class="col-2">
+                                    <input type="radio" class="btn-check" name="opcionColor" id="inputColorAzul"
+                                        autocomplete="off" checked>
+                                    <label class="btn btn-outline-primary" for="inputColorAzul">Azul</label>
+                                    <input type="radio" class="btn-check" name="opcionColor" id="inputColorRojo"
+                                        autocomplete="off">
+                                    <label class="btn btn-outline-danger" for="inputColorRojo">Rojo</label>
                                 </div>
                             </div>
                         </div>
-                        <div class="tab-pane" id="obraSocial" role="tabpanel" aria-labelledby="messages-tab" tabindex="0">
-
-                        </div>
                     </div>
-                    
                 </form>
             </main>
-            
-        
         </div>
     </div>
 
