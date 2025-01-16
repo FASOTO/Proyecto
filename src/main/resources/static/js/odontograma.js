@@ -1,21 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
+    
+
+    let elementoCanvas = document.getElementsByTagName('canvas')
+    for (let index = 0; index < elementoCanvas.length; index++) {
+        elementoCanvas[index].style.position = 'absolute'
+    }
+
     const lienzo = document.getElementById('canvas');
+    lienzo.style.zIndex='0'
     const contextoEstructura = lienzo.getContext('2d');
 
     const lienzo2 = document.querySelector('#canvas2');
+    lienzo2.style.zIndex='1'
     const contextoSombrado = lienzo2.getContext('2d');
 
     const lienzo3 = document.querySelector('#canvas3');
+    lienzo3.style.zIndex='2'
     const contextoPinta = lienzo3.getContext('2d');
 
     // 2da parte
     const lienzo4 = document.getElementById('canvas4');
+    lienzo4.style.zIndex='0'
     const contextoEstructura2 = lienzo4.getContext('2d');
 
     const lienzo5 = document.querySelector('#canvas5');
+    lienzo5.style.zIndex='1'
     const contextoSombrado2 = lienzo5.getContext('2d');
 
     const lienzo6 = document.querySelector('#canvas6');
+    lienzo6.style.zIndex='2'
     const contextoPinta2 = lienzo6.getContext('2d');
 
     const grupo2 = document.getElementById('grupo2');
