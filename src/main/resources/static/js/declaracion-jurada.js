@@ -151,3 +151,18 @@ document.getElementById('operadoSi').addEventListener('change', function() {
 document.getElementById('operadoNo').addEventListener('change', function() {
     document.getElementById('operadoField').style.display = 'none';
 });
+
+/*--------------- boton agregar input----------------*/
+
+const contenedorImagenes = document.getElementById("contenedor-imagenes");
+    const botonAgregar = document.getElementById("agregar-imagen");
+
+    botonAgregar.addEventListener("click", () => {
+        const nuevoInput = document.createElement("div");
+        nuevoInput.classList.add("col-md-4", "mb-3");
+        nuevoInput.innerHTML = `
+            <label for="imagen" class="form-label">Imagen:</label>
+            <input type="file" name="files" class="form-control">
+        `;
+        contenedorImagenes.appendChild(nuevoInput);
+    });

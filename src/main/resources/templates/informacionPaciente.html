@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="Layout/layout :: head"></head>
+<head th:replace="~{Layout/layout :: head}"></head>
 
 <body>
 
@@ -30,7 +30,7 @@
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-md-4 d-flex align-items-center justify-content-center">
-                                <img class="img-thumbnail w-75" th:src="@{'/Recursos/' + ${pacienteEncontrado.imagen}}"
+                                <img class="img-thumbnail w-75" th:src="@{'/Recursos/' + ${pacienteEncontrado.imagenes[0].url}}"
                                     alt="Foto del paciente">
                             </div>
                             <div class="col-md-8">
@@ -80,7 +80,21 @@
                     </div>
 
                 </div>
+                <div class="container mt-5">
+                    <h2>Imágenes Iniciales</h2>
+                    <ul class="row list-unstyled g-3">
+                        <li class="col-12 col-sm-6 col-md-4 col-lg-3" th:each="imagen : ${pacienteEncontrado.imagenes}">
+                            <div class="card shadow-sm">
+                                <img th:src="@{'/Recursos/' + ${imagen.url}}" class="card-img-top img-thumbnail" alt="Imagen del paciente">
+                                <div class="card-body text-center">
+                                    <p class="card-text" th:text="'Imagen: ' + ${imagen.url}"></p>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </main>
+            
         </div>
     </div>
 </body>

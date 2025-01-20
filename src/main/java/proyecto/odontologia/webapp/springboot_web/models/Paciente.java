@@ -2,6 +2,8 @@ package proyecto.odontologia.webapp.springboot_web.models;
 
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -11,6 +13,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -33,7 +36,8 @@ public class Paciente {
     private String localidad;
     private int dni;
 
-    private String imagen;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Imagen> imagenes = new ArrayList<>();
 
 //     <script src="/js/dobleClickPaciente.js"></script>
 // <script src="/js/jquery-3.7.1.min.js"></script>
@@ -66,16 +70,16 @@ public class Paciente {
         this.domicilio = domicilio;
     }
 
-    public String getImagen() {
-        return imagen;
+    public List<Imagen> getImagenes() {
+        return imagenes;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+    public void setImagenes(List<Imagen> imagenes) {
+        this.imagenes = imagenes;
     }
 
     public Paciente(int id, String nombre, String apellido, LocalDate fechaNacimiento, String nroTelefono,
-            String nacionalidad, int dni,String localidad,Domicilio domicilio, String imagen) {
+            String nacionalidad, int dni,String localidad,Domicilio domicilio, List<Imagen> imagenes) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -85,7 +89,7 @@ public class Paciente {
         this.dni = dni;
         this.localidad = localidad;
         this.domicilio = domicilio;
-        this.imagen = imagen;
+        this.imagenes = imagenes;
     }
 
     public int getEdad()
