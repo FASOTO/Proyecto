@@ -4,6 +4,14 @@ document.getElementById('hermanosSi').addEventListener('change', function() {
     document.getElementById('hermanosSanosField').style.display = 'block';
 });
 
+document.getElementById('hermanosSi').addEventListener('change', function() { 
+    const field = document.getElementById('hermanosSanosField'); 
+    field.style.display = 'block'; 
+    field.classList.add('highlight'); 
+    setTimeout(() => { 
+        field.classList.remove('highlight'); }, 800); // Tiempo en milisegundos para que el color se desvanezca 
+});
+
 document.getElementById('hermanosNo').addEventListener('change', function() {
     document.getElementById('hermanosSanosField').style.display = 'none';
 });
@@ -12,6 +20,13 @@ document.getElementById('hermanosNo').addEventListener('change', function() {
 
 document.getElementById('enfermedadSi').addEventListener('change', function() {
     document.getElementById('enfermedadTipoField').style.display = 'block';
+});
+document.getElementById('enfermedadSi').addEventListener('change', function() { 
+    const field = document.getElementById('enfermedadTipoField'); 
+    field.style.display = 'block'; 
+    field.classList.add('highlight'); 
+    setTimeout(() => { 
+        field.classList.remove('highlight'); }, 800); // Tiempo en milisegundos para que el color se desvanezca 
 });
 
 document.getElementById('enfermedadNo').addEventListener('change', function() {
@@ -150,4 +165,34 @@ document.getElementById('operadoSi').addEventListener('change', function() {
 
 document.getElementById('operadoNo').addEventListener('change', function() {
     document.getElementById('operadoField').style.display = 'none';
+});
+
+/*--------------- Respiratorio Field----------------*/
+
+document.getElementById('respiratorioSi').addEventListener('change', function() {
+    document.getElementById('respiratorioField').style.display = 'block';
+});
+
+document.getElementById('respiratorioNo').addEventListener('change', function() {
+    document.getElementById('respiratorioField').style.display = 'none';
+});
+
+/*--------------- embarazada Field----------------*/
+
+document.getElementById('embarazadaSi').addEventListener('change', function() {
+    document.getElementById('embarazadaField').style.display = 'block';
+});
+
+document.getElementById('embarazadaNo').addEventListener('change', function() {
+    document.getElementById('embarazadaField').style.display = 'none';
+});
+
+/*--------------- Recomendacion Medica Field----------------*/
+
+document.getElementById('recomendacionMedicaSi').addEventListener('change', function() {
+    document.getElementById('recomendacionMedicaField').style.display = 'block';
+});
+
+document.getElementById('recomendacionMedicaNo').addEventListener('change', function() {
+    document.getElementById('recomendacionMedicaField').style.display = 'none';
 });

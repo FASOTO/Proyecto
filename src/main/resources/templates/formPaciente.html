@@ -44,7 +44,7 @@
                     <!-- Tab panes -->
                     <div class="tab-content">
                         <div class="tab-pane active" id="datosPersonales" role="tabpanel" tabindex="0">
-                            <div class="row m-2">
+                            <div class="row mt-3">
                                 <div class="col-md-6 mb-3">
                                     <label for="inputNombre" class="form-label">Nombre</label>
                                     <input type="text" class="form-control" id="inputNombre" th:field="*{nombre}"> 
@@ -98,6 +98,7 @@
                                         </option>
                                       </select>
                                 </div>
+                                <hr>
                                 <h4 class="mb-3 col-md-6">Obra Social</h4>
                                 <div class="col-md-5 mb-3">
                                     <label for="inputObraSocial" class="form-label">Obra Social</label>
@@ -118,17 +119,17 @@
                         </div>
                         <div class="tab-pane" id="declaracionJurada" role="tabpanel" tabindex="0">
                             <div class="row mt-3">
-
+                                <h4 class="mb-3 col-md-12">Información Familiar</h4>
                                 <div class="form-ckeck col-md-4 p-4">
-                                    <label class="">Padre con vida?</label>
+                                    <label class="me-3">Padre con vida?</label>
                                     <label for="padreViveSi">si</label>
                                     <input class="form-check-input" type="radio" name="padreVive" id="padreViveSi">
                                     <label for="padreViveNo">No</label>
                                     <input class="form-check-input" type="radio" name="padreVive" id="padreViveNo">
                                 </div>
-                                <div class="form-group col-md-4 p-4">
-                                    <label for="enfermedadPadre" class="col-8 col-form-label">Enfermedad que padece o padeció: </label>
-                                    <div class="col-8">
+                                <div class="form-group row col-md-8 p-4">
+                                    <label for="enfermedadPadre" class="col-6 col-form-label">Enfermedad que padece o padeció: </label>
+                                    <div class="col-6">
                                       <input type="text" class="form-control" id="enfermedadPadre" >
                                     </div>
                                 </div>
@@ -139,9 +140,9 @@
                                     <label for="madreViveNo">No</label>
                                     <input class="form-check-input" type="radio" name="madreVive" id="madreViveNo">
                                 </div>
-                                <div class="form-group col-md-4 p-4">
-                                    <label for="enfermedadMadre" class="col-8 col-form-label">Enfermedad que padece o padeció: </label>
-                                    <div class="col-8">
+                                <div class="form-group row col-md-8 p-4">
+                                    <label for="enfermedadMadre" class="col-6 col-form-label">Enfermedad que padece o padeció: </label>
+                                    <div class="col-6">
                                       <input type="text" class="form-control" id="enfermedadMadre" >
                                     </div>
                                 </div>
@@ -157,8 +158,10 @@
                                     <label for="hermanosSanosSi">si</label>
                                     <input class="form-check-input" type="radio" name="hermanosSanos" id="hermanosSanosSi">
                                     <label for="hermanosSanosNo">No</label>
-                                    <input class="form-check-input" type="radio" name="hermanos" id="hermanosSanosNo">
+                                    <input class="form-check-input" type="radio" name="hermanosSanos" id="hermanosSanosNo">
                                 </div>
+                                <hr>
+                                <h4 class="mb-3 col-md-12">Salud Del Paciente</h4>
                                 <div class="form-ckeck col-md-4 p-4">
                                     <label class="me-3">Sufre de alguna enfermedad?</label>
                                     <label for="enfermedadSi">si</label>
@@ -166,10 +169,10 @@
                                     <label for="enfermedadNo">No</label>
                                     <input class="form-check-input" type="radio" name="enfermedad" id="enfermedadNo">
                                 </div>
-                                <div id="enfermedadTipoField">
-                                <div class="form-group col-md-4 p-4">
-                                    <label for="enfermedadTipo" class="col-8 col-form-label">De cuál o cuáles enfermedades?: </label>
-                                    <div class="col-8">
+                                <div class="row col-md-8" id="enfermedadTipoField">
+                                <div class="form-group row col-md-12 p-4">
+                                    <label for="enfermedadTipo" class="col-6 col-form-label">De cuál o cuáles enfermedades?: </label>
+                                    <div class="col-6">
                                       <input type="text" class="form-control" id="enfermedadTipo">
                                     </div>
                                 </div>
@@ -425,6 +428,70 @@
                                         <div class="col-8">
                                           <input type="text" class="form-control" id="operacionCuando">
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="form-ckeck col-md-4 p-4">
+                                    <label class="me-3">Tiene algún problema respiratorio?:</label>
+                                    <label for="respiratorioSi">Si</label>
+                                    <input class="form-check-input" type="radio" name="respiratorio" id="respiratorioSi">
+                                    <label for="respiratorioNo">No</label>
+                                    <input class="form-check-input" type="radio" name="respiratorio" id="respiratorioNo">
+                                </div>
+                                <div class="form-group col-md-4 p-4" id="respiratorioField">
+                                    <label for="respiratorioTipo" class="col-8 col-form-label">Cuál?: </label>
+                                    <div class="col-8">
+                                      <input type="text" class="form-control" id="respiratorioTipo">
+                                    </div>
+                                </div>
+                                <div class="form-ckeck col-md-4 p-4">
+                                    <label class="me-3">Fuma?:</label>
+                                    <label for="fumaSi">Si</label>
+                                    <input class="form-check-input" type="radio" name="fuma" id="fumaSi">
+                                    <label for="fumaNo">No</label>
+                                    <input class="form-check-input" type="radio" name="fuma" id="fumaNo">
+                                </div>
+                                <div class="form-ckeck col-md-4 p-4">
+                                    <label class="me-3">Está embarazada?:</label>
+                                    <label for="embarazadaSi">Si</label>
+                                    <input class="form-check-input" type="radio" name="embarazada" id="embarazadaSi">
+                                    <label for="embarazadaNo">No</label>
+                                    <input class="form-check-input" type="radio" name="embarazada" id="embarazadaNo">
+                                </div>
+                                <div class="form-group col-md-4 p-4" id="embarazadaField">
+                                    <label for="embarazadaMeses" class="col-8 col-form-label">De cuantos meses?: </label>
+                                    <div class="col-8">
+                                      <input type="text" class="form-control" id="embarazadaMeses">
+                                    </div>
+                                </div>
+                                <div class="form-ckeck col-md-4 p-4">
+                                    <label class="me-3">Hay alguna otra enfermedad o recomendación de su médico que quiera dejar constancia?:</label>
+                                    <label for="recomendacionMedicaSi">Si</label>
+                                    <input class="form-check-input" type="radio" name="recomendacionMedica" id="recomendacionMedicaSi">
+                                    <label for="recomendacionMedicaNo">No</label>
+                                    <input class="form-check-input" type="radio" name="recomendacionMedica" id="recomendacionMedicaNo">
+                                </div>
+                                <div class="form-group col-md-4 p-4" id="recomendacionMedicaField">
+                                    <label for="recomendacionMedicaTipo" class="col-8 col-form-label">Cuál?: </label>
+                                    <div class="col-8">
+                                      <input type="text" class="form-control" id="recomendacionMedicaTipo">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4 p-4">
+                                    <label for="tratamientoHomeo" class="col-8 col-form-label">Realiza algún tipo de tratamiento homeopático, acupuntura, otros?: </label>
+                                    <div class="col-8">
+                                      <input type="text" class="form-control" id="tratamientoHomeo">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4 p-4">
+                                    <label for="medicoClinico" class="col-8 col-form-label">Médico Clinico: </label>
+                                    <div class="col-8">
+                                      <input type="text" class="form-control" id="medicoClinico">
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-4 p-4">
+                                    <label for="clinicaHospital" class="col-8 col-form-label">Clínica/Hospital en caso de hacer falta derivación?: </label>
+                                    <div class="col-8">
+                                      <input type="text" class="form-control" id="clinicaHospital">
                                     </div>
                                 </div>
                             </div>
