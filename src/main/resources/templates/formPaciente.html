@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head th:replace="Layout/layout :: head"></head>
+
+<!-- <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Equilibrio</title>
 
-    <!-- iconos -->
+    < iconos ->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     
     <link rel="stylesheet" th:href="@{/css/estilosInicio.css}" type="text/css">
     <link rel="stylesheet" th:href="@{/css/estilosDeclaración.css}" type="text/css">
+
     
-</head>
+</head> -->
 <body>
     <div class="container-fluid">
         <div class="row">
             <aside th:replace="~{Layout/layout :: aside}"></aside>
 
             
-            <main class="col-md-10 col-9">
+            <main class="registro col-md-10 col-9">
                 <div class="row">
 
                     <h3 class="text-body-secondary display-5 p-3">Formulario Paciente</h3>
@@ -120,40 +123,40 @@
                         <div class="tab-pane" id="declaracionJurada" role="tabpanel" tabindex="0">
                             <div class="row mt-3">
                                 <h4 class="mb-3 col-md-12">Información Familiar</h4>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-3 p-4">
                                     <label class="me-3">Padre con vida?</label>
                                     <label for="padreViveSi">si</label>
                                     <input class="form-check-input" type="radio" name="padreVive" id="padreViveSi">
                                     <label for="padreViveNo">No</label>
                                     <input class="form-check-input" type="radio" name="padreVive" id="padreViveNo">
                                 </div>
-                                <div class="form-group row col-md-8 p-4">
-                                    <label for="enfermedadPadre" class="col-6 col-form-label">Enfermedad que padece o padeció: </label>
-                                    <div class="col-6">
+                                <div class="form-group row col-md-9 p-4">
+                                    <label for="enfermedadPadre" class="col-5 col-form-label">Enfermedad que padece o padeció: </label>
+                                    <div class="col-7">
                                       <input type="text" class="form-control" id="enfermedadPadre" >
                                     </div>
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-3 p-4">
                                     <label class="me-3">Madre con vida?</label>
                                     <label for="madreViveSi">si</label>
                                     <input class="form-check-input" type="radio" name="madreVive" id="madreViveSi">
                                     <label for="madreViveNo">No</label>
                                     <input class="form-check-input" type="radio" name="madreVive" id="madreViveNo">
                                 </div>
-                                <div class="form-group row col-md-8 p-4">
-                                    <label for="enfermedadMadre" class="col-6 col-form-label">Enfermedad que padece o padeció: </label>
-                                    <div class="col-6">
+                                <div class="form-group row col-md-9 p-4">
+                                    <label for="enfermedadMadre" class="col-5 col-form-label">Enfermedad que padece o padeció: </label>
+                                    <div class="col-7">
                                       <input type="text" class="form-control" id="enfermedadMadre" >
                                     </div>
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-3 p-4">
                                     <label class="me-3">Tiene hermanos?</label>
                                     <label for="hermanosSi">si</label>
                                     <input class="form-check-input" type="radio" name="hermanos" id="hermanosSi">
                                     <label for="hermanosNo">No</label>
                                     <input class="form-check-input" type="radio" name="hermanos" id="hermanosNo">
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4" id="hermanosSanosField">
+                                <div class="form-ckeck col-md-9 p-4" id="hermanosSanosField">
                                     <label class="me-3">Estan sanos?</label>
                                     <label for="hermanosSanosSi">si</label>
                                     <input class="form-check-input" type="radio" name="hermanosSanos" id="hermanosSanosSi">
@@ -169,38 +172,45 @@
                                     <label for="enfermedadNo">No</label>
                                     <input class="form-check-input" type="radio" name="enfermedad" id="enfermedadNo">
                                 </div>
-                                <div class="row col-md-8" id="enfermedadTipoField">
-                                <div class="form-group row col-md-12 p-4">
+                                <div id="enfermedadTipoField">
+                                <div class="row mt-3">
+                                <div class="form-group row col-md-7 p-4">
                                     <label for="enfermedadTipo" class="col-6 col-form-label">De cuál o cuáles enfermedades?: </label>
                                     <div class="col-6">
                                       <input type="text" class="form-control" id="enfermedadTipo">
                                     </div>
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                
+                                <div class="form-ckeck col-md-5 p-4">
                                     <label class="me-3">Hace algún tratamiento médico?:</label>
                                     <label for="tratamientoSi">si</label>
                                     <input class="form-check-input" type="radio" name="tratamiento" id="tratamientoSi">
                                     <label for="tratamientoNo">No</label>
                                     <input class="form-check-input" type="radio" name="tratamiento" id="tratamientoNo">
                                 </div>
-                                <div class="form-group col-md-4 p-4">
-                                    <label for="tratamientoTipo" class="col-8 col-form-label">Cuál o cuáles?: </label>
-                                    <div class="col-8">
+
+                                <div class="form-group row col-md-12 p-4">
+                                    <label for="tratamientoTipo" class="col-2 col-form-label">Cuál o cuáles?: </label>
+                                    <div class="col-10">
                                       <input type="text" class="form-control" id="tratamientoTipo">
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4 p-4">
-                                    <label for="medicamentos" class="col-8 col-form-label">Qué medicamentos consume habitualmente?: </label>
-                                    <div class="col-8">
+
+                                <div class="form-group col-md-6 p-4">
+                                    <label for="medicamentos" class="col col-form-label">Qué medicamentos consume habitualmente?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="medicamentos">
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4 p-4">
-                                    <label for="medicamentos5años" class="col-8 col-form-label">Qué medicamentos ha consumido en los últimos 5 años?: </label>
-                                    <div class="col-8">
+
+                                <div class="form-group col-md-6 p-4">
+                                    <label for="medicamentos5años" class="col col-form-label">Qué medicamentos ha consumido en los últimos 5 años?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="medicamentos5años">
                                     </div>
                                 </div>
+                                </div>
+                                <hr>
                                 </div>
                                 <div class="form-ckeck col-md-4 p-4">
                                     <label class="me-3">Realiza algún deporte?:</label>
@@ -209,7 +219,7 @@
                                     <label for="deporteNo">No</label>
                                     <input class="form-check-input" type="radio" name="deporte" id="deporteNo">
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4" id="deporteMalestarField">
+                                <div class="form-ckeck col-md-3 p-4" id="deporteMalestarField">
                                     <label class="me-3">Nota algún malestar al realizarlo?:</label>
                                     <label for="deporteMalestarSi">si</label>
                                     <input class="form-check-input" type="radio" name="deporteMalestar" id="deporteMalestarSi">
@@ -223,81 +233,81 @@
                                     <label for="drogaAlergiaNo">No</label>
                                     <input class="form-check-input" type="radio" name="drogaAlergia" id="drogaAlergiaNo">
                                 </div>
-                                <div class="form-group col-md-4 p-4" id="drogaAlergiaTipoField">
-                                    <label for="drogaAlergiaTipo" class="col-8 col-form-label">A cuál o cuáles drogas? (Ej: a la anestesia, penicilina): </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-12 p-4" id="drogaAlergiaTipoField">
+                                    <label for="drogaAlergiaTipo" class="col col-form-label">A cuál o cuáles drogas? (Ej: a la anestesia, penicilina): </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="drogaAlergiaTipo">
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4 p-4">
-                                    <label for="muela" class="col-8 col-form-label">Cuando le sacan una muela o se lastima, cicatriza bien?, sangra mucho?: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-12 p-4">
+                                    <label for="muela" class="col col-form-label">Cuando le sacan una muela o se lastima, cicatriza bien?, sangra mucho?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="muela">
                                     </div>
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-6 p-4">
                                     <label class="me-3">Tiene problemas de colágeno (hiperlaxitud)?:</label>
                                     <label for="hiperlaxitudSi">si</label>
                                     <input class="form-check-input" type="radio" name="hiperlaxitud" id="hiperlaxitudSi">
                                     <label for="hiperlaxitudNo">No</label>
                                     <input class="form-check-input" type="radio" name="hiperlaxitud" id="hiperlaxitudNo">
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-6 p-4">
                                     <label class="me-3">Antecedentes de fiebre reumática?:</label>
                                     <label for="fiebreReumaticaSi">si</label>
                                     <input class="form-check-input" type="radio" name="fiebreReumatica" id="fiebreReumaticaSi">
                                     <label for="fiebreReumaticaNo">No</label>
                                     <input class="form-check-input" type="radio" name="fiebreReumatica" id="fiebreReumaticaNo">
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4" id="fiebreMedicacionField">
+                                <div class="form-ckeck col-md-6 p-4" id="fiebreMedicacionField">
                                     <label class="me-3">Se protege con alguna medicación?:</label>
                                     <label for="fiebreMedicacionSi">si</label>
                                     <input class="form-check-input" type="radio" name="fiebreMedicacion" id="fiebreMedicacionSi">
                                     <label for="fiebreMedicacionNo">No</label>
                                     <input class="form-check-input" type="radio" name="fiebreMedicacion" id="fiebreMedicacionNo">
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-6 p-4">
                                     <label class="me-3">Es diabético?:</label>
                                     <label for="diabeticoSi">si</label>
                                     <input class="form-check-input" type="radio" name="diabetico" id="diabeticoSi">
                                     <label for="diabeticoNo">No</label>
                                     <input class="form-check-input" type="radio" name="diabetico" id="diabeticoNo">
                                 </div>
-                                <div class="form-group col-md-4 p-4" id="diabetesControlField">
-                                    <label for="diabetesControl" class="col-8 col-form-label">Está controlado?, con qué?: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-12 p-4" id="diabetesControlField">
+                                    <label for="diabetesControl" class="col col-form-label">Está controlado?, con qué?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="diabetesControl">
                                     </div>
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-6 p-4">
                                     <label class="me-3">Tiene algún problema cardíaco?:</label>
                                     <label for="cardiacoSi">si</label>
                                     <input class="form-check-input" type="radio" name="cardiaco" id="cardiacoSi">
                                     <label for="cardiacoNo">No</label>
                                     <input class="form-check-input" type="radio" name="cardiaco" id="cardiacoNo">
                                 </div>
-                                <div class="form-group col-md-4 p-4" id="cardiacoTipoField">
-                                    <label for="cardiacoTipo" class="col-8 col-form-label">Cuál?: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-12 p-4" id="cardiacoTipoField">
+                                    <label for="cardiacoTipo" class="col col-form-label">Cuál?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="cardiacoTipo">
                                     </div>
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-6 p-4">
                                     <label class="me-3">Toma seguido aspirina y/o anticoagulante?:</label>
-                                    <label for="aspirinaSi">si, aspirina</label>
+                                    <label for="aspirinaSi">Si, aspirina</label>
                                     <input class="form-check-input" type="radio" name="aspirinaAnti" id="aspirinaSi">
-                                    <label for="anticoagulanteSi">si, anticoagulante</label>
+                                    <label for="anticoagulanteSi">Si, anticoagulante</label>
                                     <input class="form-check-input" type="radio" name="aspirinaAnti" id="anticoagulanteSi">
                                     <label for="ninguna">Ninguna</label>
                                     <input class="form-check-input" type="radio" name="aspirinaAnti" id="ninguna">
                                 </div>
-                                <div class="form-group col-md-4 p-4" id="aspirinaFrecuenciaField">
-                                    <label for="aspirinaFrecuencia" class="col-8 col-form-label">Con qué frecuencia?: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-12 p-4" id="aspirinaFrecuenciaField">
+                                    <label for="aspirinaFrecuencia" class="col col-form-label">Con qué frecuencia?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="aspirinaFrecuencia">
                                     </div>
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-6 p-4">
                                     <label class="me-3">Tiene presión Alta?:</label>
                                     <label for="presionAltaSi">si</label>
                                     <input class="form-check-input" type="radio" name="presionAlta" id="presionAltaSi">
@@ -311,9 +321,9 @@
                                     <label for="chagasNo">No</label>
                                     <input class="form-check-input" type="radio" name="chagas" id="chagasNo">
                                 </div>
-                                <div class="form-group col-md-4 p-4" id="chagasTratamientoField">
-                                    <label for="chagasTratamiento" class="col-8 col-form-label">Está en tratamiento?, qué tipo de tratamiento?: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-12 p-4" id="chagasTratamientoField">
+                                    <label for="chagasTratamiento" class="col col-form-label">Está en tratamiento?, qué tipo de tratamiento?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="chagasTratamiento">
                                     </div>
                                 </div>
@@ -354,9 +364,9 @@
                                     <label for="hepaticoNo">No</label>
                                     <input class="form-check-input" type="radio" name="hepatico" id="hepaticoNo">
                                 </div>
-                                <div class="form-group col-md-4 p-4" id="hepaticoTipoField">
-                                    <label for="hepaticoTipo" class="col-8 col-form-label">Cuál?: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-12 p-4" id="hepaticoTipoField">
+                                    <label for="hepaticoTipo" class="col col-form-label">Cuál?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="hepaticoTipo">
                                     </div>
                                 </div>
@@ -374,13 +384,13 @@
                                     <label for="epilepticoNo">No</label>
                                     <input class="form-check-input" type="radio" name="epileptico" id="epilepticoNo">
                                 </div>
-                                <div class="form-group col-md-4 p-4" id="epilepticoMedicacionField">
-                                    <label for="epilepticoMedicacion" class="col-8 col-form-label">Qué medicación toma?: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-12 p-4" id="epilepticoMedicacionField">
+                                    <label for="epilepticoMedicacion" class="col col-form-label">Qué medicación toma?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="epilepticoMedicacion">
                                     </div>
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-8 p-4">
                                     <label class="me-3">Ha tenido sifilis o gonorrea?:</label>
                                     <label for="sifilisSi">Si, sifilis</label>
                                     <input class="form-check-input" type="radio" name="sifilisGonorrea" id="sifilisSi">
@@ -389,27 +399,27 @@
                                     <label for="sifilisGonorreaNo">No, nunca tuve sifilis o gonorrea</label>
                                     <input class="form-check-input" type="radio" name="sifilisGonorrea" id="sifilisGonorreaNo">
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-6 p-4">
                                     <label class="me-3">Otra enfermedad infecto-contagiosa?:</label>
                                     <label for="infectoSi">Si</label>
                                     <input class="form-check-input" type="radio" name="infecto" id="infectoSi">
                                     <label for="infectoNo">No</label>
                                     <input class="form-check-input" type="radio" name="infecto" id="infectoNo">
                                 </div>
-                                <div class="form-group col-md-4 p-4" id="infectoField">
-                                    <label for="infectoTipo" class="col-8 col-form-label">Cuál?: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-12 p-4" id="infectoField">
+                                    <label for="infectoTipo" class="col col-form-label">Cuál?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="infectoTipo">
                                     </div>
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-6 p-4">
                                     <label class="me-3">Tuvo transfusiones?:</label>
                                     <label for="transfusionSi">Si</label>
                                     <input class="form-check-input" type="radio" name="transfusion" id="transfusionSi">
                                     <label for="transfusionNo">No</label>
                                     <input class="form-check-input" type="radio" name="transfusion" id="transfusionNo">
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-6 p-4">
                                     <label class="me-3">Fue operado alguna vez?:</label>
                                     <label for="operadoSi">Si</label>
                                     <input class="form-check-input" type="radio" name="operado" id="operadoSi">
@@ -417,80 +427,82 @@
                                     <input class="form-check-input" type="radio" name="operado" id="operadoNo">
                                 </div>
                                 <div id="operadoField">
-                                    <div class="form-group col-md-4 p-4">
-                                        <label for="operacionTipo" class="col-8 col-form-label">De qué?: </label>
-                                        <div class="col-8">
+                                    <div class="row">
+                                    <div class="form-group col-md-6 p-4">
+                                        <label for="operacionTipo" class="col col-form-label">De qué?: </label>
+                                        <div class="col">
                                           <input type="text" class="form-control" id="operacionTipo">
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-4 p-4">
-                                        <label for="operacionCuando" class="col-8 col-form-label">Cuando?: </label>
-                                        <div class="col-8">
+                                    <div class="form-group col-md-6 p-4">
+                                        <label for="operacionCuando" class="col col-form-label">Cuando?: </label>
+                                        <div class="col">
                                           <input type="text" class="form-control" id="operacionCuando">
                                         </div>
                                     </div>
+                                    </div>
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-6 p-4">
                                     <label class="me-3">Tiene algún problema respiratorio?:</label>
                                     <label for="respiratorioSi">Si</label>
                                     <input class="form-check-input" type="radio" name="respiratorio" id="respiratorioSi">
                                     <label for="respiratorioNo">No</label>
                                     <input class="form-check-input" type="radio" name="respiratorio" id="respiratorioNo">
                                 </div>
-                                <div class="form-group col-md-4 p-4" id="respiratorioField">
-                                    <label for="respiratorioTipo" class="col-8 col-form-label">Cuál?: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-12 p-4" id="respiratorioField">
+                                    <label for="respiratorioTipo" class="col col-form-label">Cuál?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="respiratorioTipo">
                                     </div>
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-6 p-4">
                                     <label class="me-3">Fuma?:</label>
                                     <label for="fumaSi">Si</label>
                                     <input class="form-check-input" type="radio" name="fuma" id="fumaSi">
                                     <label for="fumaNo">No</label>
                                     <input class="form-check-input" type="radio" name="fuma" id="fumaNo">
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-6 p-4">
                                     <label class="me-3">Está embarazada?:</label>
                                     <label for="embarazadaSi">Si</label>
                                     <input class="form-check-input" type="radio" name="embarazada" id="embarazadaSi">
                                     <label for="embarazadaNo">No</label>
                                     <input class="form-check-input" type="radio" name="embarazada" id="embarazadaNo">
                                 </div>
-                                <div class="form-group col-md-4 p-4" id="embarazadaField">
-                                    <label for="embarazadaMeses" class="col-8 col-form-label">De cuantos meses?: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-12 p-4" id="embarazadaField">
+                                    <label for="embarazadaMeses" class="col col-form-label">De cuantos meses?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="embarazadaMeses">
                                     </div>
                                 </div>
-                                <div class="form-ckeck col-md-4 p-4">
+                                <div class="form-ckeck col-md-6 p-4">
                                     <label class="me-3">Hay alguna otra enfermedad o recomendación de su médico que quiera dejar constancia?:</label>
                                     <label for="recomendacionMedicaSi">Si</label>
                                     <input class="form-check-input" type="radio" name="recomendacionMedica" id="recomendacionMedicaSi">
                                     <label for="recomendacionMedicaNo">No</label>
                                     <input class="form-check-input" type="radio" name="recomendacionMedica" id="recomendacionMedicaNo">
                                 </div>
-                                <div class="form-group col-md-4 p-4" id="recomendacionMedicaField">
-                                    <label for="recomendacionMedicaTipo" class="col-8 col-form-label">Cuál?: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-12 p-4" id="recomendacionMedicaField">
+                                    <label for="recomendacionMedicaTipo" class="col col-form-label">Cuál?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="recomendacionMedicaTipo">
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4 p-4">
-                                    <label for="tratamientoHomeo" class="col-8 col-form-label">Realiza algún tipo de tratamiento homeopático, acupuntura, otros?: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-6 p-4">
+                                    <label for="tratamientoHomeo" class="col col-form-label">Realiza algún tipo de tratamiento homeopático, acupuntura, otros?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="tratamientoHomeo">
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4 p-4">
-                                    <label for="medicoClinico" class="col-8 col-form-label">Médico Clinico: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-6 p-4">
+                                    <label for="medicoClinico" class="col col-form-label">Médico Clinico: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="medicoClinico">
                                     </div>
                                 </div>
-                                <div class="form-group col-md-4 p-4">
-                                    <label for="clinicaHospital" class="col-8 col-form-label">Clínica/Hospital en caso de hacer falta derivación?: </label>
-                                    <div class="col-8">
+                                <div class="form-group col-md-6 p-4">
+                                    <label for="clinicaHospital" class="col col-form-label">Clínica/Hospital en caso de hacer falta derivación?: </label>
+                                    <div class="col">
                                       <input type="text" class="form-control" id="clinicaHospital">
                                     </div>
                                 </div>
