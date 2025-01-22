@@ -26,75 +26,96 @@
                             </a>
                         </div>
                     </div>
-        
+
                     <div class="card">
                         <div class="row g-0">
                             <div class="col-md-4 d-flex align-items-center justify-content-center">
-                                <img class="img-thumbnail w-75" th:src="@{'/Recursos/' + ${pacienteEncontrado.imagenes[0].url}}"
+                                <img class="img-thumbnail w-75" th:if="${#lists.size(pacienteEncontrado.imagenes) > 0}"
+                                    th:src="@{'/Recursos/' + ${pacienteEncontrado.imagenes[0].url}}"
                                     alt="Foto del paciente">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title">Información del Paciente</h5>
-                                    <table class="table table-bordered table-striped">
-                                        <tbody>
-                                            <tr>
-                                                <th>Nombre</th>
-                                                <td th:text="${pacienteEncontrado.nombre}"></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Apellido</th>
-                                                <td th:text="${pacienteEncontrado.apellido}"></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Edad</th>
-                                                <td th:text="${edadCalculada}"></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Teléfono</th>
-                                                <td th:text="${pacienteEncontrado.telefono}"></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Fecha de Nacimiento</th>
-                                                <td th:text="${pacienteEncontrado.fechaNacimiento}"></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Nacionalidad</th>
-                                                <td th:text="${pacienteEncontrado.nacionalidad}"></td>
-                                            </tr>
-                                            <tr>
-                                                <th>DNI</th>
-                                                <td th:text="${pacienteEncontrado.dni}"></td>
-                                            </tr>
-                                            <tr>
-                                                <th>Domicilio</th>
-                                                <td
-                                                    th:text="${pacienteEncontrado.domicilio.calle + ', ' + pacienteEncontrado.domicilio.nroCalle + ', ' + pacienteEncontrado.domicilio.barrio + ', ' + pacienteEncontrado.domicilio.localidad}">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <nav class="nav nav-tabs" id="nav-tab" role="tablist">
+                                        <button class="nav-link active" data-bs-toggle="tab"
+                                            data-bs-target="#datosPersonales" type="button" role="tab"
+                                            aria-selected="true">Datos Personales</button>
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#imagenes"
+                                            type="button" role="tab" aria-selected="false">Imágenes</button>
+                                        <button class="nav-link" data-bs-toggle="tab"
+                                            data-bs-target="#declaracionJurada" type="button" role="tab"
+                                            aria-selected="false">Declaracion Jurada</button>
+                                        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabOdontograma"
+                                            type="button" role="tab" aria-selected="false">Odontograma</button>
+                                    </nav>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="datosPersonales" role="tabpanel" tabindex="0">
+                                            <table class="table table-bordered table-striped">
+                                                <tbody>
+                                                    <tr>
+                                                        <th>Nombre</th>
+                                                        <td th:text="${pacienteEncontrado.nombre}"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Apellido</th>
+                                                        <td th:text="${pacienteEncontrado.apellido}"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Edad</th>
+                                                        <td th:text="${edadCalculada}"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Teléfono</th>
+                                                        <td th:text="${pacienteEncontrado.telefono}"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Fecha de Nacimiento</th>
+                                                        <td th:text="${pacienteEncontrado.fechaNacimiento}"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Nacionalidad</th>
+                                                        <td th:text="${pacienteEncontrado.nacionalidad}"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>DNI</th>
+                                                        <td th:text="${pacienteEncontrado.dni}"></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th>Domicilio</th>
+                                                        <td
+                                                            th:text="${pacienteEncontrado.domicilio.calle + ', ' + pacienteEncontrado.domicilio.nroCalle + ', ' + pacienteEncontrado.domicilio.barrio + ', ' + pacienteEncontrado.domicilio.localidad}">
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="tab-pane" id="imagenes" role="tabpanel" tabindex="0">
+                                            <div class="container mt-5"
+                                                th:if="${#lists.size(pacienteEncontrado.imagenes) > 0}">
+                                                <h2>Imágenes Iniciales</h2>
+                                                
+                                                <ul class="row list-unstyled g-3">
+                                                    <li class="col-12 col-sm-6 col-md-4 col-lg-3"
+                                                        th:each="imagen : ${pacienteEncontrado.imagenes}">
+                                                        <div class="card shadow-sm">
+                                                            <img th:src="@{'/Recursos/' + ${imagen.url}}"
+                                                                class="card-img-top"
+                                                                alt="Imagen del paciente">
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                 </div>
-                <div class="container mt-5">
-                    <h2>Imágenes Iniciales</h2>
-                    <ul class="row list-unstyled g-3">
-                        <li class="col-12 col-sm-6 col-md-4 col-lg-3" th:each="imagen : ${pacienteEncontrado.imagenes}">
-                            <div class="card shadow-sm">
-                                <img th:src="@{'/Recursos/' + ${imagen.url}}" class="card-img-top img-thumbnail" alt="Imagen del paciente">
-                                <div class="card-body text-center">
-                                    <p class="card-text" th:text="'Imagen: ' + ${imagen.url}"></p>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
             </main>
-            
+
         </div>
     </div>
 </body>
