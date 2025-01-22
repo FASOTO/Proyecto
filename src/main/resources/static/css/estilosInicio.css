@@ -36,35 +36,34 @@ main p{
 .info .card{
     background-color: #0c449e;
 }
-.card .card-body .card-title{
+.info .card .card-body .card-title{
     font-size: 24px;
 }
-.card{
+.info .card, .servicio .card{
     transition: all .5s ease; 
-       
 }
-.card:hover{
+.info .card:hover, .servicio .card:hover{
     transform: translateY(15px);
 }
-.card img{
+.servicio .card img, .info .card img{
     height: 400px;
 }
-.card .card-img-overlay{
+.servicio .card .card-img-overlay{
     color: white;
     background-color: rgba(0, 0, 0, 0.478);
     transition: all .5s ease;
 }
-.card .card-img-overlay .card-title{
+.servicio .card .card-img-overlay .card-title{
      font-size: 35px;
 }
-.card .card-img-overlay .card-text{
+.servicio .card .card-img-overlay .card-text{
     font-size: 16px;
 }
-.card .card-img-overlay{
+.servicio .card .card-img-overlay{
     opacity: 0;
     
 }
-.card .card-img-overlay:hover{
+.servicio .card .card-img-overlay:hover{
     opacity: 1;
     
 }

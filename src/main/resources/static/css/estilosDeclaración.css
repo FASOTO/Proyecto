@@ -1,6 +1,5 @@
 .registro{
-    background-color:transparent;
-    backdrop-filter: blur(30px);
+    background-color:white;
 }
 
 #hermanosSanosField, #enfermedadTipoField, #deporteMalestarField, #drogaAlergiaTipoField, #fiebreMedicacionField, #diabetesControlField, #cardiacoTipoField, #aspirinaFrecuenciaField, #chagasTratamientoField, #hepatitisTipoField, #hepaticoTipoField, #epilepticoMedicacionField, #infectoField, #operadoField, #respiratorioField, #embarazadaField, #recomendacionMedicaField{
