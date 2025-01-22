@@ -3,10 +3,45 @@
 }
 
 #hermanosSanosField, #enfermedadTipoField, #deporteMalestarField, #drogaAlergiaTipoField, #fiebreMedicacionField, #diabetesControlField, #cardiacoTipoField, #aspirinaFrecuenciaField, #chagasTratamientoField, #hepatitisTipoField, #hepaticoTipoField, #epilepticoMedicacionField, #infectoField, #operadoField, #respiratorioField, #embarazadaField, #recomendacionMedicaField{
+#hermanosSanosField{
     display: none;
-    transition: background-color 1s ease;
 }
-.highlight{
-    background-color:#0c449e;
-    color: white;
+#enfermedadTipoField{
+    display: none;
+}
+#deporteMalestarField{
+    display: none;
+}
+#drogaAlergiaTipoField{
+    display: none;
+}
+#fiebreMedicacionField{
+    display: none;
+}
+#diabetesControlField{
+    display: none;
+}
+#cardiacoTipoField{
+    display: none;
+}
+#aspirinaFrecuenciaField{
+    display: none;
+}
+#chagasTratamientoField{
+    display: none;
+}
+#hepatitisTipoField{
+    display: none;
+}
+#hepaticoTipoField{
+    display: none;
+}
+#epilepticoMedicacionField{
+    display: none;
+}
+#infectoField{
+    display: none;
+}
+#operadoField{
+    display: none;
 }

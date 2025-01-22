@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.nio.file.Path;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import proyecto.odontologia.webapp.springboot_web.models.Domicilio;
+import proyecto.odontologia.webapp.springboot_web.models.Imagen;
 import proyecto.odontologia.webapp.springboot_web.models.Paciente;
 import proyecto.odontologia.webapp.springboot_web.services.PacienteService;
 
@@ -74,33 +77,62 @@ public class PacienteController {
 
     // Guardar un paciente
     @PostMapping("/guardar")
-    public String guardar(Paciente paciente, @RequestParam("file") MultipartFile imagen) {
+    public String guardar(Paciente paciente, @RequestParam("files") List<MultipartFile> imagenes) {
 
         File folder = new File("C://Paciente//Recursos");
         if (!folder.exists()) {
-            if(folder.mkdirs()){
+            if (folder.mkdirs()) {
                 System.out.println("Multiples directorios fueron creados");
-            }
-            else{
+            } else {
                 System.out.println("NO entro");
             }
         }
-        
-        if (!imagen.isEmpty()) {
-            // Path directorioImagenes = Paths.get("src//main//resources//static/imagenes");
-            String rutaAbsoluta = "C://Paciente//Recursos";
-            try {
-                byte[] bytesImg = imagen.getBytes();
-                Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + imagen.getOriginalFilename());
-                Files.write(rutaCompleta, bytesImg);
+        List<Imagen> listaImagenes = new ArrayList<>();
+        /*
+         * if (!imagen.isEmpty()) {
+         * String rutaAbsoluta = "C://Paciente//Recursos";
+         * try {
+         * byte[] bytesImg = imagen.getBytes();
+         * Path rutaCompleta = Paths.get(rutaAbsoluta + "//" +
+         * imagen.getOriginalFilename());
+         * Files.write(rutaCompleta, bytesImg);
+         * 
+         * Imagen nuevaImagen = new Imagen();
+         * 
+         * nuevaImagen.setUrl(imagen.getOriginalFilename());
+         * 
+         * listaImagenes.add(nuevaImagen);
+         * 
+         * 
+         * paciente.setImagenes(listaImagenes);
+         * 
+         * } catch (IOException e) {
+         * // TODO Auto-generated catch block
+         * e.printStackTrace();
+         * }
+         * 
+         * }
+         */
 
-                paciente.setImagen(imagen.getOriginalFilename());
+        for (MultipartFile imagen : imagenes) {
+            if (!imagen.isEmpty()) {
+                try {
+                    // Generar un nombre único para la imagen
+                    String nombreUnico = UUID.randomUUID().toString() + "_" + imagen.getOriginalFilename();
+                    Path rutaCompleta = Paths.get("C://Paciente//Recursos" + "//" + nombreUnico);
 
-            } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            } 
+                    // Guardar la imagen en el servidor
+                    Files.write(rutaCompleta, imagen.getBytes());
 
+                    // Crear objeto Imagen y agregarlo a la lista
+                    Imagen nuevaImagen = new Imagen();
+                    nuevaImagen.setUrl(nombreUnico);
+                    listaImagenes.add(nuevaImagen);
+                    paciente.setImagenes(listaImagenes);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
 
         service.guardarPaciente(paciente);
