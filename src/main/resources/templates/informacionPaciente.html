@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head th:replace="Layout/layout :: head"></head>
+<head th:replace="~{Layout/layout :: head}"></head>
 
 <body>
 
@@ -120,6 +120,7 @@
                     </div>
                 </div>
             </main>
+
         </div>
     </div>
     <script th:src="@{/js/declaracion-jurada.js}"></script>

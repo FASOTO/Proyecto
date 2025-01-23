@@ -42,12 +42,11 @@ main p{
 }
 .info .card, .servicio .card{
     transition: all .5s ease; 
-       
 }
 .info .card:hover, .servicio .card:hover{
     transform: translateY(15px);
 }
-.card img{
+.servicio .card img, .info .card img{
     height: 400px;
 }
 .servicio .card .card-img-overlay{

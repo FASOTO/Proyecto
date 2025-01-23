@@ -23,9 +23,6 @@
                                         <form class="d-flex" role="search">
                                             <input class="form-control me-2" type="search" placeholder="Buscar..."
                                                 aria-label="Search">
-                                            <!-- <button class="btn btn-outline-success" type="submit">
-                                <i class="bx bx-search-alt-2"></i>
-                            </button> -->
                                         </form>
                                     </div>
 
@@ -43,7 +40,7 @@
                         </thead>
 
                         <!-- 5) FUNCIONA POR LINKS (redirije a informacionPaciente) -->
-                        <tbody class="table-hover" id="efectoFilas">
+                        <tbody id="efectoFilas">
                             <tr th:each="p : ${listadoPacientes}">
                                 <td th:text="${p.apellido}" class="paciente-link" th:id="'apellido-' + ${p.dni}"></td>
                                 <td th:text="${p.nombre}" class="paciente-link" th:id="'nombre-' + ${p.dni}"></td>
@@ -62,152 +59,6 @@
                     </table>
 
 
-                    <!--Modal de informacion expandida del paciente-->
-                    <div class="modal fade" id="infopaciente" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog modal-fullscreen">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Mas informacion del paciente:
-                                    </h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <nav class="nav">
-                                        <a class="nav-link" onclick="mostrarOcultar('general')">General</a>
-                                        <a class="nav-link" onclick="mostrarOcultar('resultado')">Resultado</a>
-                                        <a class="nav-link" onclick="mostrarOcultar('infoclinica')">Informacion
-                                            clinica</a>
-                                        <a class="nav-link" onclick="mostrarOcultar('infoclinica2')">Informacion clinica
-                                            2</a>
-                                        <a class="nav-link" onclick="mostrarOcultar('imagenes')">Imagenes</a>
-                                        <a class="nav-link" onclick="mostrarOcultar('odontograma')">Odontograma</a>
-                                    </nav>
-                                    <!--informacion general-->
-                                    <table class="table table-bordered table-striped" id="general"
-                                        style="display: block;">
-                                        <thead>
-                                            <tr>
-                                                <td colspan="8" class="title-table text-center p-2">Informacion esencial
-                                                </td>
-                                            </tr>
-                                        </thead>
-                                        <thead>
-                                            <tr>
-                                                <th>Apellido</th>
-                                                <th>Nombre</th>
-                                                <th>Edad</th>
-                                                <th>Telefono</th>
-                                                <th>FechaNacimiento</th>
-                                                <th>Nacionalidad</th>
-                                                <th>DNI</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="table-light">
-
-                                            <!-- 2) Mostrando en MODAL -->
-                                            <tr>
-                                                <td id="apellido"></td>
-                                                <td id="nombre"></td>
-                                                <td id="edad"></td>
-                                                <td id="telefono"></td>
-                                                <td id="fechaNacimiento"></td>
-                                                <td id="nacionalidad"></td>
-                                                <td id="dni"></td>
-                                            </tr>
-
-                                        </tbody>
-                                    </table>
-                                    <!-- Boton de PDF -->
-                                    <a class="btn btn-danger btn-xs float-right"
-                                        th:href="@{'/informacionPaciente/' + ${dni}(format=pdf)}">PDF
-                                    </a>
-
-                                    <!-- <a class="btn btn-danger btn-xs float-right" 
-                th:href="@{'/paciente/informacionPaciente/' + ${dni} + '/pdf'}">PDF
-            </a> -->
-                                    <!--informacion clinica resultaddo-->
-                                    <table class="table table-bordered table-striped" id="resultado"
-                                        style="display: none;">
-                                        <thead>
-                                            <tr>
-                                                <td colspan="2" class="title-table text-center p-3">Informacion clinica
-                                                    resultado</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Informacion</th>
-                                                <th>Descripcion</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="table-light">
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!--inofrmacion clinica-->
-                                    <table class="table table-bordered table-striped" id="infoclinica"
-                                        style="display: none;">
-                                        <thead>
-                                            <tr>
-                                                <td colspan="3" class="title-table text-center p-3">Informacion clinica
-                                                    del
-                                                    paciente</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Informacion</th>
-                                                <th>SI</th>
-                                                <th>NO</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="table-light">
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!--informcacion clinica-->
-                                    <table class="table table-bordered table-striped" id="infoclinica2"
-                                        style="display: none;">
-                                        <thead>
-                                            <tr>
-                                                <td colspan="2" class="title-table text-center p-3">Informacion clinica
-                                                    del
-                                                    paciente</td>
-                                            </tr>
-                                            <tr>
-                                                <th>Informacion</th>
-                                                <th>Descripcion</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="table-light">
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!--imagenes-->
-                                    <div id="imagenes" style="display: none;">
-                                        <h4>imagenes</h4>
-                                    </div>
-                                    <!--odontograma-->
-                                    <div id="odontograma" style="display: none;">
-                                        <h4>odontograma</h4>
-                                    </div>
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </main>
 
