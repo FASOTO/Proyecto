@@ -121,24 +121,46 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="imagenes" role="tabpanel" tabindex="0">
-
-                            <div class="row">
-                                <div class="col-md-4 mb-3">
-                                    <label for="imagen" class="form-label">Ingrese Imagen de Usuario:</label>
-                                    <input type="file" name="files" class="form-control" id="imagen">
+                            <div class="container py-4">
+                                
+                                <div class="d-flex justify-content-between align-items-center mb-4">
+                                    <h5 class="mb-0">Gestión de Imágenes</h5>
+                                    <button type="button" id="agregar-imagen" class="btn btn-primary">
+                                        <i class="bi bi-plus-lg"></i> Agregar Imagen
+                                    </button>
                                 </div>
-
-                                <div id="contenedor-imagenes" class="row g-3">
-                                    <div class="col-md-4 mb-3">
-                                        <label for="imagen1" class="form-label">Ingrese foto iniciales del
-                                            paciente:</label>
-                                        <input type="file" name="files" class="form-control" id="imagen1">
-
+                        
+                                
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6">
+                                        <div class="card shadow-sm">
+                                            <div class="card-body">
+                                                <label for="imagen" class="form-label">Imagen de Usuario</label>
+                                                <input type="file" name="files" class="form-control" id="imagen">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        
+                                <!-- Contenedor de imágenes adicionales -->
+                                <div class="mt-4">
+                                    <h6 class="mb-3">Fotos adicionales del paciente:</h6>
+                                    <div id="contenedor-imagenes" class="row g-3">
+                                        
+                                        <div class="col-md-4">
+                                            <div class="card shadow-sm">
+                                                <div class="card-body">
+                                                    <label for="imagen1" class="form-label">Fotos inicial</label>
+                                                    <input type="file" name="files" class="form-control" id="imagen1">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" id="agregar-imagen" class="btn btn-primary">Agregar imagen</button>
                         </div>
+                        
+                        
                         <div class="tab-pane" id="declaracionJurada" role="tabpanel" tabindex="0">
                             <div class="row mt-3">
 
