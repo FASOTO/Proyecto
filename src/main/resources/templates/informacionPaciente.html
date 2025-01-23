@@ -9,19 +9,14 @@
         <div class="row">
             <aside th:replace="~{Layout/layout :: aside}"></aside>
 
-
-
             <main class="infoPa col-md-10 col-9 text-center">
-                <div class="table-container p-4">
-
-                    <div class="row mb-4">
-                        <div class="col text-center">
-                            <h1 th:text="${titulo}" class="text-uppercase"></h1>
+                <div class="table-container p-3">
+                    <div class="row align-items-center mb-4">
+                        <div class="col">
+                            <h1 th:text="${titulo}" class="text-primary"></h1>
                         </div>
                         <div class="col text-end">
-                            <!-- Botón para descargar PDF // LEO-->
-                            <a class="btn btn-danger"
-                                th:href="@{'/paciente/informacionPaciente/' + ${pacienteEncontrado.dni}(format=pdf)}">
+                            <a class="btn btn-danger btn-lg" th:href="@{'/paciente/informacionPaciente/' + ${pacienteEncontrado.dni}(format=pdf)}">
                                 Descargar PDF
                             </a>
                         </div>
@@ -49,11 +44,16 @@
                             <div class="card border border-primary">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center justify-content-center">
-                                        <img class="img-thumbnail rounded"
-                                            th:if="${#lists.size(pacienteEncontrado.imagenes) > 0}"
-                                            th:src="@{'/Recursos/' + ${pacienteEncontrado.imagenes[0].url}}"
-                                            alt="Foto del paciente">
+                                        <div class="ratio ratio-1x1 w-75">
+                                            
+                                            <img class="img-thumbnail rounded w-100 h-100"
+                                                 th:if="${#lists.size(pacienteEncontrado.imagenes) > 0}"
+                                                 th:src="@{'/Recursos/' + ${pacienteEncontrado.imagenes[0].url}}"
+                                                 alt="Foto del paciente"
+                                                 style="object-fit: cover;">
+                                        </div>
                                     </div>
+                                    
                                     <div class="col-md-8">
                                         <div class="card-body">
                                             <h5 class="card-title">Información del Paciente</h5>
@@ -73,8 +73,7 @@
                                                     </tr>
                                                     <tr>
                                                         <th class="table-dark">Teléfono</th>
-                                                        <t d th:text="${pacienteEncontrado.telefono}">
-                                                            </td>
+                                                        <td th:text="${pacienteEncontrado.telefono}"></td>
                                                     </tr>
                                                     <tr>
                                                         <th class="table-dark">Fecha de Nacimiento</th>
@@ -106,12 +105,31 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="imagenes" role="tabpanel" tabindex="0">
-
-                            <div class="text-center mt-3">
+                            <div class="card border border-primary">
+                            <div class="container mt-5" th:if="${#lists.size(pacienteEncontrado.imagenes) > 0}">
+                                <h2 class="text-center mb-4">Imágenes Iniciales</h2>
+                                <div class="row g-3">
+                                    <div class="col-12 col-sm-6 col-md-4 col-lg-3" 
+                                         th:each="imagen : ${pacienteEncontrado.imagenes}">
+                                        <div class="card shadow-sm h-100">
+                                            
+                                            <img th:src="@{'/Recursos/' + ${imagen.url}}" 
+                                                 class="card-img-top img-fluid rounded" 
+                                                 alt="Imagen del paciente" 
+                                                 style="object-fit: cover; height: 200px; width: 100%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-center mt-4">
+                                
                                 <input type="button" id="siguiente" value="Siguiente"
-                                    onclick="nextTab('#informacionFamiliar')" class="btn btn-primary" />
+                                       onclick="nextTab('#informacionFamiliar')" 
+                                       class="btn btn-primary btn-lg px-4" />
                             </div>
                         </div>
+                        </div>
+                        
                         <div class="tab-pane" id="informacionFamiliar" role="tabpanel" tabindex="0">
 
                             <div class="text-center mt-3">
@@ -128,21 +146,6 @@
                         </div>
                         <div class="tab-pane" id="tabOdontograma" role="tabpanel" tabindex="0">
 
-                        </div>
-                        <div class="tab-pane" id="imagenes" role="tabpanel" tabindex="0">
-                            <div class="container mt-5" th:if="${#lists.size(pacienteEncontrado.imagenes) > 0}">
-                                <h2>Imágenes Iniciales</h2>
-
-                                <ul class="row list-unstyled g-3">
-                                    <li class="col-12 col-sm-6 col-md-4 col-lg-3"
-                                        th:each="imagen : ${pacienteEncontrado.imagenes}">
-                                        <div class="card shadow-sm">
-                                            <img th:src="@{'/Recursos/' + ${imagen.url}}" class="card-img-top"
-                                                alt="Imagen del paciente">
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
             </main>
