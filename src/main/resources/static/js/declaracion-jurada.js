@@ -326,3 +326,21 @@ function nextTab(target) {
     });
 }
 
+/*--------------- boton agregar input----------------*/
+
+const contenedorImagenes = document.getElementById("contenedor-imagenes");
+const botonAgregar = document.getElementById("agregar-imagen");
+
+botonAgregar.addEventListener("click", () => {
+    const nuevoInput = document.createElement("div");
+    nuevoInput.classList.add("col-md-4", "mb-3");
+    nuevoInput.innerHTML = `
+            <div class="card shadow-sm">
+            <div class="card-body">
+            <label for="imagen" class="form-label">Nueva Imagen:</label>
+            <input type="file" name="files" class="form-control">
+            </div>
+            </div>
+        `;
+    contenedorImagenes.appendChild(nuevoInput);
+});
