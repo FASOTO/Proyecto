@@ -107,7 +107,7 @@ public class PacienteController {
          * paciente.setImagenes(listaImagenes);
          * 
          * } catch (IOException e) {
-         * // TODO Auto-generated catch block
+         
          * e.printStackTrace();
          * }
          * 

@@ -9,7 +9,6 @@ public class imgconfig implements WebMvcConfigurer{
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // TODO Auto-generated method stub
         WebMvcConfigurer.super.addResourceHandlers(registry);
 
         //TIENEN QUE CREAR ESTA CARPETE EN LA RUTA ESPECIFICADA
