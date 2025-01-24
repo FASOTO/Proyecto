@@ -13,7 +13,7 @@
                 <div class="table-container p-3">
                     <div class="row align-items-center mb-4">
                         <div class="col">
-                            <h1 th:text="${titulo}" class="text-primary"></h1>
+                            <h1 th:text="${titulo}" class="text-primary fs-1 fw-bold"></h1>
                         </div>
                         <div class="col text-end">
                             <a class="btn btn-danger btn-lg" th:href="@{'/paciente/informacionPaciente/' + ${pacienteEncontrado.dni}(format=pdf)}">
@@ -29,6 +29,9 @@
                         <button class="nav-link bg-primary text-white" data-bs-toggle="tab" data-bs-target="#imagenes"
                             type="button" role="tab" aria-selected="false">Imágenes</button>
                         <button class="nav-link bg-primary text-white" data-bs-toggle="tab"
+                            data-bs-target="#obraSocial" type="button" role="tab"
+                            aria-selected="false">Obra Social</button>
+                        <button class="nav-link bg-primary text-white" data-bs-toggle="tab"
                             data-bs-target="#informacionFamiliar" type="button" role="tab"
                             aria-selected="false">Información Familiar</button>
                         <button class="nav-link bg-primary text-white" data-bs-toggle="tab"
@@ -41,7 +44,7 @@
 
                     <div class="tab-content">
                         <div class="tab-pane active" id="datosPersonales" role="tabpanel" tabindex="0">
-                            <div class="card border border-primary">
+                            <div class="card border border-primary shadow-sm">
                                 <div class="row g-0">
                                     <div class="col-md-4 d-flex align-items-center justify-content-center">
                                         <div class="ratio ratio-1x1 w-75">
@@ -56,7 +59,7 @@
                                     
                                     <div class="col-md-8">
                                         <div class="card-body">
-                                            <h5 class="card-title">Información del Paciente</h5>
+                                            <h5 class="card-title bg-dark text-white fw-bold p-2">Información del Paciente</h5>
                                             <table class="table table-bordered table-striped">
                                                 <tbody>
                                                     <tr>
@@ -97,6 +100,9 @@
                                             </table>
                                         </div>
                                     </div>
+                                    <div class="card-footer text-muted text-center">
+                                        Última actualización: Enero 2025
+                                      </div>
                                 </div>
                             </div>
                             <div class="text-center mt-3">
@@ -105,10 +111,12 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="imagenes" role="tabpanel" tabindex="0">
-                            <div class="card border border-primary">
-                            <div class="container mt-5" th:if="${#lists.size(pacienteEncontrado.imagenes) > 0}">
-                                <h2 class="text-center mb-4">Imágenes Iniciales</h2>
-                                <div class="row g-3">
+                            <div class="card border border-primary shadow-sm">
+                            <div class="container p-0" th:if="${#lists.size(pacienteEncontrado.imagenes) > 0}">
+                                <div class="card-header bg-dark text-white">
+                                <h5 class="mb-0">Imágenes Iniciales</h5>
+                                </div>
+                                <div class="row p-4 g-3">
                                     <div class="col-12 col-sm-6 col-md-4 col-lg-3" 
                                          th:each="imagen : ${pacienteEncontrado.imagenes}">
                                         <div class="card shadow-sm h-100">
@@ -121,36 +129,277 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-center mt-4">
-                                
+                            <div class="card-footer text-muted text-center">
+                                Última actualización: Enero 2025
+                              </div>
+                        </div>
+                         <div class="text-center mt-4">
                                 <input type="button" id="siguiente" value="Siguiente"
-                                       onclick="nextTab('#informacionFamiliar')" 
-                                       class="btn btn-primary btn-lg px-4" />
+                                       onclick="nextTab('#obraSocial')" 
+                                       class="btn btn-primary" />
                             </div>
                         </div>
+
+                        <div class="tab-pane" id="obraSocial" role="tabpanel" tabindex="0">
+                                <div class="card border border-primary shadow-sm">
+                                    <div class="card-header bg-dark text-white">
+                                        <h5 class="mb-0">Detalles de la Obra social</h5>
+                                    </div>
+                                  <div class="card-body">
+                                    <div class="table-responsive">
+                                      <table class="table table-borderless align-middle">
+                                        <tbody>
+                                          <tr>
+                                            <th class="text-end" style="width: 30%;">Nombre</th>
+                                            <td>Obra Social Ejemplo</td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                  <div class="card-footer text-muted text-center">
+                                    Última actualización: Enero 2025
+                                  </div>
+                                </div>
+                              
+                              
+                            <div class="text-center mt-3">
+                                <input type="button" id="siguiente" value="Siguiente"
+                                    onclick="nextTab('#informacionFamiliar')" class="btn btn-primary" />
+                            </div>
                         </div>
                         
                         <div class="tab-pane" id="informacionFamiliar" role="tabpanel" tabindex="0">
-
+                            
+                                <div class="card shadow-sm border border-primary">
+                                  <div class="card-header bg-dark text-white">
+                                    <h5 class="mb-0">Información Familiar del Paciente</h5>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="table-responsive">
+                                      <table class="table table-borderless align-middle">
+                                        <tbody>
+                                          <tr>
+                                            <th class="text-end" style="width: 30%;">Padre:</th>
+                                            <td>--------------------</td>
+                                          </tr>
+                                          <tr>
+                                            <th class="text-end">Enfermedad:</th>
+                                            <td>--------------------</td>
+                                          </tr>
+                                          <tr>
+                                            <th class="text-end">Madre:</th>
+                                            <td>--------------------</td>
+                                          </tr>
+                                          <tr>
+                                            <th class="text-end" style="width: 30%;">Enfermedad:</th>
+                                            <td>--------------------</td>
+                                          </tr>
+                                          <tr>
+                                            <th class="text-end">Hermanos y estado:</th>
+                                            <td>---------------------</td>
+                                          </tr>
+                                          
+                                        </tbody>
+                                      </table>
+                                    </div>
+                                  </div>
+                                  <div class="card-footer text-muted text-center">
+                                    Última actualización: Enero 2025
+                                  </div>
+                                </div>
+                              
+                              
+                                                            
                             <div class="text-center mt-3">
                                 <input type="button" id="siguiente" value="Siguiente"
                                     onclick="nextTab('#saludPaciente')" class="btn btn-primary" />
                             </div>
                         </div>
                         <div class="tab-pane" id="saludPaciente" role="tabpanel" tabindex="0">
-
+                                <div class="card shadow-sm">
+                                  <div class="card-header bg-dark text-white">
+                                    <h5 class="mb-0">Información de la Salud del Paciente</h5>
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="row">
+                                      <!-- Primera tabla -->
+                                      <div class="col-md-6 mb-4">
+                                        <h6 class="fs-5 text-primary fw-bold text-center">Enfermedades</h6>
+                                        <div class="table-responsive">
+                                          <table class="table table-borderless align-middle">
+                                            <tbody>
+                                              <tr>
+                                                <th class="text-end" style="width: 40%;">Enfermedad:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                              <tr>
+                                                <th class="text-end">Tratamiento Médico:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                              <tr>
+                                                <th class="text-end">Medicamentos que consume habitualmente:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                              <tr>
+                                                <th class="text-end">Medicamentos que consumio en los ult. 5 años:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                    <!--Segunda Tabla -->
+                                    <h6 class="fs-5 fw-bold text-primary text-center">Salud General</h6>
+                                        <div class="table-responsive">
+                                          <table class="table table-borderless align-middle">
+                                            <tbody>
+                                              <tr>
+                                                <th class="text-end" style="width: 40%;">Deporte y Malestar:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                              <tr>
+                                                <th class="text-end">Alergías:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                              <tr>
+                                                <th class="text-end">Cicatrización:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                              <tr>
+                                                <th class="text-end">Hiperlaxitud:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                              <tr>
+                                                <th class="text-end">Fiebre Reumática:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                              <tr>
+                                                <th class="text-end">Diabétes y Tratamiento:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                              <tr>
+                                                <th class="text-end">Problemas Cardíacos:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                              <tr>
+                                                <th class="text-end">Consumo de aspirina y/o anticoagulante:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                              <tr>
+                                                <th class="text-end">Presión Alta:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                              <tr>
+                                                <th class="text-end">Chagas y Tratamiento:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                              <tr>
+                                                <th class="text-end">Problemas Renales:</th>
+                                                <td>---------------------</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
+                                      <!--Tercera tabla -->
+                                      <div class="col-md-6 mb-4">
+                                        <div class="table-responsive">
+                                          <table class="table table-borderless align-middle">
+                                            <tbody>
+                                                <tr>
+                                                    <th class="text-end" style="width: 40%;">Ulcera Gástrica:</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Hepatitis y Tipo:</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Problemas Hepáticos:</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Convulsiones:</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Epilépsia y Medicación:</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Enfermedad Infecto-contagiosa:</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Transfusiones:</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Operado Anteriormente (de qué y cuando):</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Problema Respiratorio:</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Fuma?:</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Embarazo? (de cuántos meses):</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Otra enfermedad o recomendación de su médico:</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Tratamiento homeopático, acupuntura u otros:</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Médico/Clínico:</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                                  <tr>
+                                                    <th class="text-end">Clínica/Hospital en caso de derivación:</th>
+                                                    <td>---------------------</td>
+                                                  </tr>
+                                            </tbody>
+                                          </table>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="card-footer text-muted text-center">
+                                    Última actualización: Enero 2025
+                                  </div>
+                                </div>
+                                                                
+                                    
                             <div class="text-center mt-3">
                                 <input type="button" id="siguiente" value="Siguiente"
                                     onclick="nextTab('#tabOdontograma')" class="btn btn-primary" />
                             </div>
                         </div>
                         <div class="tab-pane" id="tabOdontograma" role="tabpanel" tabindex="0">
+                            <div class="card border border-primary shadow-sm">
+                                <div class="card-header bg-dark text-white">
+                                    <h5 class="mb-0">¡Odontograma Proximamente!</h5>
+                                </div>
+                                <div class="card-body">
 
+                                </div>
+                                <div class="card-footer text-muted text-center">
+                                    Última actualización: Enero 2025
+                                  </div>
+                            </div>
                         </div>
                     </div>
             </main>
-
         </div>
+
     </div>
     <script th:src="@{/js/declaracion-jurada.js}"></script>
 </body>

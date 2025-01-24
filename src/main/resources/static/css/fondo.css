@@ -6,32 +6,10 @@
 
 body {
     background-image: url('../images/fondo.jpg') !important;
-    /* backdrop-filter: blur(1.5px); */
     background-repeat: no-repeat;
     background-size: cover; 
     background-position: center;
     background-attachment: fixed;
     height: 100%;
     width: 100%; 
-}
-
-.snow {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: white;
-    border-radius: 50%;
-    filter: drop-shadow(0 0 10px black);
-    opacity: 0.8;
-    animation: fall 10s linear infinite;
-    z-index: -1;
-}
-   
-@keyframes fall {
-    0% {
-           transform: translateY(-100px); 
-    }
-    100% {
-           transform: translateY(100vh); 
-    }
 }
