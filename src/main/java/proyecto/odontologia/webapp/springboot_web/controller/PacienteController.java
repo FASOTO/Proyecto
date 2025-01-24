@@ -50,7 +50,7 @@ public class PacienteController {
 
         model.addAttribute("pacienteEncontrado", pacienteEncontrado);
         model.addAttribute("edadCalculada", edadCalculada);
-        model.addAttribute("titulo", "Informacion esencial");
+        model.addAttribute("titulo", "Información Esencial");
 
         return "informacionPaciente";
     }

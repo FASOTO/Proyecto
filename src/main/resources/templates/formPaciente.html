@@ -137,26 +137,29 @@
                                             <option>Servicio Penitenciario</option>
                                         </select>
                                     </div>
+                                    <div class="text-center mt-3">
+                                        <input type="button" id="siguiente" value="Siguiente"
+                                            onclick="nextTab('#declaracionJurada')" class="btn btn-primary" />
+                                         </div>
                                 </div>
                             </div>
                             <div class="tab-pane" id="imagenes" role="tabpanel" tabindex="0">
-                                <div class="container py-4">
+                                <div class="container p-4">
 
                                     <div class="d-flex justify-content-between align-items-center mb-4">
                                         <h4 class="mb-3 fw-bold mt-3">Gestión de Imágenes</h4>
-
+                                            
                                         <button type="button" id="agregar-imagen" class="btn btn-primary">
-                                            <i class="bi bi-plus-lg"></i> Agregar Imagen
+                                            <i class="bi bi-plus-lg"></i> Agregar Imágen
                                         </button>
-
+                                        
                                     </div>
-
-
+                                    <hr>
                                     <div class="row justify-content-center">
                                         <div class="col-md-6">
                                             <div class="card shadow-sm">
                                                 <div class="card-body">
-                                                    <label for="imagen" class="form-label">Imagen de Usuario</label>
+                                                    <label for="imagen" class="form-label">Imágen de Usuario</label>
                                                     <input type="file" name="files" class="form-control" id="imagen">
                                                 </div>
                                             </div>
@@ -165,8 +168,9 @@
 
                                     
                                     <div class="mt-4">
-                                        <h5 class="mb-3 fw-bold mt-3">Fotos adicionales del paciente:</h6>
-                                            <div id="contenedor-imagenes" class="row g-3">
+                                        <h4 class="mb-3 fw-bold mt-3">Fotos adicionales del paciente:</h4>
+                                            <hr>
+                                            <div id="contenedor-imagenes" class="row justify-content-center g-3">
 
                                                 <div class="col-md-4">
                                                     <div class="card shadow-sm">
@@ -180,10 +184,16 @@
                                                 </div>
                                             </div>
                                     </div>
+                                    <div class="text-center mt-3">
+                                    <input type="button" id="siguiente" value="Siguiente"
+                                        onclick="nextTab('#obraSocial')" class="btn btn-primary" />
+                                     </div>
                                 </div>
+                                
                             </div>
                             <div class="tab-pane" id="declaracionJurada" role="tabpanel" tabindex="0">
                                 <div class="row p-4">
+                                    <h5 class="text-danger text-end fs-6 fw-bold">*Este cuestionario tiene el tenor de una "Declaración Jurada"</h5>
                                     <h4 class="mb-3 fw-bold col-md-12">Información Familiar</h4>
                                     <hr>
                                     <div class="form-ckeck col-md-3 p-4">
@@ -671,10 +681,6 @@
         </div>
     </div>
 
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
     <script th:src="@{/js/odontograma.js}"></script>
     <script th:src="@{/js/declaracion-jurada.js}"></script>
 </body>
