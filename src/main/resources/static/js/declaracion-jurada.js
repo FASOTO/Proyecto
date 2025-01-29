@@ -315,6 +315,28 @@ document.getElementById('recomendacionMedicaNo').addEventListener('change', func
     document.getElementById('recomendacionMedicaField').style.display = 'none';
 });
 
+/*--------------- Historia Clínica Odontológica -----------------------*/
+
+/*--------------- Medicamento Odonto Field-----------------------*/
+
+document.getElementById('medicamentoOdontoSi').addEventListener('change', function() {
+    document.getElementById('medicamentoOdontoField').style.display = 'block';
+});
+
+document.getElementById('medicamentoOdontoSi').addEventListener('change', function() { 
+    const field = document.getElementById('medicamentoOdontoField'); 
+    field.style.display = 'block'; 
+    field.classList.add('highlight'); 
+    setTimeout(() => { 
+        field.classList.remove('highlight'); }, 800); // Tiempo en milisegundos para que el color se desvanezca 
+});
+
+document.getElementById('medicamentoOdontoNo').addEventListener('change', function() {
+    document.getElementById('medicamentoOdontoField').style.display = 'none';
+});
+
+
+
 /*--------------- Boton Siguiente -----------------------*/
 function nextTab(target) {
     const tabTrigger = new bootstrap.Tab(document.querySelector(`[data-bs-target="${target}"]`));

@@ -42,11 +42,9 @@
                     <button class="nav-link bg-primary text-white" data-bs-toggle="tab" data-bs-target="#obraSocial"
                         type="button" role="tab" aria-selected="true">Obra Social</button>
                     <button class="nav-link bg-primary text-white" data-bs-toggle="tab"
-                        data-bs-target="#declaracionJurada" type="button" role="tab" aria-selected="false">Declaracion
-                        Jurada</button>
+                        data-bs-target="#declaracionJurada" type="button" role="tab" aria-selected="false">Historía Clínica Médica</button>
                     <button class="nav-link bg-primary text-white" data-bs-toggle="tab"
-                        data-bs-target="#declaracionJurada1" type="button" role="tab" aria-selected="false">Salud del
-                        Paciente</button>
+                        data-bs-target="#declaracionJurada1" type="button" role="tab" aria-selected="false">Historía Clínica Odontológica</button>
                     <button class="nav-link bg-primary text-white" data-bs-toggle="tab" data-bs-target="#tabOdontograma"
                         type="button" role="tab" aria-selected="false">Odontograma</button>
                 </nav>
@@ -418,16 +416,6 @@
                                         <input class="form-check-input" type="radio" name="presionAlta"
                                             id="presionAltaNo">
                                     </div>
-                                    <div class="text-center mt-3">
-                                        <input type="button" id="siguiente" value="Siguiente"
-                                            onclick="nextTab('#declaracionJurada1')" class="btn btn-primary" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="declaracionJurada1" role="tabpanel" tabindex="0">
-                                <div class="row p-4">
-                                    <h4 class="mb-3 fw-bold col-md-12">Salud Del Paciente</h4>
-                                    <hr>
                                     <div class="form-ckeck col-md-6 p-4">
                                         <label class="me-3">Tiene chagas?:</label>
                                         <label for="chagasSi">si</label>
@@ -645,6 +633,116 @@
                                             <input type="text" class="form-control" id="clinicaHospital">
                                         </div>
                                     </div>
+                                    <div class="text-center mt-3">
+                                        <input type="button" id="siguiente" value="Siguiente"
+                                            onclick="nextTab('#declaracionJurada1')" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="declaracionJurada1" role="tabpanel" tabindex="0">
+                                <div class="row p-4">
+                                    <div class="form-group col-md-6 p-4">
+                                        <label for="asistenciaConsulta" class="col col-form-label">Por qué asistió a la consulta?: </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="asistenciaConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="form-ckeck col-md-6 p-4">
+                                        <label class="me-3">Consultó antes con algún profesional?:</label>
+                                        <label for="consultaProfesionalSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="consultaProfesional"
+                                            id="consultaProfesionalSi">
+                                        <label for="consultaProfesionalNo">No</label>
+                                        <input class="form-check-input" type="radio" name="consultaProfesional"
+                                            id="consultaProfesionalNo">
+                                    </div>
+                                    <div class="form-ckeck col-md-6 p-4">
+                                        <label class="me-3">Toma algún medicamento?:</label>
+                                        <label for="medicamentoOdontoSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="medicamentoOdonto"
+                                            id="medicamentoOdontoSi">
+                                        <label for="medicamentoOdontoNo">No</label>
+                                        <input class="form-check-input" type="radio" name="medicamentoOdonto"
+                                            id="medicamentoOdontoNo">
+                                    </div>
+                                    <div id="medicamentoOdontoField">
+                                    <div class="row mt-3">
+                                    <div class="form-group col-md-6 p-4">
+                                        <label for="nombreMedicamento" class="col col-form-label">Nombre de los medicamentos: </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="nombreMedicamento">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6 p-4">
+                                        <label for="tiempoMedicamento" class="col col-form-label">Desde cuando?: </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="tiempoMedicamento">
+                                        </div>
+                                    </div>
+                                    <div class="form-ckeck col-md-6 p-4">
+                                        <label class="me-3">Obtuvo resultados?:</label>
+                                        <label for="medicamentoResultadosSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="medicamentoResultados"
+                                            id="medicamentoResultadosSi">
+                                        <label for="medicamentoResultadosNo">No</label>
+                                        <input class="form-check-input" type="radio" name="medicamentoResultados"
+                                            id="medicamentoResultadosNo">
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-ckeck col-md-6 p-4">
+                                        <label class="me-3">Ha tenido dolor?:</label>
+                                        <label for="dolorSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="dolor"
+                                            id="dolorSi">
+                                        <label for="dolorNo">No</label>
+                                        <input class="form-check-input" type="radio" name="dolor"
+                                            id="dolorNo">
+                                    </div>
+                                    <div id="dolorField">
+                                        <div class="row mt-3">
+                                            <div class="form-ckeck col-md-6 p-4">
+                                                <label class="me-3">De qué tipo?:</label>
+                                                <label for="dolorSuave">Suave</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorSuave">
+                                                <label for="dolorModerado">Moderado</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorModerado">
+                                                <label for="dolorIntenso">Intenso</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorIntenso">
+                                                <label for="dolorTemporario">Temporario</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorTemporario">
+                                                <label for="dolorIntermitente">Intermitente</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorIntermitente">
+                                                <label for="dolorContinuo">Continuo</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorContinuo">
+                                                <label for="dolorEspontaneo">Espontáneo</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorEspontaneo">
+                                                <label for="dolorProvocado">Provocado</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorProvocado">
+                                                <label for="dolorAlFrio">Al Frío</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorAlFrio">
+                                                <label for="dolorAlCalor">Al Calor</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorAlCalor">
+                                                <label for="dolorLocalizado">Localizado</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorLocalizado">
+                                                <label for="dolorIrradiado">Irradiado</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorIrradiado">
+                                            </div>
+                                        </div>
+                                    </div>
+
                                     <div class="text-center mt-3">
                                         <input type="button" id="siguiente" value="Siguiente"
                                             onclick="nextTab('#tabOdontograma')" class="btn btn-primary" />
