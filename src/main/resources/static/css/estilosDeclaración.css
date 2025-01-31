@@ -1,7 +1,7 @@
 .registro{
  background: linear-gradient(white,lightskyblue);
 }
-#hermanosSanosField, #enfermedadTipoField, #deporteMalestarField, #drogaAlergiaTipoField, #fiebreMedicacionField, #diabetesControlField, #cardiacoTipoField, #aspirinaFrecuenciaField, #chagasTratamientoField, #hepatitisTipoField, #hepaticoTipoField, #epilepticoMedicacionField, #infectoField, #operadoField, #respiratorioField, #embarazadaField, #recomendacionMedicaField, #medicamentoOdontoField{
+#hermanosSanosField, #enfermedadTipoField, #deporteMalestarField, #drogaAlergiaTipoField, #fiebreMedicacionField, #diabetesControlField, #cardiacoTipoField, #aspirinaFrecuenciaField, #chagasTratamientoField, #hepatitisTipoField, #hepaticoTipoField, #epilepticoMedicacionField, #infectoField, #operadoField, #respiratorioField, #embarazadaField, #recomendacionMedicaField, #medicamentoOdontoField, #dolorField, #dolorLocalizadoField, #dolorIrradiadoField, #golpeDienteField, #golpeDienteFracturaField, #sangreEnciasField, #pusField, #caraHinchadaField{
     display: none;
     transition: background-color 1s ease;
 }

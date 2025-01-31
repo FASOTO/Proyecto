@@ -335,7 +335,149 @@ document.getElementById('medicamentoOdontoNo').addEventListener('change', functi
     document.getElementById('medicamentoOdontoField').style.display = 'none';
 });
 
+/*--------------- DolorField-----------------------*/
 
+document.getElementById('dolorSi').addEventListener('change', function() {
+    document.getElementById('dolorField').style.display = 'block';
+});
+
+document.getElementById('dolorSi').addEventListener('change', function() { 
+    const field = document.getElementById('dolorField'); 
+    field.style.display = 'block'; 
+    field.classList.add('highlight'); 
+    setTimeout(() => { 
+        field.classList.remove('highlight'); }, 800); // Tiempo en milisegundos para que el color se desvanezca 
+});
+
+document.getElementById('dolorNo').addEventListener('change', function() {
+    document.getElementById('dolorField').style.display = 'none';
+});
+
+/*--------------- DolorLocalizadoField-----------------------*/
+
+document.getElementById('dolorLocalizado').addEventListener('change', function() {
+    document.getElementById('dolorLocalizadoField').style.display = 'block';
+});
+
+document.getElementById('dolorLocalizado').addEventListener('change', function() { 
+    const field = document.getElementById('dolorLocalizadoField'); 
+    field.style.display = 'block'; 
+    field.classList.add('highlight'); 
+    setTimeout(() => { 
+        field.classList.remove('highlight'); }, 800); // Tiempo en milisegundos para que el color se desvanezca 
+});
+
+document.getElementById('dolorIrradiado').addEventListener('change', function() {
+    document.getElementById('dolorLocalizadoField').style.display = 'none';
+});
+
+/*--------------- DolorIrradiadoField-----------------------*/
+
+document.getElementById('dolorIrradiado').addEventListener('change', function() {
+    document.getElementById('dolorIrradiadoField').style.display = 'block';
+});
+
+document.getElementById('dolorIrradiado').addEventListener('change', function() { 
+    const field = document.getElementById('dolorIrradiadoField'); 
+    field.style.display = 'block'; 
+    field.classList.add('highlight'); 
+    setTimeout(() => { 
+        field.classList.remove('highlight'); }, 800); // Tiempo en milisegundos para que el color se desvanezca 
+});
+
+document.getElementById('dolorLocalizado').addEventListener('change', function() {
+    document.getElementById('dolorIrradiadoField').style.display = 'none';
+});
+
+/*--------------- golpeDienteField-----------------------*/
+
+document.getElementById('golpeDienteSi').addEventListener('change', function() {
+    document.getElementById('golpeDienteField').style.display = 'block';
+});
+
+document.getElementById('golpeDienteSi').addEventListener('change', function() { 
+    const field = document.getElementById('golpeDienteField'); 
+    field.style.display = 'block'; 
+    field.classList.add('highlight'); 
+    setTimeout(() => { 
+        field.classList.remove('highlight'); }, 800); // Tiempo en milisegundos para que el color se desvanezca 
+});
+
+document.getElementById('golpeDienteNo').addEventListener('change', function() {
+    document.getElementById('golpeDienteField').style.display = 'none';
+});
+
+/*--------------- golpeDienteFracturaField-----------------------*/
+
+document.getElementById('golpeDienteFracturaSi').addEventListener('change', function() {
+    document.getElementById('golpeDienteFracturaField').style.display = 'block';
+});
+
+document.getElementById('golpeDienteFracturaSi').addEventListener('change', function() { 
+    const field = document.getElementById('golpeDienteFracturaField'); 
+    field.style.display = 'block'; 
+    field.classList.add('highlight'); 
+    setTimeout(() => { 
+        field.classList.remove('highlight'); }, 800); // Tiempo en milisegundos para que el color se desvanezca 
+});
+
+document.getElementById('golpeDienteFracturaNo').addEventListener('change', function() {
+    document.getElementById('golpeDienteFracturaField').style.display = 'none';
+});
+
+/*--------------- sangreEnciasField-----------------------*/
+
+document.getElementById('sangreEnciasSi').addEventListener('change', function() {
+    document.getElementById('sangreEnciasField').style.display = 'block';
+});
+
+document.getElementById('sangreEnciasSi').addEventListener('change', function() { 
+    const field = document.getElementById('sangreEnciasField'); 
+    field.style.display = 'block'; 
+    field.classList.add('highlight'); 
+    setTimeout(() => { 
+        field.classList.remove('highlight'); }, 800); // Tiempo en milisegundos para que el color se desvanezca 
+});
+
+document.getElementById('sangreEnciasNo').addEventListener('change', function() {
+    document.getElementById('sangreEnciasField').style.display = 'none';
+});
+
+/*--------------- pusField-----------------------*/
+
+document.getElementById('pusSi').addEventListener('change', function() {
+    document.getElementById('pusField').style.display = 'block';
+});
+
+document.getElementById('pusSi').addEventListener('change', function() { 
+    const field = document.getElementById('pusField'); 
+    field.style.display = 'block'; 
+    field.classList.add('highlight'); 
+    setTimeout(() => { 
+        field.classList.remove('highlight'); }, 800); // Tiempo en milisegundos para que el color se desvanezca 
+});
+
+document.getElementById('pusNo').addEventListener('change', function() {
+    document.getElementById('pusField').style.display = 'none';
+});
+
+/*--------------- caraHinchadaField-----------------------*/
+
+document.getElementById('caraHinchadaSi').addEventListener('change', function() {
+    document.getElementById('caraHinchadaField').style.display = 'block';
+});
+
+document.getElementById('caraHinchadaSi').addEventListener('change', function() { 
+    const field = document.getElementById('caraHinchadaField'); 
+    field.style.display = 'block'; 
+    field.classList.add('highlight'); 
+    setTimeout(() => { 
+        field.classList.remove('highlight'); }, 800); // Tiempo en milisegundos para que el color se desvanezca 
+});
+
+document.getElementById('caraHinchadaNo').addEventListener('change', function() {
+    document.getElementById('caraHinchadaField').style.display = 'none';
+});
 
 /*--------------- Boton Siguiente -----------------------*/
 function nextTab(target) {
