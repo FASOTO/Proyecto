@@ -42,11 +42,9 @@
                     <button class="nav-link bg-primary text-white" data-bs-toggle="tab" data-bs-target="#obraSocial"
                         type="button" role="tab" aria-selected="true">Obra Social</button>
                     <button class="nav-link bg-primary text-white" data-bs-toggle="tab"
-                        data-bs-target="#declaracionJurada" type="button" role="tab" aria-selected="false">Declaracion
-                        Jurada</button>
+                        data-bs-target="#declaracionJurada" type="button" role="tab" aria-selected="false">Historía Clínica Médica</button>
                     <button class="nav-link bg-primary text-white" data-bs-toggle="tab"
-                        data-bs-target="#declaracionJurada1" type="button" role="tab" aria-selected="false">Salud del
-                        Paciente</button>
+                        data-bs-target="#declaracionJurada1" type="button" role="tab" aria-selected="false">Historía Clínica Odontológica</button>
                     <button class="nav-link bg-primary text-white" data-bs-toggle="tab" data-bs-target="#tabOdontograma"
                         type="button" role="tab" aria-selected="false">Odontograma</button>
                 </nav>
@@ -418,16 +416,6 @@
                                         <input class="form-check-input" type="radio" name="presionAlta"
                                             id="presionAltaNo">
                                     </div>
-                                    <div class="text-center mt-3">
-                                        <input type="button" id="siguiente" value="Siguiente"
-                                            onclick="nextTab('#declaracionJurada1')" class="btn btn-primary" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tab-pane" id="declaracionJurada1" role="tabpanel" tabindex="0">
-                                <div class="row p-4">
-                                    <h4 class="mb-3 fw-bold col-md-12">Salud Del Paciente</h4>
-                                    <hr>
                                     <div class="form-ckeck col-md-6 p-4">
                                         <label class="me-3">Tiene chagas?:</label>
                                         <label for="chagasSi">si</label>
@@ -645,6 +633,457 @@
                                             <input type="text" class="form-control" id="clinicaHospital">
                                         </div>
                                     </div>
+                                    <div class="text-center mt-3">
+                                        <input type="button" id="siguiente" value="Siguiente"
+                                            onclick="nextTab('#declaracionJurada1')" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="declaracionJurada1" role="tabpanel" tabindex="0">
+                                <div class="row p-4">
+                                    <div class="form-group col-md-6 p-4">
+                                        <label for="asistenciaConsulta" class="col col-form-label">Por qué asistió a la consulta?: </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="asistenciaConsulta">
+                                        </div>
+                                    </div>
+                                    <div class="form-ckeck col-md-6 p-4">
+                                        <label class="me-3">Consultó antes con algún profesional?:</label>
+                                        <label for="consultaProfesionalSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="consultaProfesional"
+                                            id="consultaProfesionalSi">
+                                        <label for="consultaProfesionalNo">No</label>
+                                        <input class="form-check-input" type="radio" name="consultaProfesional"
+                                            id="consultaProfesionalNo">
+                                    </div>
+                                    <div class="form-ckeck col-md-6 p-4">
+                                        <label class="me-3">Toma algún medicamento?:</label>
+                                        <label for="medicamentoOdontoSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="medicamentoOdonto"
+                                            id="medicamentoOdontoSi">
+                                        <label for="medicamentoOdontoNo">No</label>
+                                        <input class="form-check-input" type="radio" name="medicamentoOdonto"
+                                            id="medicamentoOdontoNo">
+                                    </div>
+                                    <div id="medicamentoOdontoField">
+                                    <div class="row mt-3">
+                                    <div class="form-group col-md-6 p-4">
+                                        <label for="nombreMedicamento" class="col col-form-label">Nombre de los medicamentos: </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="nombreMedicamento">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6 p-4">
+                                        <label for="tiempoMedicamento" class="col col-form-label">Desde cuando?: </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="tiempoMedicamento">
+                                        </div>
+                                    </div>
+                                    <div class="form-ckeck col-md-6 p-4">
+                                        <label class="me-3">Obtuvo resultados?:</label>
+                                        <label for="medicamentoResultadosSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="medicamentoResultados"
+                                            id="medicamentoResultadosSi">
+                                        <label for="medicamentoResultadosNo">No</label>
+                                        <input class="form-check-input" type="radio" name="medicamentoResultados"
+                                            id="medicamentoResultadosNo">
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <div class="form-ckeck col-md-6 p-4">
+                                        <label class="me-3">Ha tenido dolor?:</label>
+                                        <label for="dolorSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="dolor"
+                                            id="dolorSi">
+                                        <label for="dolorNo">No</label>
+                                        <input class="form-check-input" type="radio" name="dolor"
+                                            id="dolorNo">
+                                    </div>
+                                    <div id="dolorField">
+                                        <div class="row mt-3">
+                                            <div class="form-ckeck col-md-6 p-4">
+                                                <label class="me-3">De qué tipo?:</label>
+                                                <h5 class="mb-3 fw-bold col-md-12 mt-3">Intensidad</h5>
+                                                <hr>
+                                                <label for="dolorSuave">Suave</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipoIntensidad"
+                                                    id="dolorSuave">
+                                                <label for="dolorModerado">Moderado</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipoIntensidad"
+                                                    id="dolorModerado">
+                                                <label for="dolorIntenso">Intenso</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipoIntensidad"
+                                                    id="dolorIntenso">
+                                                <h5 class="mb-3 fw-bold col-md-12 mt-3">Duración</h5>
+                                                <hr>
+                                                <label for="dolorTemporario">Temporario</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipoDuracion"
+                                                    id="dolorTemporario">
+                                                <label for="dolorIntermitente">Intermitente</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipoDuracion"
+                                                    id="dolorIntermitente">
+                                                <label for="dolorContinuo">Continuo</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipoDuracion"
+                                                    id="dolorContinuo">
+                                                <h5 class="mb-3 fw-bold col-md-12 mt-3">Tipo</h5>
+                                                <hr>
+                                                <label for="dolorEspontaneo">Espontáneo</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorEspontaneo">
+                                                <label for="dolorProvocado">Provocado</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorProvocado">
+                                                <label for="dolorAlFrio">Al Frío</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorAlFrio">
+                                                <label for="dolorAlCalor">Al Calor</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipo"
+                                                    id="dolorAlCalor">
+                                                <h5 class="mb-3 fw-bold col-md-12 mt-3">Lugar</h5>
+                                                <hr>
+                                                <label for="dolorLocalizado">Localizado</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipoLugar"
+                                                    id="dolorLocalizado">
+                                                <label for="dolorIrradiado">Irradiado</label>
+                                                <input class="form-check-input" type="radio" name="dolorTipoLugar"
+                                                    id="dolorIrradiado">
+                                            </div>
+                                            <div class="form-group col-md-6 p-4" id="dolorLocalizadoField">
+                                                <label for="dolorLocalizadoLugar" class="col col-form-label">Dónde?: </label>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="dolorLocalizadoLugar">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6 p-4" id="dolorIrradiadoField">
+                                                <label for="dolorIrradiadoLugar" class="col col-form-label">Hacía dónde?: </label>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="dolorIrradiadoLugar">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6 p-4">
+                                                <label for="dolorCalmar" class="col col-form-label">Puede calmarlo con algo?: </label>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="dolorCalmar">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-ckeck col-md-6 p-4">
+                                        <label class="me-3">Sufrió algún golpe en los dientes?:</label>
+                                        <label for="golpeDienteSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="golpeDiente"
+                                            id="golpeDienteSi">
+                                        <label for="golpeDienteNo">No</label>
+                                        <input class="form-check-input" type="radio" name="golpeDiente"
+                                            id="golpeDienteNo">
+                                    </div>
+                                    <div id="golpeDienteField">
+                                        <div class="row mt-3">
+                                            <div class="form-group col-md-6 p-4">
+                                                <label for="golpeDienteTiempo" class="col col-form-label">Cuándo?: </label>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="golpeDienteTiempo">
+                                                </div>
+                                            </div>  
+                                            <div class="form-group col-md-6 p-4">
+                                                <label for="golpeDienteProdujo" class="col col-form-label">Cómo se produjo?: </label>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="golpeDienteProdujo">
+                                                </div>
+                                            </div>
+                                            <div class="form-ckeck col-md-6 p-4">
+                                                <label class="me-3">Se le fracturó algún diente?:</label>
+                                                <label for="golpeDienteFracturaSi">Si</label>
+                                                <input class="form-check-input" type="radio" name="golpeDienteFractura"
+                                                    id="golpeDienteFracturaSi">
+                                                <label for="golpeDienteFracturaNo">No</label>
+                                                <input class="form-check-input" type="radio" name="golpeDienteFractura"
+                                                    id="golpeDienteFracturaNo">
+                                            </div>
+                                            <div id="golpeDienteFracturaField">
+                                                <div class="row mt-3">
+                                                    <div class="form-group col-md-6 p-4">
+                                                        <label for="golpeDienteFracturaLugar" class="col col-form-label">Cuál?: </label>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" id="golpeDienteFracturaLugar">
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-md-6 p-4">
+                                                        <label for="golpeDienteFracturaTratamiento" class="col col-form-label">Recibió algún tratamiento?: </label>
+                                                        <div class="col">
+                                                            <input type="text" class="form-control" id="golpeDienteFracturaTratamiento">
+                                                        </div>
+                                                    </div>    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-ckeck col-md-6 p-4">
+                                        <label class="me-3">Tiene Dificultad Para:</label>
+                                        <div class="row mt-3">
+                                        <div class="col-md-5 p-2">
+                                        <label class="me-3">Hablar?</label>
+                                        <label for="dificultadHablarSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="dificultadHablar"
+                                            id="dificultadHablarSi">
+                                        <label for="dificultadHablarNo">No</label>
+                                        <input class="form-check-input" type="radio" name="dificultadHablar"
+                                            id="dificultadHablarNo">
+                                        </div>
+                                        <div class="col-md-7 p-2">
+                                        <label class="me-3">Masticar?</label>
+                                        <label for="dificultadMasticarSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="dificultadMasticar"
+                                            id="dificultadMasticarSi">
+                                        <label for="dificultadMasticarNo">No</label>
+                                        <input class="form-check-input" type="radio" name="dificultadMasticar"
+                                            id="dificultadMasticarNo">
+                                        </div>
+                                        <div class="col-md-5 p-2">
+                                            <label class="me-3">Abrir la boca?</label>
+                                            <label for="dificultadBocaSi">Si</label>
+                                            <input class="form-check-input" type="radio" name="dificultadBoca"
+                                                id="dificultadBocaSi">
+                                            <label for="dificultadBocaNo">No</label>
+                                            <input class="form-check-input" type="radio" name="dificultadBoca"
+                                                id="dificultadBocaNo">
+                                            </div>
+                                            <div class="col-md-7 p-2">
+                                                <label class="me-3">Tragar los alimentos?</label>
+                                                <label for="dificultadTragarSi">Si</label>
+                                                <input class="form-check-input" type="radio" name="dificultadTragar"
+                                                    id="dificultadTragarSi">
+                                                <label for="dificultadTragarNo">No</label>
+                                                <input class="form-check-input" type="radio" name="dificultadTragar"
+                                                    id="dificultadTragarNo">
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-ckeck col-md-6 p-4">
+                                        <label class="me-3">Ha observado algo anormal en:</label>
+                                        <div class="row mt-3">
+                                        <div class="col-md-6 p-2">
+                                        <label class="me-3">Los labios?</label>
+                                        <label for="anormalLabiosSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="anormalLabios"
+                                            id="anormalLabiosSi">
+                                        <label for="anormalLabiosNo">No</label>
+                                        <input class="form-check-input" type="radio" name="anormalLabios"
+                                            id="anormalLabiosNo">
+                                        </div>
+                                        <div class="col-md-6 p-2">
+                                        <label class="me-3">Lengua?</label>
+                                        <label for="anormalLenguaSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="anormalLengua"
+                                            id="anormalLenguaSi">
+                                        <label for="anormalLenguaNo">No</label>
+                                        <input class="form-check-input" type="radio" name="anormalLengua"
+                                            id="anormalLenguaNo">
+                                        </div>
+                                        <div class="col-md-6 p-2">
+                                            <label class="me-3">Paladar?</label>
+                                            <label for="anormalPaladarSi">Si</label>
+                                            <input class="form-check-input" type="radio" name="anormalPaladar"
+                                                id="anormalPaladarSi">
+                                            <label for="anormalPaladarNo">No</label>
+                                            <input class="form-check-input" type="radio" name="anormalPaladar"
+                                                id="anormalPaladarNo">
+                                            </div>
+                                            <div class="col-md-6 p-2">
+                                                <label class="me-3">Piso de boca?</label>
+                                                <label for="anormalPisoBocaSi">Si</label>
+                                                <input class="form-check-input" type="radio" name="anormalPisoBoca"
+                                                    id="anormalPisoBocaSi">
+                                                <label for="anormalPisoBocaNo">No</label>
+                                                <input class="form-check-input" type="radio" name="anormalPisoBoca"
+                                                    id="anormalPisoBocaNo">
+                                            </div>
+                                            <div class="col-md-6 p-2">
+                                                <label class="me-3">Carrillos?</label>
+                                                <label for="anormalCarrillosSi">Si</label>
+                                                <input class="form-check-input" type="radio" name="anormalCarrillos"
+                                                    id="anormalCarrillosSi">
+                                                <label for="anormalCarrillosNo">No</label>
+                                                <input class="form-check-input" type="radio" name="anormalCarrillos"
+                                                    id="anormalCarrillosNo">
+                                            </div>
+                                            <div class="col-md-6 p-2">
+                                                <label class="me-3">Rebordes?</label>
+                                                <label for="anormalRebordesSi">Si</label>
+                                                <input class="form-check-input" type="radio" name="anormalRebordes"
+                                                    id="anormalRebordesSi">
+                                                <label for="anormalRebordesNo">No</label>
+                                                <input class="form-check-input" type="radio" name="anormalRebordes"
+                                                    id="anormalRebordesNo">
+                                            </div>
+                                            <div class="col-md-6 p-2">
+                                                <label class="me-3">Trígono?</label>
+                                                <label for="anormalTrigonoSi">Si</label>
+                                                <input class="form-check-input" type="radio" name="anormalTrigono"
+                                                    id="anormalTrigonoSi">
+                                                <label for="anormalTrigonoNo">No</label>
+                                                <input class="form-check-input" type="radio" name="anormalTrigono"
+                                                    id="anormalTrigonoNo">
+                                            </div>
+                                            <div class="col-md-6 p-2">
+                                                <label class="me-3">Retromolar?</label>
+                                                <label for="anormalRetromolarSi">Si</label>
+                                                <input class="form-check-input" type="radio" name="anormalRetromolar"
+                                                    id="anormalRetromolarSi">
+                                                <label for="anormalRetromolaraNo">No</label>
+                                                <input class="form-check-input" type="radio" name="anormalRetromolar"
+                                                    id="anormalRetromolarNo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-ckeck col-md-6 p-4">
+                                        <label class="me-3">Qué tipo de lesiones presenta:</label>
+                                        <div class="row mt-3">
+                                        <div class="col-md-5 p-2">
+                                        <label class="me-3">Manchas?</label>
+                                        <label for="lesionManchasSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="lesionManchas"
+                                            id="lesionManchasSi">
+                                        <label for="lesionManchasNo">No</label>
+                                        <input class="form-check-input" type="radio" name="lesionManchas"
+                                            id="lesionManchasNo">
+                                        </div>
+                                        <div class="col-md-7 p-2">
+                                        <label class="me-3">Abultamiento de los tejidos?</label>
+                                        <label for="lesionTejidosSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="lesionTejidos"
+                                            id="lesionTejidosSi">
+                                        <label for="lesionTejidosNo">No</label>
+                                        <input class="form-check-input" type="radio" name="lesionTejidos"
+                                            id="lesionTejidosNo">
+                                        </div>
+                                        <div class="col-md-5 p-2">
+                                            <label class="me-3">Ulceraciones?</label>
+                                            <label for="lesionUlceraSi">Si</label>
+                                            <input class="form-check-input" type="radio" name="lesionUlcera"
+                                                id="lesionUlceraSi">
+                                            <label for="lesionUlceraNo">No</label>
+                                            <input class="form-check-input" type="radio" name="lesionUlcera"
+                                                id="lesionUlceraNo">
+                                            </div>
+                                            <div class="col-md-7 p-2">
+                                                <label class="me-3">Ampollas?</label>
+                                                <label for="lesionAmpoSi">Si</label>
+                                                <input class="form-check-input" type="radio" name="lesionAmpo"
+                                                    id="lesionAmpoSi">
+                                                <label for="lesionAmpoNo">No</label>
+                                                <input class="form-check-input" type="radio" name="lesionAmpo"
+                                                    id="lesionAmpoNo">
+                                            </div>
+                                            <div class="form-group col-md-12 p-2">
+                                                <label for="lesionOtros" class="col col-form-label">Otros?: </label>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" id="lesionOtros">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 p-4">
+                                        <label class="me-3">Le sangran las encias?</label>
+                                        <label for="sangreEnciasSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="sangreEncias"
+                                            id="sangreEnciasSi">
+                                        <label for="sangreEnciasNo">No</label>
+                                        <input class="form-check-input" type="radio" name="sangreEncias"
+                                            id="sangreEnciasNo">
+                                    </div>
+                                    <div class="form-group col-md-12 p-4" id="sangreEnciasField">
+                                        <label for="sangreEnciasCuando" class="col col-form-label">Cuándo?: </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="sangreEnciasCuando">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 p-4">
+                                        <label class="me-3">Sale pus en algún lugar de su boca?</label>
+                                        <label for="pusSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="pus"
+                                            id="pusSi">
+                                        <label for="pusNo">No</label>
+                                        <input class="form-check-input" type="radio" name="pus"
+                                            id="pusNo">
+                                    </div>
+                                    <div class="form-group col-md-12 p-4" id="pusField">
+                                        <label for="pusLugar" class="col col-form-label">De donde?: </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="pusLugar">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 p-4">
+                                        <label class="me-3">Tiene Movilidad en los dientes?</label>
+                                        <label for="dienteMovilSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="dienteMovil"
+                                            id="dienteMovilSi">
+                                        <label for="dienteMovilNo">No</label>
+                                        <input class="form-check-input" type="radio" name="dienteMovil"
+                                            id="dienteMovilNo">
+                                    </div>
+                                    <div class="col-md-6 p-4">
+                                        <label class="me-3">Al morder siente altos los dientes?</label>
+                                        <label for="dienteAltoSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="dienteAlto"
+                                            id="dienteAltoSi">
+                                        <label for="dienteAltoNo">No</label>
+                                        <input class="form-check-input" type="radio" name="dienteAlto"
+                                            id="dienteAltoNo">
+                                    </div>
+                                    <div class="col-md-6 p-4">
+                                        <label class="me-3">Ha tenido la cara hinchada?</label>
+                                        <label for="caraHinchadaSi">Si</label>
+                                        <input class="form-check-input" type="radio" name="caraHinchada"
+                                            id="caraHinchadaSi">
+                                        <label for="caraHinchadaNo">No</label>
+                                        <input class="form-check-input" type="radio" name="caraHinchada"
+                                            id="caraHinchadaNo">
+                                    </div>
+                                    <div class="form-group col-md-12 p-4" id="caraHinchadaField">
+                                        <label for="caraHinchadaTratam" class="col col-form-label">Se puso hielo, calor u otros?: </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="caraHinchadaTratam">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6 p-4">
+                                        <label for="azucarDiario" class="col col-form-label">Momentos de azúcar diario: </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="azucarDiario">
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6 p-4">
+                                        <label for="indicePlaca" class="col col-form-label">Indice de placa: </label>
+                                        <div class="col">
+                                            <input type="text" class="form-control" id="indicePlaca">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 p-4">
+                                        <label class="me-3">Estado de la higuiene bucal:</label>
+                                        <div class="row mt-3">
+                                        <div class="col-md-3">
+                                        <label for="estadoBucalMuyBueno">Muy bueno</label>
+                                        <input class="form-check-input" type="radio" name="estadoBucal"
+                                            id="estadoBucalMuyBueno">
+                                        </div>
+                                        <div class="col-md-3">
+                                        <label for="estadoBucalBueno">Bueno</label>
+                                        <input class="form-check-input" type="radio" name="estadoBucal"
+                                            id="estadoBucalBueno">
+                                        </div>
+                                        <div class="col-md-3">
+                                        <label for="estadoBucalDef">Deficiente</label>
+                                        <input class="form-check-input" type="radio" name="estadoBucal"
+                                            id="estadoBucalDef">
+                                        </div>
+                                        <div class="col-md-3">
+                                        <label for="estadoBucalMalo">Malo</label>
+                                        <input class="form-check-input" type="radio" name="estadoBucal"
+                                            id="estadoBucalMalo">
+                                        </div>
+                                        </div>    
+                                    </div>
+
                                     <div class="text-center mt-3">
                                         <input type="button" id="siguiente" value="Siguiente"
                                             onclick="nextTab('#tabOdontograma')" class="btn btn-primary" />
